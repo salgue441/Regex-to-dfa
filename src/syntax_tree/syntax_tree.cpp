@@ -220,6 +220,7 @@ namespace Syntax
                     result.emplace_back(Token::Type::LITERAL,
                                         regex[i]);
             }
+            
             else
                 result.emplace_back(tokens[i], 0);
         }
