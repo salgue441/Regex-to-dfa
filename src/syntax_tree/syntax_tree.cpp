@@ -132,16 +132,16 @@ namespace Syntax
 
         if (op == Token::Type::LITERAL && m_operands.size() >= 2)
         {
-            new_node->get_right() = m_operands.top();
+            new_node->set_right(m_operands.top());
             m_operands.pop();
 
-            new_node->get_left() = m_operands.top();
+            new_node->set_left(m_operands.top());
             m_operands.pop();
         }
 
         else if (m_operands.size() >= 1)
         {
-            new_node->get_right() = m_operands.top();
+            new_node->set_right(m_operands.top());
             m_operands.pop();
         }
 
@@ -215,14 +215,13 @@ namespace Syntax
                     result.emplace_back(
                         Token::Type::CONCATENATION_OPERATOR, '.');
                 }
+
                 else
                     result.emplace_back(Token::Type::LITERAL,
                                         regex[i]);
             }
             else
-            {
                 result.emplace_back(tokens[i], 0);
-            }
         }
 
         return result;
