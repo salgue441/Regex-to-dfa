@@ -1,3 +1,15 @@
+/**
+ * @file syntax_tree.cpp
+ * @brief Contains the implementation of the SyntaxTree class for building
+ *       a syntax tree from a regular expression.
+ * @author Carlos Salguero
+ * @date 2023-10-28
+ * @version 0.1
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
+
 #include <regex>
 #include "../../include/syntax_tree/syntax_tree.h"
 

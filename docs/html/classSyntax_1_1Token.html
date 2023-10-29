@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classSyntax_1_1Token.html" title="Token class for the parser.">Token</a> class for the parser.  
+<p>Class representing a token in a regular expression.  
  <a href="classSyntax_1_1Token.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="token_8h_source.html">token.h</a>&gt;</code></p>
@@ -101,7 +101,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af57debd458f0039e257e303aaea94eeb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSyntax_1_1Token.html#af57debd458f0039e257e303aaea94eeb">Token</a> (<a class="el" href="classSyntax_1_1Token.html#a019aedc748e3861b79e4ec402673c7b2">Type</a> type, char value)</td></tr>
-<tr class="memdesc:af57debd458f0039e257e303aaea94eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classSyntax_1_1Token.html" title="Token class for the parser.">Token</a> object.  <a href="classSyntax_1_1Token.html#af57debd458f0039e257e303aaea94eeb">More...</a><br /></td></tr>
+<tr class="memdesc:af57debd458f0039e257e303aaea94eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classSyntax_1_1Token.html" title="Class representing a token in a regular expression.">Token</a> object.  <a href="classSyntax_1_1Token.html#af57debd458f0039e257e303aaea94eeb">More...</a><br /></td></tr>
 <tr class="separator:af57debd458f0039e257e303aaea94eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae030cdd4a3c7d69832b9c2d47dcf9e5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSyntax_1_1Token.html#a019aedc748e3861b79e4ec402673c7b2">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSyntax_1_1Token.html#ae030cdd4a3c7d69832b9c2d47dcf9e5b">get_type</a> () const</td></tr>
 <tr class="memdesc:ae030cdd4a3c7d69832b9c2d47dcf9e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type of the token.  <a href="classSyntax_1_1Token.html#ae030cdd4a3c7d69832b9c2d47dcf9e5b">More...</a><br /></td></tr>
@@ -118,9 +118,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a11283c071acd42ce6432b19d073428d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classSyntax_1_1Token.html" title="Token class for the parser.">Token</a> class for the parser. </p>
+<div class="textblock"><p>Class representing a token in a regular expression. </p>
 
-<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00008">8</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00021">21</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a019aedc748e3861b79e4ec402673c7b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a019aedc748e3861b79e4ec402673c7b2">&#9670;&nbsp;</a></span>Type</h2>
@@ -154,17 +154,17 @@ Private Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0"></a>LITERAL&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00014">14</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            PARENTHESIS_OPEN,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            PARENTHESIS_CLOSE,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            OR_OPERATOR,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            CONCATENATION_OPERATOR,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            KLEENE_STAR,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            PLUS,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            QUESTION_MARK,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            LITERAL</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        };</div>
+<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00027">27</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            PARENTHESIS_OPEN,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            PARENTHESIS_CLOSE,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            OR_OPERATOR,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            CONCATENATION_OPERATOR,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            KLEENE_STAR,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            PLUS,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            QUESTION_MARK,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            LITERAL</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -203,7 +203,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classSyntax_1_1Token.html" title="Token class for the parser.">Token</a> object. </p>
+<p>Construct a new <a class="el" href="classSyntax_1_1Token.html" title="Class representing a token in a regular expression.">Token</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Type of the token </td></tr>
@@ -212,10 +212,10 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00033">33</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;: <a class="code" href="classSyntax_1_1Token.html#a904e5030feb75db1d428d1f07c9cebd8">m_type</a>(type), <a class="code" href="classSyntax_1_1Token.html#a11283c071acd42ce6432b19d073428d1">m_value</a>(value) {}</div>
-<div class="ttc" id="aclassSyntax_1_1Token_html_a11283c071acd42ce6432b19d073428d1"><div class="ttname"><a href="classSyntax_1_1Token.html#a11283c071acd42ce6432b19d073428d1">Syntax::Token::m_value</a></div><div class="ttdeci">char m_value</div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00052">token.h:52</a></div></div>
-<div class="ttc" id="aclassSyntax_1_1Token_html_a904e5030feb75db1d428d1f07c9cebd8"><div class="ttname"><a href="classSyntax_1_1Token.html#a904e5030feb75db1d428d1f07c9cebd8">Syntax::Token::m_type</a></div><div class="ttdeci">Type m_type</div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00051">token.h:51</a></div></div>
+<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00046">46</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;: <a class="code" href="classSyntax_1_1Token.html#a904e5030feb75db1d428d1f07c9cebd8">m_type</a>(type), <a class="code" href="classSyntax_1_1Token.html#a11283c071acd42ce6432b19d073428d1">m_value</a>(value) {}</div>
+<div class="ttc" id="aclassSyntax_1_1Token_html_a11283c071acd42ce6432b19d073428d1"><div class="ttname"><a href="classSyntax_1_1Token.html#a11283c071acd42ce6432b19d073428d1">Syntax::Token::m_value</a></div><div class="ttdeci">char m_value</div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00065">token.h:65</a></div></div>
+<div class="ttc" id="aclassSyntax_1_1Token_html_a904e5030feb75db1d428d1f07c9cebd8"><div class="ttname"><a href="classSyntax_1_1Token.html#a904e5030feb75db1d428d1f07c9cebd8">Syntax::Token::m_type</a></div><div class="ttdeci">Type m_type</div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00064">token.h:64</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -246,8 +246,8 @@ Private Attributes</h2></td></tr>
 <p>Get the type of the token. </p>
 <dl class="section return"><dt>Returns</dt><dd>Type Type of the token </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00041">41</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSyntax_1_1Token.html#a904e5030feb75db1d428d1f07c9cebd8">m_type</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00054">54</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSyntax_1_1Token.html#a904e5030feb75db1d428d1f07c9cebd8">m_type</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -277,8 +277,8 @@ Private Attributes</h2></td></tr>
 <p>Get the value of the token. </p>
 <dl class="section return"><dt>Returns</dt><dd>char Value of the token </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00048">48</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSyntax_1_1Token.html#a11283c071acd42ce6432b19d073428d1">m_value</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00061">61</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSyntax_1_1Token.html#a11283c071acd42ce6432b19d073428d1">m_value</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -303,7 +303,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00051">51</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00064">64</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
 
 </div>
 </div>
@@ -327,7 +327,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00052">52</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="token_8h_source.html#l00065">65</a> of file <a class="el" href="token_8h_source.html">token.h</a>.</p>
 
 </div>
 </div>

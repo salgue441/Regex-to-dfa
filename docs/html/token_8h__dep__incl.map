@@ -1,7 +1,7 @@
 <map id="include/token/token.h" name="include/token/token.h">
-<area shape="rect" id="node1" title=" " alt="" coords="113,5,274,32"/>
-<area shape="rect" id="node2" href="$node_8h.html" title=" " alt="" coords="117,80,270,107"/>
-<area shape="rect" id="node3" href="$syntax__tree_8h.html" title=" " alt="" coords="118,155,269,196"/>
-<area shape="rect" id="node4" href="$syntax__tree_8cpp.html" title=" " alt="" coords="5,244,176,285"/>
-<area shape="rect" id="node5" href="$syntax__tree__test_8cpp.html" title=" " alt="" coords="200,251,395,278"/>
+<area shape="rect" id="node1" title="Contains the Token class for representing a token in a regular expression." alt="" coords="97,5,258,32"/>
+<area shape="rect" id="node2" href="$node_8h.html" title="Defines the Node class." alt="" coords="101,80,254,107"/>
+<area shape="rect" id="node3" href="$syntax__tree_8h.html" title="Contains the SyntaxTree class for building a syntax tree." alt="" coords="15,155,166,196"/>
+<area shape="rect" id="node5" href="$node__test_8cpp.html" title="Contains unit tests for the Node class." alt="" coords="191,162,340,189"/>
+<area shape="rect" id="node4" href="$syntax__tree_8cpp.html" title="Contains the implementation of the SyntaxTree class for building a syntax tree from a regular express..." alt="" coords="5,244,176,285"/>
 </map>

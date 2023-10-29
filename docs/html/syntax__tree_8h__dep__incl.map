@@ -1,5 +1,4 @@
 <map id="include/syntax_tree/syntax_tree.h" name="include/syntax_tree/syntax_tree.h">
-<area shape="rect" id="node1" title=" " alt="" coords="118,5,269,47"/>
-<area shape="rect" id="node2" href="$syntax__tree_8cpp.html" title=" " alt="" coords="5,95,176,136"/>
-<area shape="rect" id="node3" href="$syntax__tree__test_8cpp.html" title=" " alt="" coords="200,102,395,129"/>
+<area shape="rect" id="node1" title="Contains the SyntaxTree class for building a syntax tree." alt="" coords="15,5,166,47"/>
+<area shape="rect" id="node2" href="$syntax__tree_8cpp.html" title="Contains the implementation of the SyntaxTree class for building a syntax tree from a regular express..." alt="" coords="5,95,176,136"/>
 </map>

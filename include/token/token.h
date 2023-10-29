@@ -1,9 +1,22 @@
+/**
+ * @file token.h
+ * @brief Contains the Token class for representing a token in a regular
+ *       expression.
+ * @author Carlos Salguero
+ * @date 2023-10-28
+ * @version 1.0.0
+ *
+ * @copyright Copyright (c) - MIT License
+ * 
+ */
+
 #pragma once
 
 namespace Syntax
 {
     /**
-     * @brief Token class for the parser
+     * @class Token
+     * @brief Class representing a token in a regular expression.
      */
     class Token
     {

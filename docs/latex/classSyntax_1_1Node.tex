@@ -2,7 +2,7 @@
 \label{classSyntax_1_1Node}\index{Syntax::Node@{Syntax::Node}}
 
 
-\mbox{\hyperlink{classSyntax_1_1Node}{Node}} class for the syntax tree.  
+Class representing a node in a syntax tree.  
 
 
 
@@ -29,7 +29,13 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox{\hyperlink{classSyntax_1_1Node_a63ec7584a870de8446c047400370bb28}{get\+\_\+right}} () const
 \begin{DoxyCompactList}\small\item\em Get the right child of the node. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSyntax_1_1Token}{Token}} \mbox{\hyperlink{classSyntax_1_1Node_a3e1cdf931ee2c1dc6b369f1726e4914d}{get\+\_\+token}} () const
-\begin{DoxyCompactList}\small\item\em Get the token of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the token of the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSyntax_1_1Node_a862deb5a0f909273d5920e5f886d331d}{set\+\_\+left}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ left)
+\begin{DoxyCompactList}\small\item\em Set the left child of the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSyntax_1_1Node_a260916b0083ba6068d9021cc859dbd2b}{set\+\_\+right}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ right)
+\begin{DoxyCompactList}\small\item\em Set the right child of the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSyntax_1_1Node_a993102d4d1cc6442b9c03f5e223c5fed}{set\+\_\+token}} (\mbox{\hyperlink{classSyntax_1_1Token}{Token}} token)
+\begin{DoxyCompactList}\small\item\em Set the token of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,9 +48,9 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{classSyntax_1_1Node}{Node}} class for the syntax tree. 
+Class representing a node in a syntax tree. 
 
-Definition at line 12 of file node.\+h.
+Definition at line 24 of file node.\+h.
 
 
 
@@ -66,12 +72,12 @@ Construct a new \mbox{\hyperlink{classSyntax_1_1Node}{Node}} object.
 \end{DoxyParams}
 
 
-Definition at line 21 of file node.\+h.
+Definition at line 33 of file node.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{21                                  : \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\_token}}(token),}
-\DoxyCodeLine{22                                    \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\_left}}(\textcolor{keyword}{nullptr}), \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\_right}}(\textcolor{keyword}{nullptr}) \{\}}
+\DoxyCodeLine{33                                  : \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\_token}}(token),}
+\DoxyCodeLine{34                                    \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\_left}}(\textcolor{keyword}{nullptr}), \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\_right}}(\textcolor{keyword}{nullptr}) \{\}}
 
 \end{DoxyCode}
 
@@ -92,13 +98,13 @@ std\+::shared\+\_\+ptr$<$\+Node$>$ Left child of the node
 \end{DoxyReturn}
 
 
-Definition at line 30 of file node.\+h.
+Definition at line 42 of file node.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{31         \{}
-\DoxyCodeLine{32             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\_left}};}
-\DoxyCodeLine{33         \}}
+\DoxyCodeLine{43         \{}
+\DoxyCodeLine{44             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\_left}};}
+\DoxyCodeLine{45         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1Node_a63ec7584a870de8446c047400370bb28}\label{classSyntax_1_1Node_a63ec7584a870de8446c047400370bb28}} 
@@ -116,13 +122,13 @@ std\+::shared\+\_\+ptr$<$\+Node$>$ Right child of the node
 \end{DoxyReturn}
 
 
-Definition at line 40 of file node.\+h.
+Definition at line 52 of file node.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{41         \{}
-\DoxyCodeLine{42             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\_right}};}
-\DoxyCodeLine{43         \}}
+\DoxyCodeLine{53         \{}
+\DoxyCodeLine{54             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\_right}};}
+\DoxyCodeLine{55         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1Node_a3e1cdf931ee2c1dc6b369f1726e4914d}\label{classSyntax_1_1Node_a3e1cdf931ee2c1dc6b369f1726e4914d}} 
@@ -140,11 +146,83 @@ Get the token of the node.
 \end{DoxyReturn}
 
 
-Definition at line 50 of file node.\+h.
+Definition at line 62 of file node.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{50 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\_token}}; \}}
+\DoxyCodeLine{62 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\_token}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSyntax_1_1Node_a862deb5a0f909273d5920e5f886d331d}\label{classSyntax_1_1Node_a862deb5a0f909273d5920e5f886d331d}} 
+\index{Syntax::Node@{Syntax::Node}!set\_left@{set\_left}}
+\index{set\_left@{set\_left}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{set\_left()}{set\_left()}}
+{\footnotesize\ttfamily void Syntax\+::\+Node\+::set\+\_\+left (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$}]{left }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the left child of the node. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em left} & Left child of the node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70 \{ \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\_left}} = left; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSyntax_1_1Node_a260916b0083ba6068d9021cc859dbd2b}\label{classSyntax_1_1Node_a260916b0083ba6068d9021cc859dbd2b}} 
+\index{Syntax::Node@{Syntax::Node}!set\_right@{set\_right}}
+\index{set\_right@{set\_right}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{set\_right()}{set\_right()}}
+{\footnotesize\ttfamily void Syntax\+::\+Node\+::set\+\_\+right (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the right child of the node. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em right} & Right child of the node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77 \{ \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\_right}} = right; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSyntax_1_1Node_a993102d4d1cc6442b9c03f5e223c5fed}\label{classSyntax_1_1Node_a993102d4d1cc6442b9c03f5e223c5fed}} 
+\index{Syntax::Node@{Syntax::Node}!set\_token@{set\_token}}
+\index{set\_token@{set\_token}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{set\_token()}{set\_token()}}
+{\footnotesize\ttfamily void Syntax\+::\+Node\+::set\+\_\+token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSyntax_1_1Token}{Token}}}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the token of the node. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em token} & \mbox{\hyperlink{classSyntax_1_1Token}{Token}} of the node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{84 \{ \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\_token}} = token; \}}
 
 \end{DoxyCode}
 
@@ -158,7 +236,7 @@ Definition at line 50 of file node.\+h.
 
 
 
-Definition at line 53 of file node.\+h.
+Definition at line 87 of file node.\+h.
 
 \mbox{\Hypertarget{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}\label{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}} 
 \index{Syntax::Node@{Syntax::Node}!m\_right@{m\_right}}
@@ -168,7 +246,7 @@ Definition at line 53 of file node.\+h.
 
 
 
-Definition at line 54 of file node.\+h.
+Definition at line 88 of file node.\+h.
 
 \mbox{\Hypertarget{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}\label{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}} 
 \index{Syntax::Node@{Syntax::Node}!m\_token@{m\_token}}
@@ -178,7 +256,7 @@ Definition at line 54 of file node.\+h.
 
 
 
-Definition at line 55 of file node.\+h.
+Definition at line 89 of file node.\+h.
 
 
 

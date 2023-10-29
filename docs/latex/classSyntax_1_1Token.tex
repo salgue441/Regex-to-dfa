@@ -2,7 +2,7 @@
 \label{classSyntax_1_1Token}\index{Syntax::Token@{Syntax::Token}}
 
 
-\mbox{\hyperlink{classSyntax_1_1Token}{Token}} class for the parser.  
+Class representing a token in a regular expression.  
 
 
 
@@ -43,9 +43,9 @@ char \mbox{\hyperlink{classSyntax_1_1Token_a11283c071acd42ce6432b19d073428d1}{m\
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{classSyntax_1_1Token}{Token}} class for the parser. 
+Class representing a token in a regular expression. 
 
-Definition at line 8 of file token.\+h.
+Definition at line 21 of file token.\+h.
 
 
 
@@ -96,20 +96,20 @@ LITERAL&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 14 of file token.\+h.
+Definition at line 27 of file token.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{15         \{}
-\DoxyCodeLine{16             PARENTHESIS\_OPEN,}
-\DoxyCodeLine{17             PARENTHESIS\_CLOSE,}
-\DoxyCodeLine{18             OR\_OPERATOR,}
-\DoxyCodeLine{19             CONCATENATION\_OPERATOR,}
-\DoxyCodeLine{20             KLEENE\_STAR,}
-\DoxyCodeLine{21             PLUS,}
-\DoxyCodeLine{22             QUESTION\_MARK,}
-\DoxyCodeLine{23             LITERAL}
-\DoxyCodeLine{24         \};}
+\DoxyCodeLine{28         \{}
+\DoxyCodeLine{29             PARENTHESIS\_OPEN,}
+\DoxyCodeLine{30             PARENTHESIS\_CLOSE,}
+\DoxyCodeLine{31             OR\_OPERATOR,}
+\DoxyCodeLine{32             CONCATENATION\_OPERATOR,}
+\DoxyCodeLine{33             KLEENE\_STAR,}
+\DoxyCodeLine{34             PLUS,}
+\DoxyCodeLine{35             QUESTION\_MARK,}
+\DoxyCodeLine{36             LITERAL}
+\DoxyCodeLine{37         \};}
 
 \end{DoxyCode}
 
@@ -134,11 +134,11 @@ Construct a new \mbox{\hyperlink{classSyntax_1_1Token}{Token}} object.
 \end{DoxyParams}
 
 
-Definition at line 33 of file token.\+h.
+Definition at line 46 of file token.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{33 : \mbox{\hyperlink{classSyntax_1_1Token_a904e5030feb75db1d428d1f07c9cebd8}{m\_type}}(type), \mbox{\hyperlink{classSyntax_1_1Token_a11283c071acd42ce6432b19d073428d1}{m\_value}}(value) \{\}}
+\DoxyCodeLine{46 : \mbox{\hyperlink{classSyntax_1_1Token_a904e5030feb75db1d428d1f07c9cebd8}{m\_type}}(type), \mbox{\hyperlink{classSyntax_1_1Token_a11283c071acd42ce6432b19d073428d1}{m\_value}}(value) \{\}}
 
 \end{DoxyCode}
 
@@ -159,11 +159,11 @@ Type Type of the token
 \end{DoxyReturn}
 
 
-Definition at line 41 of file token.\+h.
+Definition at line 54 of file token.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{41 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Token_a904e5030feb75db1d428d1f07c9cebd8}{m\_type}}; \}}
+\DoxyCodeLine{54 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Token_a904e5030feb75db1d428d1f07c9cebd8}{m\_type}}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1Token_ac3add97c429fcd9182c71276e79d7bf4}\label{classSyntax_1_1Token_ac3add97c429fcd9182c71276e79d7bf4}} 
@@ -181,11 +181,11 @@ char Value of the token
 \end{DoxyReturn}
 
 
-Definition at line 48 of file token.\+h.
+Definition at line 61 of file token.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{48 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Token_a11283c071acd42ce6432b19d073428d1}{m\_value}}; \}}
+\DoxyCodeLine{61 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Token_a11283c071acd42ce6432b19d073428d1}{m\_value}}; \}}
 
 \end{DoxyCode}
 
@@ -199,7 +199,7 @@ Definition at line 48 of file token.\+h.
 
 
 
-Definition at line 51 of file token.\+h.
+Definition at line 64 of file token.\+h.
 
 \mbox{\Hypertarget{classSyntax_1_1Token_a11283c071acd42ce6432b19d073428d1}\label{classSyntax_1_1Token_a11283c071acd42ce6432b19d073428d1}} 
 \index{Syntax::Token@{Syntax::Token}!m\_value@{m\_value}}
@@ -209,7 +209,7 @@ Definition at line 51 of file token.\+h.
 
 
 
-Definition at line 52 of file token.\+h.
+Definition at line 65 of file token.\+h.
 
 
 

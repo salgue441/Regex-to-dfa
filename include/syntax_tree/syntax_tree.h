@@ -1,3 +1,14 @@
+/**
+ * @file syntax_tree.h
+ * @brief Contains the SyntaxTree class for building a syntax tree
+ * @author Carlos Salguero
+ * @date 2023-10-28
+ * @version 1.0.0
+ *
+ * @copyright Copyright (c) - MIT License
+ * 
+ */
+
 #pragma once
 
 #include <memory>
@@ -10,7 +21,9 @@
 namespace Syntax
 {
     /**
-     * @brief Syntax tree class for the parser
+     * @class SyntaxTree
+     * @brief Syntax tree class for building a syntax
+     *        tree from a regular expression.
      */
     class SyntaxTree
     {

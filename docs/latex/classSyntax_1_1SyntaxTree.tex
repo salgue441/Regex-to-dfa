@@ -2,7 +2,7 @@
 \label{classSyntax_1_1SyntaxTree}\index{Syntax::SyntaxTree@{Syntax::SyntaxTree}}
 
 
-\mbox{\hyperlink{namespaceSyntax}{Syntax}} tree class for the parser.  
+\mbox{\hyperlink{namespaceSyntax}{Syntax}} tree class for building a syntax tree from a regular expression.  
 
 
 
@@ -41,9 +41,9 @@ std\+::stack$<$ \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{namespaceSyntax}{Syntax}} tree class for the parser. 
+\mbox{\hyperlink{namespaceSyntax}{Syntax}} tree class for building a syntax tree from a regular expression. 
 
-Definition at line 15 of file syntax\+\_\+tree.\+h.
+Definition at line 28 of file syntax\+\_\+tree.\+h.
 
 
 
@@ -60,11 +60,11 @@ Construct a new \mbox{\hyperlink{namespaceSyntax}{Syntax}} Tree object.
 
 This constructor is only used for testing purposes 
 
-Definition at line 23 of file syntax\+\_\+tree.\+h.
+Definition at line 36 of file syntax\+\_\+tree.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{23 : \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}}(\textcolor{keyword}{nullptr}) \{\}}
+\DoxyCodeLine{36 : \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}}(\textcolor{keyword}{nullptr}) \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1SyntaxTree_a9ac41750dea45d64c7d4e25ee6887d14}\label{classSyntax_1_1SyntaxTree_a9ac41750dea45d64c7d4e25ee6887d14}} 
@@ -84,11 +84,11 @@ Construct a new \mbox{\hyperlink{namespaceSyntax}{Syntax}} Tree object.
 \end{DoxyParams}
 
 
-Definition at line 30 of file syntax\+\_\+tree.\+h.
+Definition at line 43 of file syntax\+\_\+tree.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{30 : \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}}(root) \{\}}
+\DoxyCodeLine{43 : \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}}(root) \{\}}
 
 \end{DoxyCode}
 
@@ -122,64 +122,64 @@ Space complexity\+: O(n)
 \end{DoxyNote}
 
 
-Definition at line 18 of file syntax\+\_\+tree.\+cpp.
+Definition at line 30 of file syntax\+\_\+tree.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{19     \{}
-\DoxyCodeLine{20         \textcolor{keyword}{auto} tokens = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a24826de5b842d8312f09df84e335812b}{tokenize}}(regex);}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} token : tokens)}
-\DoxyCodeLine{23         \{}
-\DoxyCodeLine{24             \textcolor{keywordflow}{switch} (token.get\_type())}
-\DoxyCodeLine{25             \{}
-\DoxyCodeLine{26             \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}}:}
-\DoxyCodeLine{27                 \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.push(std::make\_shared<Node>(token));}
-\DoxyCodeLine{28                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30             \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2acc3fdb5e3acc094388e75f45ada1a935}{Token::Type::PARENTHESIS\_OPEN}}:}
-\DoxyCodeLine{31                 \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.push(token.get\_type());}
-\DoxyCodeLine{32                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         \textcolor{keyword}{auto} tokens = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a24826de5b842d8312f09df84e335812b}{tokenize}}(regex);}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{34             \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a459697561df348fd7420e66ef9a339bf}{Token::Type::PARENTHESIS\_CLOSE}}:}
-\DoxyCodeLine{35                 \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty() \&\&}
-\DoxyCodeLine{36                        \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top() != \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2acc3fdb5e3acc094388e75f45ada1a935}{Token::Type::PARENTHESIS\_OPEN}})}
-\DoxyCodeLine{37                 \{}
-\DoxyCodeLine{38                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}{process\_operator}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top());}
-\DoxyCodeLine{39                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
-\DoxyCodeLine{40                 \}}
+\DoxyCodeLine{34         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} token : tokens)}
+\DoxyCodeLine{35         \{}
+\DoxyCodeLine{36             \textcolor{keywordflow}{switch} (token.get\_type())}
+\DoxyCodeLine{37             \{}
+\DoxyCodeLine{38             \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}}:}
+\DoxyCodeLine{39                 \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.push(std::make\_shared<Node>(token));}
+\DoxyCodeLine{40                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{42                 \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty())}
-\DoxyCodeLine{43                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{48                 \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty() \&\&}
-\DoxyCodeLine{49                        \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a3ad4c03876cdf5f59b3779e5dd0ee20b}{precedence}}(token.get\_type()) <=}
-\DoxyCodeLine{50                            \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a3ad4c03876cdf5f59b3779e5dd0ee20b}{precedence}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top()))}
-\DoxyCodeLine{51                 \{}
-\DoxyCodeLine{52                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}{process\_operator}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top());}
-\DoxyCodeLine{53                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
-\DoxyCodeLine{54                 \}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56                 \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.push(token.get\_type());}
+\DoxyCodeLine{42             \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2acc3fdb5e3acc094388e75f45ada1a935}{Token::Type::PARENTHESIS\_OPEN}}:}
+\DoxyCodeLine{43                 \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.push(token.get\_type());}
+\DoxyCodeLine{44                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46             \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a459697561df348fd7420e66ef9a339bf}{Token::Type::PARENTHESIS\_CLOSE}}:}
+\DoxyCodeLine{47                 \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty() \&\&}
+\DoxyCodeLine{48                        \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top() != \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2acc3fdb5e3acc094388e75f45ada1a935}{Token::Type::PARENTHESIS\_OPEN}})}
+\DoxyCodeLine{49                 \{}
+\DoxyCodeLine{50                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}{process\_operator}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top());}
+\DoxyCodeLine{51                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
+\DoxyCodeLine{52                 \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54                 \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty())}
+\DoxyCodeLine{55                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
+\DoxyCodeLine{56 }
 \DoxyCodeLine{57                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{58             \}}
-\DoxyCodeLine{59         \}}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty())}
-\DoxyCodeLine{62         \{}
-\DoxyCodeLine{63             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}{process\_operator}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top());}
-\DoxyCodeLine{64             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
-\DoxyCodeLine{65         \}}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.empty())}
-\DoxyCodeLine{68         \{}
-\DoxyCodeLine{69             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}} = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
-\DoxyCodeLine{70             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{60                 \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty() \&\&}
+\DoxyCodeLine{61                        \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a3ad4c03876cdf5f59b3779e5dd0ee20b}{precedence}}(token.get\_type()) <=}
+\DoxyCodeLine{62                            \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a3ad4c03876cdf5f59b3779e5dd0ee20b}{precedence}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top()))}
+\DoxyCodeLine{63                 \{}
+\DoxyCodeLine{64                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}{process\_operator}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top());}
+\DoxyCodeLine{65                     \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
+\DoxyCodeLine{66                 \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68                 \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.push(token.get\_type());}
+\DoxyCodeLine{69                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{70             \}}
 \DoxyCodeLine{71         \}}
-\DoxyCodeLine{72     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.empty())}
+\DoxyCodeLine{74         \{}
+\DoxyCodeLine{75             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}{process\_operator}}(\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.top());}
+\DoxyCodeLine{76             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}{m\_operators}}.pop();}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.empty())}
+\DoxyCodeLine{80         \{}
+\DoxyCodeLine{81             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}} = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
+\DoxyCodeLine{82             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1SyntaxTree_a9f608da310c9094155e6731cffd77c85}\label{classSyntax_1_1SyntaxTree_a9f608da310c9094155e6731cffd77c85}} 
@@ -197,13 +197,13 @@ std\+::shared\+\_\+ptr$<$\+Node$>$ Root node of the syntax tree
 \end{DoxyReturn}
 
 
-Definition at line 38 of file syntax\+\_\+tree.\+h.
+Definition at line 51 of file syntax\+\_\+tree.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{39         \{}
-\DoxyCodeLine{40             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}};}
-\DoxyCodeLine{41         \}}
+\DoxyCodeLine{52         \{}
+\DoxyCodeLine{53             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}{m\_root}};}
+\DoxyCodeLine{54         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1SyntaxTree_a3ad4c03876cdf5f59b3779e5dd0ee20b}\label{classSyntax_1_1SyntaxTree_a3ad4c03876cdf5f59b3779e5dd0ee20b}} 
@@ -241,31 +241,31 @@ Space complexity\+: O(1)
 \end{DoxyNote}
 
 
-Definition at line 85 of file syntax\+\_\+tree.\+cpp.
+Definition at line 97 of file syntax\+\_\+tree.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{86     \{}
-\DoxyCodeLine{87         \textcolor{keywordflow}{switch} (op)}
-\DoxyCodeLine{88         \{}
-\DoxyCodeLine{89         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}}:}
-\DoxyCodeLine{90             \textcolor{keywordflow}{return} 3;}
-\DoxyCodeLine{91 }
-\DoxyCodeLine{92         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2ae7dcf32b590fea4fdc9b467d6f59155e}{Token::Type::KLEENE\_STAR}}:}
-\DoxyCodeLine{93         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a883acd43c77567e1c3baced84ccf6ed7}{Token::Type::PLUS}}:}
-\DoxyCodeLine{94         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a705ec5e7f39c0733aeed9e24e90d2ede}{Token::Type::QUESTION\_MARK}}:}
-\DoxyCodeLine{95             \textcolor{keywordflow}{return} 2;}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a15ae5ff6d54b4b13e693206be3531dde}{Token::Type::CONCATENATION\_OPERATOR}}:}
-\DoxyCodeLine{98             \textcolor{keywordflow}{return} 1;}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a5f18b70ed47cfbe941c16301f369af53}{Token::Type::OR\_OPERATOR}}:}
-\DoxyCodeLine{101             \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{103         \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{104             \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{105         \}}
-\DoxyCodeLine{106     \}}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99         \textcolor{keywordflow}{switch} (op)}
+\DoxyCodeLine{100         \{}
+\DoxyCodeLine{101         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}}:}
+\DoxyCodeLine{102             \textcolor{keywordflow}{return} 3;}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2ae7dcf32b590fea4fdc9b467d6f59155e}{Token::Type::KLEENE\_STAR}}:}
+\DoxyCodeLine{105         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a883acd43c77567e1c3baced84ccf6ed7}{Token::Type::PLUS}}:}
+\DoxyCodeLine{106         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a705ec5e7f39c0733aeed9e24e90d2ede}{Token::Type::QUESTION\_MARK}}:}
+\DoxyCodeLine{107             \textcolor{keywordflow}{return} 2;}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a15ae5ff6d54b4b13e693206be3531dde}{Token::Type::CONCATENATION\_OPERATOR}}:}
+\DoxyCodeLine{110             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         \textcolor{keywordflow}{case} \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a5f18b70ed47cfbe941c16301f369af53}{Token::Type::OR\_OPERATOR}}:}
+\DoxyCodeLine{113             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{116             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{117         \}}
+\DoxyCodeLine{118     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}\label{classSyntax_1_1SyntaxTree_a9df16a0431670bb994211ff07e37d9ef}} 
@@ -297,30 +297,30 @@ Space complexity\+: O(1)
 \end{DoxyNote}
 
 
-Definition at line 117 of file syntax\+\_\+tree.\+cpp.
+Definition at line 129 of file syntax\+\_\+tree.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{118     \{}
-\DoxyCodeLine{119         \textcolor{keyword}{auto} new\_node = std::make\_shared<Node>(Token(op, 0));}
-\DoxyCodeLine{120 }
-\DoxyCodeLine{121         \textcolor{keywordflow}{if} (op == \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}} \&\& \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.size() >= 2)}
-\DoxyCodeLine{122         \{}
-\DoxyCodeLine{123             new\_node-\/>get\_right() = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
-\DoxyCodeLine{124             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
-\DoxyCodeLine{125 }
-\DoxyCodeLine{126             new\_node-\/>get\_left() = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
-\DoxyCodeLine{127             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
-\DoxyCodeLine{128         \}}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{130         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.size() >= 1)}
-\DoxyCodeLine{131         \{}
-\DoxyCodeLine{132             new\_node-\/>get\_right() = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
-\DoxyCodeLine{133             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
-\DoxyCodeLine{134         \}}
-\DoxyCodeLine{135 }
-\DoxyCodeLine{136         \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.push(new\_node);}
-\DoxyCodeLine{137     \}}
+\DoxyCodeLine{130     \{}
+\DoxyCodeLine{131         \textcolor{keyword}{auto} new\_node = std::make\_shared<Node>(Token(op, 0));}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133         \textcolor{keywordflow}{if} (op == \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}} \&\& \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.size() >= 2)}
+\DoxyCodeLine{134         \{}
+\DoxyCodeLine{135             new\_node-\/>get\_right() = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
+\DoxyCodeLine{136             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138             new\_node-\/>get\_left() = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
+\DoxyCodeLine{139             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
+\DoxyCodeLine{140         \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.size() >= 1)}
+\DoxyCodeLine{143         \{}
+\DoxyCodeLine{144             new\_node-\/>get\_right() = \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.top();}
+\DoxyCodeLine{145             \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.pop();}
+\DoxyCodeLine{146         \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148         \mbox{\hyperlink{classSyntax_1_1SyntaxTree_a62aeb1de3fdb40531a20dd022c0ea44b}{m\_operands}}.push(new\_node);}
+\DoxyCodeLine{149     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classSyntax_1_1SyntaxTree_a24826de5b842d8312f09df84e335812b}\label{classSyntax_1_1SyntaxTree_a24826de5b842d8312f09df84e335812b}} 
@@ -358,78 +358,78 @@ Space complexity\+: O(n)
 \end{DoxyNote}
 
 
-Definition at line 149 of file syntax\+\_\+tree.\+cpp.
+Definition at line 161 of file syntax\+\_\+tree.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{150     \{}
-\DoxyCodeLine{151         std::vector<Token::Type> tokens;}
-\DoxyCodeLine{152 }
-\DoxyCodeLine{153         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} character : regex)}
-\DoxyCodeLine{154         \{}
-\DoxyCodeLine{155             \textcolor{keywordflow}{switch} (character)}
-\DoxyCodeLine{156             \{}
-\DoxyCodeLine{157             \textcolor{keywordflow}{case} \textcolor{charliteral}{'('}:}
-\DoxyCodeLine{158                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2acc3fdb5e3acc094388e75f45ada1a935}{Token::Type::PARENTHESIS\_OPEN}});}
-\DoxyCodeLine{159                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{160 }
-\DoxyCodeLine{161             \textcolor{keywordflow}{case} \textcolor{charliteral}{')'}:}
-\DoxyCodeLine{162                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a459697561df348fd7420e66ef9a339bf}{Token::Type::PARENTHESIS\_CLOSE}});}
-\DoxyCodeLine{163                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{162     \{}
+\DoxyCodeLine{163         std::vector<Token::Type> tokens;}
 \DoxyCodeLine{164 }
-\DoxyCodeLine{165             \textcolor{keywordflow}{case} \textcolor{charliteral}{'|'}:}
-\DoxyCodeLine{166                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a5f18b70ed47cfbe941c16301f369af53}{Token::Type::OR\_OPERATOR}});}
-\DoxyCodeLine{167                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{168 }
-\DoxyCodeLine{169             \textcolor{keywordflow}{case} \textcolor{charliteral}{'.'}:}
-\DoxyCodeLine{170                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a15ae5ff6d54b4b13e693206be3531dde}{Token::Type::CONCATENATION\_OPERATOR}});}
+\DoxyCodeLine{165         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} character : regex)}
+\DoxyCodeLine{166         \{}
+\DoxyCodeLine{167             \textcolor{keywordflow}{switch} (character)}
+\DoxyCodeLine{168             \{}
+\DoxyCodeLine{169             \textcolor{keywordflow}{case} \textcolor{charliteral}{'('}:}
+\DoxyCodeLine{170                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2acc3fdb5e3acc094388e75f45ada1a935}{Token::Type::PARENTHESIS\_OPEN}});}
 \DoxyCodeLine{171                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{172 }
-\DoxyCodeLine{173             \textcolor{keywordflow}{case} \textcolor{charliteral}{'*'}:}
-\DoxyCodeLine{174                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2ae7dcf32b590fea4fdc9b467d6f59155e}{Token::Type::KLEENE\_STAR}});}
+\DoxyCodeLine{173             \textcolor{keywordflow}{case} \textcolor{charliteral}{')'}:}
+\DoxyCodeLine{174                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a459697561df348fd7420e66ef9a339bf}{Token::Type::PARENTHESIS\_CLOSE}});}
 \DoxyCodeLine{175                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{176 }
-\DoxyCodeLine{177             \textcolor{keywordflow}{case} \textcolor{charliteral}{'+'}:}
-\DoxyCodeLine{178                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a883acd43c77567e1c3baced84ccf6ed7}{Token::Type::PLUS}});}
+\DoxyCodeLine{177             \textcolor{keywordflow}{case} \textcolor{charliteral}{'|'}:}
+\DoxyCodeLine{178                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a5f18b70ed47cfbe941c16301f369af53}{Token::Type::OR\_OPERATOR}});}
 \DoxyCodeLine{179                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{180 }
-\DoxyCodeLine{181             \textcolor{keywordflow}{case} \textcolor{charliteral}{'?'}:}
-\DoxyCodeLine{182                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a705ec5e7f39c0733aeed9e24e90d2ede}{Token::Type::QUESTION\_MARK}});}
+\DoxyCodeLine{181             \textcolor{keywordflow}{case} \textcolor{charliteral}{'.'}:}
+\DoxyCodeLine{182                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a15ae5ff6d54b4b13e693206be3531dde}{Token::Type::CONCATENATION\_OPERATOR}});}
 \DoxyCodeLine{183                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{184 }
-\DoxyCodeLine{185             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{186                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}});}
+\DoxyCodeLine{185             \textcolor{keywordflow}{case} \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{186                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2ae7dcf32b590fea4fdc9b467d6f59155e}{Token::Type::KLEENE\_STAR}});}
 \DoxyCodeLine{187                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{188             \}}
-\DoxyCodeLine{189         \}}
-\DoxyCodeLine{190 }
-\DoxyCodeLine{191         std::vector<Token> result;}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189             \textcolor{keywordflow}{case} \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{190                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a883acd43c77567e1c3baced84ccf6ed7}{Token::Type::PLUS}});}
+\DoxyCodeLine{191                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{192 }
-\DoxyCodeLine{193         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < tokens.size(); i++)}
-\DoxyCodeLine{194         \{}
-\DoxyCodeLine{195             \textcolor{keywordflow}{if} (tokens[i] == \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}})}
-\DoxyCodeLine{196             \{}
-\DoxyCodeLine{197                 \textcolor{keywordflow}{if} (i + 1 < tokens.size() \&\&}
-\DoxyCodeLine{198                     tokens[i + 1] == \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}})}
-\DoxyCodeLine{199                 \{}
-\DoxyCodeLine{200                     result.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}},}
-\DoxyCodeLine{201                                         regex[i]);}
+\DoxyCodeLine{193             \textcolor{keywordflow}{case} \textcolor{charliteral}{'?'}:}
+\DoxyCodeLine{194                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a705ec5e7f39c0733aeed9e24e90d2ede}{Token::Type::QUESTION\_MARK}});}
+\DoxyCodeLine{195                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{198                 tokens.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}});}
+\DoxyCodeLine{199                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{200             \}}
+\DoxyCodeLine{201         \}}
 \DoxyCodeLine{202 }
-\DoxyCodeLine{203                     result.emplace\_back(}
-\DoxyCodeLine{204                         \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a15ae5ff6d54b4b13e693206be3531dde}{Token::Type::CONCATENATION\_OPERATOR}}, \textcolor{charliteral}{'.'});}
-\DoxyCodeLine{205                 \}}
-\DoxyCodeLine{206                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{207                     result.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}},}
-\DoxyCodeLine{208                                         regex[i]);}
-\DoxyCodeLine{209             \}}
-\DoxyCodeLine{210             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{211             \{}
-\DoxyCodeLine{212                 result.emplace\_back(tokens[i], 0);}
-\DoxyCodeLine{213             \}}
-\DoxyCodeLine{214         \}}
-\DoxyCodeLine{215 }
-\DoxyCodeLine{216         \textcolor{keywordflow}{return} result;}
-\DoxyCodeLine{217     \}}
+\DoxyCodeLine{203         std::vector<Token> result;}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < tokens.size(); i++)}
+\DoxyCodeLine{206         \{}
+\DoxyCodeLine{207             \textcolor{keywordflow}{if} (tokens[i] == \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}})}
+\DoxyCodeLine{208             \{}
+\DoxyCodeLine{209                 \textcolor{keywordflow}{if} (i + 1 < tokens.size() \&\&}
+\DoxyCodeLine{210                     tokens[i + 1] == \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}})}
+\DoxyCodeLine{211                 \{}
+\DoxyCodeLine{212                     result.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}},}
+\DoxyCodeLine{213                                         regex[i]);}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215                     result.emplace\_back(}
+\DoxyCodeLine{216                         \mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2a15ae5ff6d54b4b13e693206be3531dde}{Token::Type::CONCATENATION\_OPERATOR}}, \textcolor{charliteral}{'.'});}
+\DoxyCodeLine{217                 \}}
+\DoxyCodeLine{218                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{219                     result.emplace\_back(\mbox{\hyperlink{classSyntax_1_1Token_a019aedc748e3861b79e4ec402673c7b2aa0000d7769148184776f1d17656921b0}{Token::Type::LITERAL}},}
+\DoxyCodeLine{220                                         regex[i]);}
+\DoxyCodeLine{221             \}}
+\DoxyCodeLine{222             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{223             \{}
+\DoxyCodeLine{224                 result.emplace\_back(tokens[i], 0);}
+\DoxyCodeLine{225             \}}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{229     \}}
 
 \end{DoxyCode}
 
@@ -443,7 +443,7 @@ Definition at line 149 of file syntax\+\_\+tree.\+cpp.
 
 
 
-Definition at line 53 of file syntax\+\_\+tree.\+h.
+Definition at line 66 of file syntax\+\_\+tree.\+h.
 
 \mbox{\Hypertarget{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}\label{classSyntax_1_1SyntaxTree_a380f2915e847a7d602b84ee005123536}} 
 \index{Syntax::SyntaxTree@{Syntax::SyntaxTree}!m\_operators@{m\_operators}}
@@ -453,7 +453,7 @@ Definition at line 53 of file syntax\+\_\+tree.\+h.
 
 
 
-Definition at line 54 of file syntax\+\_\+tree.\+h.
+Definition at line 67 of file syntax\+\_\+tree.\+h.
 
 \mbox{\Hypertarget{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}\label{classSyntax_1_1SyntaxTree_abf948b4a7f6819d969b7ea4d48fb63b5}} 
 \index{Syntax::SyntaxTree@{Syntax::SyntaxTree}!m\_root@{m\_root}}
@@ -463,7 +463,7 @@ Definition at line 54 of file syntax\+\_\+tree.\+h.
 
 
 
-Definition at line 52 of file syntax\+\_\+tree.\+h.
+Definition at line 65 of file syntax\+\_\+tree.\+h.
 
 
 

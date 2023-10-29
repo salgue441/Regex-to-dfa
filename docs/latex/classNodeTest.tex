@@ -1,0 +1,86 @@
+\hypertarget{classNodeTest}{}\doxysection{Node\+Test Class Reference}
+\label{classNodeTest}\index{NodeTest@{NodeTest}}
+
+
+Test fixture for the Node class.  
+
+
+
+
+Inheritance diagram for Node\+Test\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{classNodeTest__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Node\+Test\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{classNodeTest__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNodeTest_a182621793940f94192603a383257f56b}{Set\+Up}} () override
+\begin{DoxyCompactList}\small\item\em Set up the test fixture. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox{\hyperlink{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Test fixture for the Node class. 
+
+Definition at line 21 of file node\+\_\+test.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNodeTest_a182621793940f94192603a383257f56b}\label{classNodeTest_a182621793940f94192603a383257f56b}} 
+\index{NodeTest@{NodeTest}!SetUp@{SetUp}}
+\index{SetUp@{SetUp}!NodeTest@{NodeTest}}
+\doxysubsubsection{\texorpdfstring{SetUp()}{SetUp()}}
+{\footnotesize\ttfamily void Node\+Test\+::\+Set\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Set up the test fixture. 
+
+
+
+Definition at line 31 of file node\+\_\+test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         \mbox{\hyperlink{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}{m\_node}} = std::make\_shared<Node>(\mbox{\hyperlink{classSyntax_1_1Token}{Token}}(Token::Type::LITERAL, \textcolor{charliteral}{'a'}));}
+\DoxyCodeLine{34     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}\label{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}} 
+\index{NodeTest@{NodeTest}!m\_node@{m\_node}}
+\index{m\_node@{m\_node}!NodeTest@{NodeTest}}
+\doxysubsubsection{\texorpdfstring{m\_node}{m\_node}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSyntax_1_1Node}{Node}}$>$ Node\+Test\+::m\+\_\+node\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 25 of file node\+\_\+test.\+cpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+tests/\mbox{\hyperlink{node__test_8cpp}{node\+\_\+test.\+cpp}}\end{DoxyCompactItemize}

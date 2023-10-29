@@ -1,3 +1,14 @@
+/**
+ * @file node.h
+ * @brief Defines the Node class.
+ * @author Carlos Salguero
+ * @date 2023-10-28
+ * @version 1.0.0
+ *
+ * @copyright Copyright (c) - MIT License
+ * 
+ */
+
 #ifndef NODE_H
 #define NODE_H
 
@@ -7,7 +18,8 @@
 namespace Syntax
 {
     /**
-     * @brief Node class for the syntax tree
+     * @class Node
+     * @brief Class representing a node in a syntax tree.
      */
     class Node
     {
@@ -48,6 +60,28 @@ namespace Syntax
          * @return Token Token of the node
          */
         [[nodiscard]] inline Token get_token() const { return m_token; }
+
+        // Inline setters
+        /**
+         * @brief Set the left child of the node
+         *
+         * @param[in] left Left child of the node
+         */
+        inline void set_left(std::shared_ptr<Node> left) { m_left = left; }
+
+        /**
+         * @brief Set the right child of the node
+         *
+         * @param[in] right Right child of the node
+         */
+        inline void set_right(std::shared_ptr<Node> right) { m_right = right; }
+
+        /**
+         * @brief Set the token of the node
+         *
+         * @param[in] token Token of the node
+         */
+        inline void set_token(Token token) { m_token = token; }
 
     private:
         std::shared_ptr<Node> m_left;
