@@ -1,0 +1,177 @@
+\hypertarget{classNode}{}\doxysection{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+
+
+\mbox{\hyperlink{classNode}{Node}} class for the syntax tree.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNode_af3b66b295cf8edc17e91768aee3e5b57}{Node}} (Token token)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classNode}{Node}} object. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNode}{Node}} $>$ \mbox{\hyperlink{classNode_aaeab5b471861cc8849824bf859414c74}{get\+\_\+left}} () const
+\begin{DoxyCompactList}\small\item\em Get the left child of the node. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNode}{Node}} $>$ \mbox{\hyperlink{classNode_a990825b4e44c98ec03c3ac17e4d89523}{get\+\_\+right}} () const
+\begin{DoxyCompactList}\small\item\em Get the right child of the node. \end{DoxyCompactList}\item 
+Token \mbox{\hyperlink{classNode_a3327f89166553df9ca42716c7ff9f874}{get\+\_\+token}} () const
+\begin{DoxyCompactList}\small\item\em Get the token of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNode}{Node}} $>$ \mbox{\hyperlink{classNode_a5d1fe66fc5c1c855e1b8c22968025d27}{m\+\_\+left}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNode}{Node}} $>$ \mbox{\hyperlink{classNode_a78856e8fa4160ee2cbb83e39875669b0}{m\+\_\+right}}
+\item 
+Token \mbox{\hyperlink{classNode_a9be3c3bf9f4ea6a5c55487bea6476ca4}{m\+\_\+token}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classNode}{Node}} class for the syntax tree. 
+
+Definition at line 7 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNode_af3b66b295cf8edc17e91768aee3e5b57}\label{classNode_af3b66b295cf8edc17e91768aee3e5b57}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{Token}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classNode}{Node}} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em token} & Token of the node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                              : \mbox{\hyperlink{classNode_a9be3c3bf9f4ea6a5c55487bea6476ca4}{m\_token}}(token),}
+\DoxyCodeLine{17                                \mbox{\hyperlink{classNode_a5d1fe66fc5c1c855e1b8c22968025d27}{m\_left}}(\textcolor{keyword}{nullptr}), \mbox{\hyperlink{classNode_a78856e8fa4160ee2cbb83e39875669b0}{m\_right}}(\textcolor{keyword}{nullptr}) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNode_aaeab5b471861cc8849824bf859414c74}\label{classNode_aaeab5b471861cc8849824bf859414c74}} 
+\index{Node@{Node}!get\_left@{get\_left}}
+\index{get\_left@{get\_left}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{get\_left()}{get\_left()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classNode}{Node}}$>$ Node\+::get\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the left child of the node. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Node$>$ Left child of the node 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} \mbox{\hyperlink{classNode_a5d1fe66fc5c1c855e1b8c22968025d27}{m\_left}};}
+\DoxyCodeLine{28     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_a990825b4e44c98ec03c3ac17e4d89523}\label{classNode_a990825b4e44c98ec03c3ac17e4d89523}} 
+\index{Node@{Node}!get\_right@{get\_right}}
+\index{get\_right@{get\_right}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{get\_right()}{get\_right()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classNode}{Node}}$>$ Node\+::get\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the right child of the node. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Node$>$ Right child of the node 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} \mbox{\hyperlink{classNode_a78856e8fa4160ee2cbb83e39875669b0}{m\_right}};}
+\DoxyCodeLine{38     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_a3327f89166553df9ca42716c7ff9f874}\label{classNode_a3327f89166553df9ca42716c7ff9f874}} 
+\index{Node@{Node}!get\_token@{get\_token}}
+\index{get\_token@{get\_token}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{get\_token()}{get\_token()}}
+{\footnotesize\ttfamily Token Node\+::get\+\_\+token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the token of the node. 
+
+\begin{DoxyReturn}{Returns}
+Token Token of the node 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classNode_a9be3c3bf9f4ea6a5c55487bea6476ca4}{m\_token}}; \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classNode_a5d1fe66fc5c1c855e1b8c22968025d27}\label{classNode_a5d1fe66fc5c1c855e1b8c22968025d27}} 
+\index{Node@{Node}!m\_left@{m\_left}}
+\index{m\_left@{m\_left}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{m\_left}{m\_left}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classNode}{Node}}$>$ Node\+::m\+\_\+left\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 48 of file node.\+h.
+
+\mbox{\Hypertarget{classNode_a78856e8fa4160ee2cbb83e39875669b0}\label{classNode_a78856e8fa4160ee2cbb83e39875669b0}} 
+\index{Node@{Node}!m\_right@{m\_right}}
+\index{m\_right@{m\_right}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{m\_right}{m\_right}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classNode}{Node}}$>$ Node\+::m\+\_\+right\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 49 of file node.\+h.
+
+\mbox{\Hypertarget{classNode_a9be3c3bf9f4ea6a5c55487bea6476ca4}\label{classNode_a9be3c3bf9f4ea6a5c55487bea6476ca4}} 
+\index{Node@{Node}!m\_token@{m\_token}}
+\index{m\_token@{m\_token}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{m\_token}{m\_token}}
+{\footnotesize\ttfamily Token Node\+::m\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 50 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\end{DoxyCompactItemize}

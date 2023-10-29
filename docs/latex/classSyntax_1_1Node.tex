@@ -1,0 +1,187 @@
+\hypertarget{classSyntax_1_1Node}{}\doxysection{Syntax\+::Node Class Reference}
+\label{classSyntax_1_1Node}\index{Syntax::Node@{Syntax::Node}}
+
+
+\mbox{\hyperlink{classSyntax_1_1Node}{Node}} class for the syntax tree.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Collaboration diagram for Syntax\+::Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classSyntax_1_1Node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSyntax_1_1Node_a8287c93dbb30826e1eb91b50891bbff4}{Node}} (\mbox{\hyperlink{classSyntax_1_1Token}{Token}} token)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classSyntax_1_1Node}{Node}} object. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox{\hyperlink{classSyntax_1_1Node_a4ecf0ff2f036438e759b591692c8bc24}{get\+\_\+left}} () const
+\begin{DoxyCompactList}\small\item\em Get the left child of the node. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox{\hyperlink{classSyntax_1_1Node_a63ec7584a870de8446c047400370bb28}{get\+\_\+right}} () const
+\begin{DoxyCompactList}\small\item\em Get the right child of the node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSyntax_1_1Token}{Token}} \mbox{\hyperlink{classSyntax_1_1Node_a3e1cdf931ee2c1dc6b369f1726e4914d}{get\+\_\+token}} () const
+\begin{DoxyCompactList}\small\item\em Get the token of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\+\_\+left}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\+\_\+right}}
+\item 
+\mbox{\hyperlink{classSyntax_1_1Token}{Token}} \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\+\_\+token}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classSyntax_1_1Node}{Node}} class for the syntax tree. 
+
+Definition at line 12 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSyntax_1_1Node_a8287c93dbb30826e1eb91b50891bbff4}\label{classSyntax_1_1Node_a8287c93dbb30826e1eb91b50891bbff4}} 
+\index{Syntax::Node@{Syntax::Node}!Node@{Node}}
+\index{Node@{Node}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Syntax\+::\+Node\+::\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSyntax_1_1Token}{Token}}}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classSyntax_1_1Node}{Node}} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em token} & \mbox{\hyperlink{classSyntax_1_1Token}{Token}} of the node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                  : \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\_token}}(token),}
+\DoxyCodeLine{22                                    \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\_left}}(\textcolor{keyword}{nullptr}), \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\_right}}(\textcolor{keyword}{nullptr}) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSyntax_1_1Node_a4ecf0ff2f036438e759b591692c8bc24}\label{classSyntax_1_1Node_a4ecf0ff2f036438e759b591692c8bc24}} 
+\index{Syntax::Node@{Syntax::Node}!get\_left@{get\_left}}
+\index{get\_left@{get\_left}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{get\_left()}{get\_left()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSyntax_1_1Node}{Node}}$>$ Syntax\+::\+Node\+::get\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the left child of the node. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Node$>$ Left child of the node 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31         \{}
+\DoxyCodeLine{32             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}{m\_left}};}
+\DoxyCodeLine{33         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSyntax_1_1Node_a63ec7584a870de8446c047400370bb28}\label{classSyntax_1_1Node_a63ec7584a870de8446c047400370bb28}} 
+\index{Syntax::Node@{Syntax::Node}!get\_right@{get\_right}}
+\index{get\_right@{get\_right}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{get\_right()}{get\_right()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSyntax_1_1Node}{Node}}$>$ Syntax\+::\+Node\+::get\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the right child of the node. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Node$>$ Right child of the node 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41         \{}
+\DoxyCodeLine{42             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}{m\_right}};}
+\DoxyCodeLine{43         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSyntax_1_1Node_a3e1cdf931ee2c1dc6b369f1726e4914d}\label{classSyntax_1_1Node_a3e1cdf931ee2c1dc6b369f1726e4914d}} 
+\index{Syntax::Node@{Syntax::Node}!get\_token@{get\_token}}
+\index{get\_token@{get\_token}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{get\_token()}{get\_token()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSyntax_1_1Token}{Token}} Syntax\+::\+Node\+::get\+\_\+token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the token of the node. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classSyntax_1_1Token}{Token}} \mbox{\hyperlink{classSyntax_1_1Token}{Token}} of the node 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}{m\_token}}; \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}\label{classSyntax_1_1Node_afdcd957f830f66b9b54dc1f898fdbd82}} 
+\index{Syntax::Node@{Syntax::Node}!m\_left@{m\_left}}
+\index{m\_left@{m\_left}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{m\_left}{m\_left}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSyntax_1_1Node}{Node}}$>$ Syntax\+::\+Node\+::m\+\_\+left\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 53 of file node.\+h.
+
+\mbox{\Hypertarget{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}\label{classSyntax_1_1Node_ad4484bfb369d80ab8e20441fcd51c604}} 
+\index{Syntax::Node@{Syntax::Node}!m\_right@{m\_right}}
+\index{m\_right@{m\_right}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{m\_right}{m\_right}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSyntax_1_1Node}{Node}}$>$ Syntax\+::\+Node\+::m\+\_\+right\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 54 of file node.\+h.
+
+\mbox{\Hypertarget{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}\label{classSyntax_1_1Node_a28a3b27b04ecfe7aec333e7119517080}} 
+\index{Syntax::Node@{Syntax::Node}!m\_token@{m\_token}}
+\index{m\_token@{m\_token}!Syntax::Node@{Syntax::Node}}
+\doxysubsubsection{\texorpdfstring{m\_token}{m\_token}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSyntax_1_1Token}{Token}} Syntax\+::\+Node\+::m\+\_\+token\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 55 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\end{DoxyCompactItemize}
