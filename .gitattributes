@@ -1,0 +1,6 @@
+# Treat .cpp and .h files as text
+*.cpp text
+*.h text
+
+# Handle line endings automatically for files detected as text
+* text=auto
