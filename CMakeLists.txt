@@ -1,25 +1,17 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(RegexToDfa)
+# Set the project name
+project(RegexToDFAConverter)
 
+# Specify the required C++ standard
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED true)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Source files
-set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+# Add the include directory for header files
+include_directories(include)
 
-# Compile all .h and .cpp files in src
-file(GLOB_RECURSE SRC_FILES ${SRC_DIR}/*.cpp ${SRC_DIR}/*.h)
+# Add all the source files
+file(GLOB SOURCES "src/*.cpp" "src/*/*.cpp")
 
-# Add executable
-add_executable(${PROJECT_NAME} ${SRC_FILES})
-
-# Add include directories
-target_include_directories(${PROJECT_NAME} PRIVATE ${SRC_DIR})
-
-# Add warnings
-if(MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE /W4 /WX)
-else()
-    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Werror)
-endif()
+# Create the executable
+add_executable(RegexToDFAConverter ${SOURCES})
