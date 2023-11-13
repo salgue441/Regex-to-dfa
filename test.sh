@@ -19,7 +19,7 @@ INCLUDE_DIR=$(find $SRC_DIR -name "*.h")
 SRC_FILES=$(echo "$SRC_FILES" | grep -v "main.cpp")
 
 # Compile the tests and source files
-g++ -std=c++11 -o run_tests $TEST_FILES $SRC_FILES  -lgtest -lgtest_main -pthread
+g++ -std=c++20 -o run_tests $TEST_FILES $SRC_FILES  -lgtest -lgtest_main -pthread
 
 # Run the tests
 ./run_tests

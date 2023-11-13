@@ -1,17 +1,49 @@
-# Ignore build directory
-/build/
+# Created by https://www.toptal.com/developers/gitignore/api/c++
+# Edit at https://www.toptal.com/developers/gitignore?templates=c++
 
-# Ignore CMake generated files
-CMakeCache.txt
-CMakeFiles/
-*.cmake
+# Visual Studio Code
+.vscode
 
-# Ignore compiled binaries
-*.out
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
 *.exe
+*.out
+*.app
 
-# Ignore other unnecessary files
-*.swp
-*.swo
-*.bak
-*~
+# Visual Studio Code
+.vscode
+
+# CMAke
+CmakeCache.txt
+build/
+
+# End of https://www.toptal.com/developers/gitignore/api/c++
+

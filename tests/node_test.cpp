@@ -12,7 +12,7 @@
 #include <gtest/gtest.h>
 #include "../include/node/node.h"
 
-using namespace Syntax;
+using namespace AbstractSyntaxTree;
 
 /**
  * @class NodeTest
@@ -21,94 +21,128 @@ using namespace Syntax;
 class NodeTest : public ::testing::Test
 {
 protected:
-    // Attributes
-    std::shared_ptr<Node> m_node;
+    void SetUp() override {}
 
-    // Methods
-    /**
-     * @brief Set up the test fixture
-     */
-    void SetUp() override
-    {
-        m_node = std::make_shared<Node>(Token(Token::Type::LITERAL, 'a'));
-    }
+    void TearDown() override {}
 };
 
-/**
- * @brief Tests the constructor of the Node class
- */
-TEST_F(NodeTest, Constructor)
+TEST_F(NodeTest, LiteralNodeMatch)
 {
-    ASSERT_EQ(m_node->get_token().get_type(), Token::Type::LITERAL);
-    ASSERT_EQ(m_node->get_token().get_value(), 'a');
-    ASSERT_EQ(m_node->get_left(), nullptr);
-    ASSERT_EQ(m_node->get_right(), nullptr);
+    LiteralNode node("a");
+
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_FALSE(node.match("b"));
 }
 
-/**
- * @brief Tests the set_left method of the Node class
- */
-TEST_F(NodeTest, SetLeft)
+TEST_F(NodeTest, DotNodeMatch)
 {
-    auto new_node = std::make_shared<Node>(Token(
-        Token::Type::LITERAL, 'b'));
+    DotNode node;
 
-    m_node->set_left(new_node);
-    ASSERT_EQ(m_node->get_left(), new_node);
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_TRUE(node.match("b"));
+    ASSERT_TRUE(node.match("c"));
+    ASSERT_FALSE(node.match(""));
+
+    ASSERT_TRUE(node.match("aa"));
 }
 
-/**
- * @brief Tests the set_right method of the Node class
- */
-TEST_F(NodeTest, SetRight)
+TEST_F(NodeTest, StartNodeMatch)
 {
-    auto new_node = std::make_shared<Node>(Token(
-        Token::Type::LITERAL, 'b'));
+    auto child = std::make_unique<LiteralNode>("a");
+    StartNode node(std::move(child));
 
-    m_node->set_right(new_node);
-    ASSERT_EQ(m_node->get_right(), new_node);
+    ASSERT_TRUE(node.match("aaa"));
+    ASSERT_FALSE(node.match("baa"));
 }
 
-/**
- * @brief Tests the get_left method of the Node class
- */
-TEST_F(NodeTest, GetLeft)
+TEST_F(NodeTest, PlusNodeMatch)
 {
-    auto new_node = std::make_shared<Node>(Token(
-        Token::Type::LITERAL, 'b'));
+    auto child = std::make_unique<LiteralNode>("a");
+    PlusNode node(std::move(child));
 
-    m_node->set_left(new_node);
-    ASSERT_EQ(m_node->get_left(), new_node);
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_TRUE(node.match("aaa"));
+    ASSERT_FALSE(node.match("b"));
 }
 
-/**
- * @brief Tests the get_right method of the Node class
- */
-TEST_F(NodeTest, GetRight)
+TEST_F(NodeTest, QUestionNodeMatch)
 {
-    auto new_node = std::make_shared<Node>(Token(
-        Token::Type::LITERAL, 'b'));
+    auto child = std::make_unique<LiteralNode>("a");
+    QuestionNode node(std::move(child));
 
-    m_node->set_right(new_node);
-    ASSERT_EQ(m_node->get_right(), new_node);
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_TRUE(node.match("b"));
+    ASSERT_FALSE(node.match("c"));
 }
 
-/**
- * @brief Tests the get_token method of the Node class
- */
-TEST_F(NodeTest, GetToken)
+TEST_F(NodeTest, AlternationNodeMAtch)
 {
-    ASSERT_EQ(m_node->get_token().get_type(), Token::Type::LITERAL);
-    ASSERT_EQ(m_node->get_token().get_value(), 'a');
+    auto left = std::make_unique<LiteralNode>("a");
+    auto right = std::make_unique<LiteralNode>("b");
+    AlternationNode node(std::move(left), std::move(right));
+
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_TRUE(node.match("b"));
+    ASSERT_FALSE(node.match("c"));
 }
 
-/**
- * @brief Tests the set_token method of the Node class
- */
-TEST_F(NodeTest, SetToken)
+TEST_F(NodeTest, StarNodeMatch)
 {
-    m_node->set_token(Token(Token::Type::LITERAL, 'b'));
+    auto child = std::make_unique<LiteralNode>("a");
+    StarNode node(std::move(child));
 
-    ASSERT_EQ(m_node->get_token().get_type(), Token::Type::LITERAL);
-    ASSERT_EQ(m_node->get_token().get_value(), 'b');
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_TRUE(node.match("aaa"));
+    ASSERT_FALSE(node.match("b"));
+}
+
+TEST_F(NodeTest, GroupMatch)
+{
+    auto child = std::make_unique<LiteralNode>("a");
+    GroupNode node(std::move(child));
+
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_FALSE(node.match("b"));
+}
+
+TEST_F(NodeTest, EndNodeMatch)
+{
+    EndNode node;
+
+    ASSERT_TRUE(node.match(""));
+    ASSERT_FALSE(node.match("a"));
+}
+
+TEST_F(NodeTest, CharacterSetNodeMatch)
+{
+    CharacterSetNode node("abc");
+
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_TRUE(node.match("b"));
+    ASSERT_TRUE(node.match("c"));
+    ASSERT_FALSE(node.match("d"));
+}
+
+TEST_F(NodeTest, EscapeNodeMatch)
+{
+    EscapeNode node('a');
+
+    ASSERT_TRUE(node.match("a"));
+    ASSERT_FALSE(node.match("b"));
+}
+
+TEST_F(NodeTest, NegatedCharacterSetNodeMatch)
+{
+    NegatedCharacterSetNode node("abc");
+
+    ASSERT_FALSE(node.match("a"));
+    ASSERT_FALSE(node.match("b"));
+    ASSERT_FALSE(node.match("c"));
+    ASSERT_TRUE(node.match("d"));
+}
+
+int main(int argc, char **argv)
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

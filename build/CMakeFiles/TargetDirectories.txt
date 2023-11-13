@@ -1,0 +1,3 @@
+/mnt/d/developer/regex-dfa/build/CMakeFiles/RegexToDFAConverter.dir
+/mnt/d/developer/regex-dfa/build/CMakeFiles/edit_cache.dir
+/mnt/d/developer/regex-dfa/build/CMakeFiles/rebuild_cache.dir

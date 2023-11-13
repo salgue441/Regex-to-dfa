@@ -1,93 +1,283 @@
 /**
  * @file node.h
- * @brief Defines the Node class.
  * @author Carlos Salguero
- * @date 2023-10-28
- * @version 1.0.0
+ * @brief Contains the definition of the regex nodes
+ * @version 0.1
+ * @date 2023-10-31
  *
- * @copyright Copyright (c) - MIT License
- * 
+ * @copyright Copyright (c) 2023
+ *
  */
 
-#ifndef NODE_H
-#define NODE_H
+#pragma once
 
+#include <string>
+#include <string_view>
+#include <unordered_map>
 #include <memory>
-#include "../token/token.h"
+#include <mutex>
 
-namespace Syntax
+namespace AbstractSyntaxTree
 {
     /**
-     * @class Node
-     * @brief Class representing a node in a syntax tree.
+     * @class RegexNode
+     * @brief Base class for all regex nodes
      */
-    class Node
+    struct RegexNode
     {
-    public:
-        // Constructor
-        /**
-         * @brief Construct a new Node object
-         *
-         * @param[in] token Token of the node
-         */
-        inline Node(Token token) : m_token(token),
-                                   m_left(nullptr), m_right(nullptr) {}
+        mutable std::unordered_map<std::string_view, bool> memo;
+        mutable std::mutex memo_mutex;
+        static const std::size_t MAX_CACHE_SIZE = 1000;
 
-        // Inline getters
-        /**
-         * @brief Get the left child of the node
-         *
-         * @return std::shared_ptr<Node> Left child of the node
-         */
-        [[nodiscard]] inline std::shared_ptr<Node> get_left() const
-        {
-            return m_left;
-        }
+        virtual ~RegexNode() = default;
 
         /**
-         * @brief Get the right child of the node
-         *
-         * @return std::shared_ptr<Node> Right child of the node
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
          */
-        [[nodiscard]] inline std::shared_ptr<Node> get_right() const
-        {
-            return m_right;
-        }
-
-        /**
-         * @brief Get the token of the node
-         *
-         * @return Token Token of the node
-         */
-        [[nodiscard]] inline Token get_token() const { return m_token; }
-
-        // Inline setters
-        /**
-         * @brief Set the left child of the node
-         *
-         * @param[in] left Left child of the node
-         */
-        inline void set_left(std::shared_ptr<Node> left) { m_left = left; }
-
-        /**
-         * @brief Set the right child of the node
-         *
-         * @param[in] right Right child of the node
-         */
-        inline void set_right(std::shared_ptr<Node> right) { m_right = right; }
-
-        /**
-         * @brief Set the token of the node
-         *
-         * @param[in] token Token of the node
-         */
-        inline void set_token(Token token) { m_token = token; }
-
-    private:
-        std::shared_ptr<Node> m_left;
-        std::shared_ptr<Node> m_right;
-        Token m_token;
+        virtual bool match(const std::string_view &input) const = 0;
     };
-} // namespace Syntax
 
-#endif //! NODE_H
+    /**
+     * @class LiteralNode
+     * @brief A regex node that matches a literal string
+     */
+    struct LiteralNode : public RegexNode
+    {
+        const char *m_literal;
+
+        explicit LiteralNode(const char *literal);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class DotNode
+     * @brief A regex node that matches any character
+     */
+    struct DotNode : public RegexNode
+    {
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class StartNode
+     * @brief A regex node that matches the start of the input string
+     */
+    struct StartNode : public RegexNode
+    {
+        std::unique_ptr<RegexNode> m_child;
+
+        explicit StartNode(std::unique_ptr<RegexNode> child);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class PlusNode
+     * @brief A regex node that matches one or more of the child node
+     */
+    struct PlusNode : public RegexNode
+    {
+        std::unique_ptr<RegexNode> m_child;
+
+        explicit PlusNode(std::unique_ptr<RegexNode> child);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class QuestionNode
+     * @brief A regex node that matches zero or one of the child node
+     */
+    struct QuestionNode : public RegexNode
+    {
+        std::unique_ptr<RegexNode> m_child;
+
+        explicit QuestionNode(std::unique_ptr<RegexNode> child);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class CharClassNode
+     * @brief Matches a character class
+     */
+    struct CharClassNode : public RegexNode
+    {
+        std::string m_class;
+
+        explicit CharClassNode(const std::string &class_str);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class AlternationNode
+     * @brief Matches one of the child nodes
+     */
+    struct AlternationNode : public RegexNode
+    {
+        std::unique_ptr<RegexNode> m_left;
+        std::unique_ptr<RegexNode> m_right;
+
+        explicit AlternationNode(std::unique_ptr<RegexNode> left,
+                                 std::unique_ptr<RegexNode> right);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class StarNode
+     * @brief A regex node that matches zero or more of the child node
+     */
+    struct StarNode : public RegexNode
+    {
+        std::unique_ptr<RegexNode> m_child;
+
+        explicit StarNode(std::unique_ptr<RegexNode> child);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class GroupNode
+     * @brief A regex node that matches the end of the input string
+     */
+    struct GroupNode : public RegexNode
+    {
+        std::unique_ptr<RegexNode> m_child;
+
+        explicit GroupNode(std::unique_ptr<RegexNode> child);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class EndNode
+     * @brief A regex node that matches the end of the input string
+     */
+    struct EndNode : public RegexNode
+    {
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        virtual bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class CharacterSetNode
+     * @brief A regex node that matches a set of characters
+     */
+    struct CharacterSetNode : public RegexNode
+    {
+        std::string m_set;
+
+        explicit CharacterSetNode(const std::string &set);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class EscapeNode
+     * @brief A regex node that matches an escaped character
+     */
+    struct EscapeNode : public RegexNode
+    {
+        char m_escape;
+
+        explicit EscapeNode(const char &escape);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node matches the input string
+         * @return [bool] False if the regex does not match the input string
+         */
+        bool match(const std::string_view &input) const override;
+    };
+
+    /**
+     * @class NegatedCharacterSetNode
+     * @brief Matches any character not in the set
+     */
+    struct NegatedCharacterSetNode : public RegexNode
+    {
+        std::string m_set;
+
+        explicit NegatedCharacterSetNode(const std::string &set);
+
+        /**
+         * @brief Matches the regex node against the input string
+         * @param[in] input The input string
+         * @return [bool] True if the regex node does not match the input string
+         * @return [bool] False if the regex matches the input string
+         */
+        bool match(const std::string_view &input) const override;
+    };
+} // namespace AbstractSyntaxTree

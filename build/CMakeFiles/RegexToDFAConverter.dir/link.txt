@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/RegexToDFAConverter.dir/src/main.cpp.o CMakeFiles/RegexToDFAConverter.dir/src/node/node.cpp.o -o RegexToDFAConverter 
