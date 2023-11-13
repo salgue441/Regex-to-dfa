@@ -12,7 +12,7 @@
 #include <gtest/gtest.h>
 #include "../include/node/node.h"
 
-using namespace AbstractSyntaxTree;
+using namespace Syntax;
 
 /**
  * @class NodeTest
@@ -28,7 +28,7 @@ protected:
 
 TEST_F(NodeTest, LiteralNodeMatch)
 {
-    LiteralNode node("a");
+    LiteralNode node('a');
 
     ASSERT_TRUE(node.match("a"));
     ASSERT_FALSE(node.match("b"));
@@ -48,16 +48,15 @@ TEST_F(NodeTest, DotNodeMatch)
 
 TEST_F(NodeTest, StartNodeMatch)
 {
-    auto child = std::make_unique<LiteralNode>("a");
-    StartNode node(std::move(child));
+    StartNode node;
 
-    ASSERT_TRUE(node.match("aaa"));
-    ASSERT_FALSE(node.match("baa"));
+    ASSERT_TRUE(node.match(""));
+    ASSERT_FALSE(node.match("a"));
 }
 
 TEST_F(NodeTest, PlusNodeMatch)
 {
-    auto child = std::make_unique<LiteralNode>("a");
+    auto child = std::make_unique<LiteralNode>('a');
     PlusNode node(std::move(child));
 
     ASSERT_TRUE(node.match("a"));
@@ -65,20 +64,19 @@ TEST_F(NodeTest, PlusNodeMatch)
     ASSERT_FALSE(node.match("b"));
 }
 
-TEST_F(NodeTest, QUestionNodeMatch)
+TEST_F(NodeTest, QuestionNodeMatch)
 {
-    auto child = std::make_unique<LiteralNode>("a");
+    auto child = std::make_unique<LiteralNode>('a');
     QuestionNode node(std::move(child));
 
     ASSERT_TRUE(node.match("a"));
-    ASSERT_TRUE(node.match("b"));
-    ASSERT_FALSE(node.match("c"));
+    ASSERT_FALSE(node.match("b"));
 }
 
 TEST_F(NodeTest, AlternationNodeMAtch)
 {
-    auto left = std::make_unique<LiteralNode>("a");
-    auto right = std::make_unique<LiteralNode>("b");
+    auto left = std::make_unique<LiteralNode>('a');
+    auto right = std::make_unique<LiteralNode>('b');
     AlternationNode node(std::move(left), std::move(right));
 
     ASSERT_TRUE(node.match("a"));
@@ -88,7 +86,7 @@ TEST_F(NodeTest, AlternationNodeMAtch)
 
 TEST_F(NodeTest, StarNodeMatch)
 {
-    auto child = std::make_unique<LiteralNode>("a");
+    auto child = std::make_unique<LiteralNode>('a');
     StarNode node(std::move(child));
 
     ASSERT_TRUE(node.match("a"));
@@ -98,7 +96,7 @@ TEST_F(NodeTest, StarNodeMatch)
 
 TEST_F(NodeTest, GroupMatch)
 {
-    auto child = std::make_unique<LiteralNode>("a");
+    auto child = std::make_unique<LiteralNode>('a');
     GroupNode node(std::move(child));
 
     ASSERT_TRUE(node.match("a"));

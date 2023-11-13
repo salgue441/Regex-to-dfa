@@ -1,0 +1,91 @@
+\hypertarget{structSyntax_1_1EndNode}{}\doxysection{Syntax\+::End\+Node Class Reference}
+\label{structSyntax_1_1EndNode}\index{Syntax::EndNode@{Syntax::EndNode}}
+
+
+A regex node that matches the end of the input string.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::End\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1EndNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::End\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1EndNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1EndNode_afb0c1b37b7b718460d722cb00de63846}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches the end of the input string. 
+
+Definition at line 217 of file node.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1EndNode_afb0c1b37b7b718460d722cb00de63846}\label{structSyntax_1_1EndNode_afb0c1b37b7b718460d722cb00de63846}} 
+\index{Syntax::EndNode@{Syntax::EndNode}!match@{match}}
+\index{match@{match}!Syntax::EndNode@{Syntax::EndNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+End\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 209 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{210     \{}
+\DoxyCodeLine{211         \textcolor{keywordflow}{if} (input.empty())}
+\DoxyCodeLine{212             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}EndNode::match input is empty"{}});}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214         \textcolor{keywordflow}{return} input.front() == \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{215     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

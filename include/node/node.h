@@ -17,7 +17,7 @@
 #include <memory>
 #include <mutex>
 
-namespace AbstractSyntaxTree
+namespace Syntax
 {
     /**
      * @class RegexNode
@@ -46,9 +46,9 @@ namespace AbstractSyntaxTree
      */
     struct LiteralNode : public RegexNode
     {
-        const char *m_literal;
+        char m_literal;
 
-        explicit LiteralNode(const char *literal);
+        explicit LiteralNode(char literal);
 
         /**
          * @brief Matches the regex node against the input string
@@ -82,6 +82,7 @@ namespace AbstractSyntaxTree
     {
         std::unique_ptr<RegexNode> m_child;
 
+        inline StartNode() = default;
         explicit StartNode(std::unique_ptr<RegexNode> child);
 
         /**

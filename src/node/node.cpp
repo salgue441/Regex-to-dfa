@@ -13,15 +13,14 @@
 
 #include "../../include/node/node.h"
 
-namespace AbstractSyntaxTree
+namespace Syntax
 {
-
     // LiteralNode implementation
     /**
      * @brief Construct a new Literal Node:: Literal Node object
      * @param[in] literal The literal character
      */
-    LiteralNode::LiteralNode(const char *literal) : m_literal(literal) {}
+    LiteralNode::LiteralNode(char literal) : m_literal(literal) {}
 
     /**
      * @brief Matches the regex node against the input string
@@ -36,7 +35,7 @@ namespace AbstractSyntaxTree
         if (memo.find(input) != memo.end())
             return memo.at(input);
 
-        bool result = input.size() > 0 && input.front() == m_literal[0];
+        bool result = !input.empty() && input.front() == m_literal;
 
         if (memo.size() >= MAX_CACHE_SIZE)
             memo.clear();

@@ -1,0 +1,139 @@
+\hypertarget{structSyntax_1_1NegatedCharacterSetNode}{}\doxysection{Syntax\+::Negated\+Character\+Set\+Node Class Reference}
+\label{structSyntax_1_1NegatedCharacterSetNode}\index{Syntax::NegatedCharacterSetNode@{Syntax::NegatedCharacterSetNode}}
+
+
+Matches any character not in the set.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Negated\+Character\+Set\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{structSyntax_1_1NegatedCharacterSetNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Negated\+Character\+Set\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{structSyntax_1_1NegatedCharacterSetNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1NegatedCharacterSetNode_ab1ecb277b7de87748b8bf013aae0a914}{Negated\+Character\+Set\+Node}} (const std\+::string \&set)
+\begin{DoxyCompactList}\small\item\em Construct a new Negated Character Set Node\+:\+: Negated Character Set Node object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structSyntax_1_1NegatedCharacterSetNode_a6baf2a89635a4ae938635edccfd6a192}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structSyntax_1_1NegatedCharacterSetNode_a98668fc3df67ef42b5a7f3bfd5d14013}{m\+\_\+set}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Matches any character not in the set. 
+
+Definition at line 270 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1NegatedCharacterSetNode_ab1ecb277b7de87748b8bf013aae0a914}\label{structSyntax_1_1NegatedCharacterSetNode_ab1ecb277b7de87748b8bf013aae0a914}} 
+\index{Syntax::NegatedCharacterSetNode@{Syntax::NegatedCharacterSetNode}!NegatedCharacterSetNode@{NegatedCharacterSetNode}}
+\index{NegatedCharacterSetNode@{NegatedCharacterSetNode}!Syntax::NegatedCharacterSetNode@{Syntax::NegatedCharacterSetNode}}
+\doxysubsubsection{\texorpdfstring{NegatedCharacterSetNode()}{NegatedCharacterSetNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Negated\+Character\+Set\+Node\+::\+Negated\+Character\+Set\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Negated Character Set Node\+:\+: Negated Character Set Node object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em set} & The characters to match \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 278 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{279         : \mbox{\hyperlink{structSyntax_1_1NegatedCharacterSetNode_a98668fc3df67ef42b5a7f3bfd5d14013}{m\_set}}(set) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1NegatedCharacterSetNode_a6baf2a89635a4ae938635edccfd6a192}\label{structSyntax_1_1NegatedCharacterSetNode_a6baf2a89635a4ae938635edccfd6a192}} 
+\index{Syntax::NegatedCharacterSetNode@{Syntax::NegatedCharacterSetNode}!match@{match}}
+\index{match@{match}!Syntax::NegatedCharacterSetNode@{Syntax::NegatedCharacterSetNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Negated\+Character\+Set\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node does not match the input string 
+
+\mbox{[}bool\mbox{]} False if the regex matches the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 287 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{288     \{}
+\DoxyCodeLine{289         \textcolor{keywordflow}{if} (input.empty())}
+\DoxyCodeLine{290             \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{291                 \textcolor{stringliteral}{"{}NegatedCharacterSetNode::match input is empty"{}});}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293         \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1NegatedCharacterSetNode_a98668fc3df67ef42b5a7f3bfd5d14013}{m\_set}}.find(input.front()) == std::string::npos;}
+\DoxyCodeLine{294     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1NegatedCharacterSetNode_a98668fc3df67ef42b5a7f3bfd5d14013}\label{structSyntax_1_1NegatedCharacterSetNode_a98668fc3df67ef42b5a7f3bfd5d14013}} 
+\index{Syntax::NegatedCharacterSetNode@{Syntax::NegatedCharacterSetNode}!m\_set@{m\_set}}
+\index{m\_set@{m\_set}!Syntax::NegatedCharacterSetNode@{Syntax::NegatedCharacterSetNode}}
+\doxysubsubsection{\texorpdfstring{m\_set}{m\_set}}
+{\footnotesize\ttfamily std\+::string Syntax\+::\+Negated\+Character\+Set\+Node\+::m\+\_\+set}
+
+
+
+Definition at line 272 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

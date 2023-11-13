@@ -1,0 +1,135 @@
+\hypertarget{structSyntax_1_1GroupNode}{}\doxysection{Syntax\+::Group\+Node Class Reference}
+\label{structSyntax_1_1GroupNode}\index{Syntax::GroupNode@{Syntax::GroupNode}}
+
+
+A regex node that matches the end of the input string.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Group\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1GroupNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Group\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1GroupNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1GroupNode_a80f2570d0bf9bc6d518d041ce4398021}{Group\+Node}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Construct a new Group Node\+:\+: Group Node object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1GroupNode_a73834699897ce24c7cdafa96724df351}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{structSyntax_1_1GroupNode_aba242151c18d892e4377b4bdb40909d4}{m\+\_\+child}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches the end of the input string. 
+
+Definition at line 198 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1GroupNode_a80f2570d0bf9bc6d518d041ce4398021}\label{structSyntax_1_1GroupNode_a80f2570d0bf9bc6d518d041ce4398021}} 
+\index{Syntax::GroupNode@{Syntax::GroupNode}!GroupNode@{GroupNode}}
+\index{GroupNode@{GroupNode}!Syntax::GroupNode@{Syntax::GroupNode}}
+\doxysubsubsection{\texorpdfstring{GroupNode()}{GroupNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Group\+Node\+::\+Group\+Node (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Group Node\+:\+: Group Node object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 188 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{189         : \mbox{\hyperlink{structSyntax_1_1GroupNode_aba242151c18d892e4377b4bdb40909d4}{m\_child}}(std::move(child)) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1GroupNode_a73834699897ce24c7cdafa96724df351}\label{structSyntax_1_1GroupNode_a73834699897ce24c7cdafa96724df351}} 
+\index{Syntax::GroupNode@{Syntax::GroupNode}!match@{match}}
+\index{match@{match}!Syntax::GroupNode@{Syntax::GroupNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Group\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 197 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{198     \{}
+\DoxyCodeLine{199         \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1GroupNode_aba242151c18d892e4377b4bdb40909d4}{m\_child}}-\/>match(input);}
+\DoxyCodeLine{200     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1GroupNode_aba242151c18d892e4377b4bdb40909d4}\label{structSyntax_1_1GroupNode_aba242151c18d892e4377b4bdb40909d4}} 
+\index{Syntax::GroupNode@{Syntax::GroupNode}!m\_child@{m\_child}}
+\index{m\_child@{m\_child}!Syntax::GroupNode@{Syntax::GroupNode}}
+\doxysubsubsection{\texorpdfstring{m\_child}{m\_child}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}}$>$ Syntax\+::\+Group\+Node\+::m\+\_\+child}
+
+
+
+Definition at line 200 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

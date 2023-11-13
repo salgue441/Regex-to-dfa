@@ -9,4 +9,4 @@ cmake ..
 make
 
 # Run the program
-./RegexToDfa
+./RegexToDFAConverter

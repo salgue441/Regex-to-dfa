@@ -1,0 +1,135 @@
+\hypertarget{structSyntax_1_1QuestionNode}{}\doxysection{Syntax\+::Question\+Node Class Reference}
+\label{structSyntax_1_1QuestionNode}\index{Syntax::QuestionNode@{Syntax::QuestionNode}}
+
+
+A regex node that matches zero or one of the child node.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Question\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{structSyntax_1_1QuestionNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Question\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{structSyntax_1_1QuestionNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1QuestionNode_a792247cdf86debcbf9e394c919e435e7}{Question\+Node}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Construct a new Question Node\+:\+: Question Node object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1QuestionNode_a1135707482012eecb1ba10c804a9d45d}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{structSyntax_1_1QuestionNode_a5075a4a53619b630a453b990b3be916b}{m\+\_\+child}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches zero or one of the child node. 
+
+Definition at line 120 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1QuestionNode_a792247cdf86debcbf9e394c919e435e7}\label{structSyntax_1_1QuestionNode_a792247cdf86debcbf9e394c919e435e7}} 
+\index{Syntax::QuestionNode@{Syntax::QuestionNode}!QuestionNode@{QuestionNode}}
+\index{QuestionNode@{QuestionNode}!Syntax::QuestionNode@{Syntax::QuestionNode}}
+\doxysubsubsection{\texorpdfstring{QuestionNode()}{QuestionNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Question\+Node\+::\+Question\+Node (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Question Node\+:\+: Question Node object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 123 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124         : \mbox{\hyperlink{structSyntax_1_1QuestionNode_a5075a4a53619b630a453b990b3be916b}{m\_child}}(std::move(child)) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1QuestionNode_a1135707482012eecb1ba10c804a9d45d}\label{structSyntax_1_1QuestionNode_a1135707482012eecb1ba10c804a9d45d}} 
+\index{Syntax::QuestionNode@{Syntax::QuestionNode}!match@{match}}
+\index{match@{match}!Syntax::QuestionNode@{Syntax::QuestionNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Question\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 132 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{133     \{}
+\DoxyCodeLine{134         \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1QuestionNode_a5075a4a53619b630a453b990b3be916b}{m\_child}}-\/>match(input) || input.empty();}
+\DoxyCodeLine{135     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1QuestionNode_a5075a4a53619b630a453b990b3be916b}\label{structSyntax_1_1QuestionNode_a5075a4a53619b630a453b990b3be916b}} 
+\index{Syntax::QuestionNode@{Syntax::QuestionNode}!m\_child@{m\_child}}
+\index{m\_child@{m\_child}!Syntax::QuestionNode@{Syntax::QuestionNode}}
+\doxysubsubsection{\texorpdfstring{m\_child}{m\_child}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}}$>$ Syntax\+::\+Question\+Node\+::m\+\_\+child}
+
+
+
+Definition at line 122 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

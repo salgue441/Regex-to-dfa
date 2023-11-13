@@ -1,0 +1,150 @@
+\hypertarget{structSyntax_1_1CharacterSetNode}{}\doxysection{Syntax\+::Character\+Set\+Node Class Reference}
+\label{structSyntax_1_1CharacterSetNode}\index{Syntax::CharacterSetNode@{Syntax::CharacterSetNode}}
+
+
+A regex node that matches a set of characters.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Character\+Set\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{structSyntax_1_1CharacterSetNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Character\+Set\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{structSyntax_1_1CharacterSetNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1CharacterSetNode_a75e00ce8546fde01dadf8da44013e0ec}{Character\+Set\+Node}} (const std\+::string \&set)
+\begin{DoxyCompactList}\small\item\em Construct a new Character Set Node\+:\+: Character Set Node object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structSyntax_1_1CharacterSetNode_acfe51a1e9da902be4f80d799b35c54ff}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structSyntax_1_1CharacterSetNode_a02382f45c67808a03b7734c840d079ee}{m\+\_\+set}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches a set of characters. 
+
+Definition at line 232 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1CharacterSetNode_a75e00ce8546fde01dadf8da44013e0ec}\label{structSyntax_1_1CharacterSetNode_a75e00ce8546fde01dadf8da44013e0ec}} 
+\index{Syntax::CharacterSetNode@{Syntax::CharacterSetNode}!CharacterSetNode@{CharacterSetNode}}
+\index{CharacterSetNode@{CharacterSetNode}!Syntax::CharacterSetNode@{Syntax::CharacterSetNode}}
+\doxysubsubsection{\texorpdfstring{CharacterSetNode()}{CharacterSetNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Character\+Set\+Node\+::\+Character\+Set\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Character Set Node\+:\+: Character Set Node object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em set} & The characters to match \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 222 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{223         : \mbox{\hyperlink{structSyntax_1_1CharacterSetNode_a02382f45c67808a03b7734c840d079ee}{m\_set}}(set) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1CharacterSetNode_acfe51a1e9da902be4f80d799b35c54ff}\label{structSyntax_1_1CharacterSetNode_acfe51a1e9da902be4f80d799b35c54ff}} 
+\index{Syntax::CharacterSetNode@{Syntax::CharacterSetNode}!match@{match}}
+\index{match@{match}!Syntax::CharacterSetNode@{Syntax::CharacterSetNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Character\+Set\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 231 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232     \{}
+\DoxyCodeLine{233         std::lock\_guard<std::mutex> lock(\mbox{\hyperlink{structSyntax_1_1RegexNode_a52a121efdaeababafeac756495033a90}{memo\_mutex}});}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.find(input) != \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.end())}
+\DoxyCodeLine{236             \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.at(input);}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238         \textcolor{keywordflow}{if} (input.empty())}
+\DoxyCodeLine{239             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}CharacterSetNode::match input is empty"{}});}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241         \textcolor{keywordtype}{bool} result = \mbox{\hyperlink{structSyntax_1_1CharacterSetNode_a02382f45c67808a03b7734c840d079ee}{m\_set}}.find(input.front()) != std::string::npos;}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.size() >= \mbox{\hyperlink{structSyntax_1_1RegexNode_a8da22152fa31bafd7045d33147a11685}{MAX\_CACHE\_SIZE}})}
+\DoxyCodeLine{244             \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.clear();}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246         \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}[input] = result;}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{249     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1CharacterSetNode_a02382f45c67808a03b7734c840d079ee}\label{structSyntax_1_1CharacterSetNode_a02382f45c67808a03b7734c840d079ee}} 
+\index{Syntax::CharacterSetNode@{Syntax::CharacterSetNode}!m\_set@{m\_set}}
+\index{m\_set@{m\_set}!Syntax::CharacterSetNode@{Syntax::CharacterSetNode}}
+\doxysubsubsection{\texorpdfstring{m\_set}{m\_set}}
+{\footnotesize\ttfamily std\+::string Syntax\+::\+Character\+Set\+Node\+::m\+\_\+set}
+
+
+
+Definition at line 234 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

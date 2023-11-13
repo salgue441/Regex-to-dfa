@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['token_48',['Token',['../classSyntax_1_1Token.html',1,'Syntax']]]
+  ['dotnode_48',['DotNode',['../structSyntax_1_1DotNode.html',1,'Syntax']]]
 ];

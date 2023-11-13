@@ -1,0 +1,141 @@
+\hypertarget{structSyntax_1_1StarNode}{}\doxysection{Syntax\+::Star\+Node Class Reference}
+\label{structSyntax_1_1StarNode}\index{Syntax::StarNode@{Syntax::StarNode}}
+
+
+A regex node that matches zero or more of the child node.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Star\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1StarNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Star\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1StarNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1StarNode_a8ebd8a41a115892750c8b4679387fa36}{Star\+Node}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Construct a new Star Node\+:\+: Star Node object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1StarNode_ae6af66e680f96a35660cafc427a40a2b}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{structSyntax_1_1StarNode_a568239fb679b71ee91e5c6e19731427e}{m\+\_\+child}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches zero or more of the child node. 
+
+Definition at line 179 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1StarNode_a8ebd8a41a115892750c8b4679387fa36}\label{structSyntax_1_1StarNode_a8ebd8a41a115892750c8b4679387fa36}} 
+\index{Syntax::StarNode@{Syntax::StarNode}!StarNode@{StarNode}}
+\index{StarNode@{StarNode}!Syntax::StarNode@{Syntax::StarNode}}
+\doxysubsubsection{\texorpdfstring{StarNode()}{StarNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Star\+Node\+::\+Star\+Node (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Star Node\+:\+: Star Node object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 163 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164         : \mbox{\hyperlink{structSyntax_1_1StarNode_a568239fb679b71ee91e5c6e19731427e}{m\_child}}(std::move(child)) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1StarNode_ae6af66e680f96a35660cafc427a40a2b}\label{structSyntax_1_1StarNode_ae6af66e680f96a35660cafc427a40a2b}} 
+\index{Syntax::StarNode@{Syntax::StarNode}!match@{match}}
+\index{match@{match}!Syntax::StarNode@{Syntax::StarNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Star\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 172 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{173     \{}
+\DoxyCodeLine{174         std::size\_t i\{\};}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         \textcolor{keywordflow}{while} (i < input.size() \&\&}
+\DoxyCodeLine{177                \mbox{\hyperlink{structSyntax_1_1StarNode_a568239fb679b71ee91e5c6e19731427e}{m\_child}}-\/>match(input.substr(i)))}
+\DoxyCodeLine{178             ++i;}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{181     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1StarNode_a568239fb679b71ee91e5c6e19731427e}\label{structSyntax_1_1StarNode_a568239fb679b71ee91e5c6e19731427e}} 
+\index{Syntax::StarNode@{Syntax::StarNode}!m\_child@{m\_child}}
+\index{m\_child@{m\_child}!Syntax::StarNode@{Syntax::StarNode}}
+\doxysubsubsection{\texorpdfstring{m\_child}{m\_child}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}}$>$ Syntax\+::\+Star\+Node\+::m\+\_\+child}
+
+
+
+Definition at line 181 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

@@ -2,17 +2,20 @@
 \label{node_8h}\index{include/node/node.h@{include/node/node.h}}
 
 
-Defines the Node class.  
+Contains the definition of the regex nodes.  
 
 
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
-{\ttfamily \#include \char`\"{}../token/token.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
 Include dependency graph for node.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=248pt]{node_8h__incl}
+\includegraphics[width=350pt]{node_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -20,14 +23,40 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=331pt]{node_8h__dep__incl}
+\includegraphics[width=350pt]{node_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classSyntax_1_1Node}{Syntax\+::\+Node}}
-\begin{DoxyCompactList}\small\item\em Class representing a node in a syntax tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \mbox{\hyperlink{structSyntax_1_1RegexNode}{Syntax\+::\+Regex\+Node}}
+\begin{DoxyCompactList}\small\item\em Base class for all regex nodes. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1LiteralNode}{Syntax\+::\+Literal\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches a literal string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1DotNode}{Syntax\+::\+Dot\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches any character. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1StartNode}{Syntax\+::\+Start\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches the start of the input string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1PlusNode}{Syntax\+::\+Plus\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches one or more of the child node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1QuestionNode}{Syntax\+::\+Question\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches zero or one of the child node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1CharClassNode}{Syntax\+::\+Char\+Class\+Node}}
+\begin{DoxyCompactList}\small\item\em Matches a character class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1AlternationNode}{Syntax\+::\+Alternation\+Node}}
+\begin{DoxyCompactList}\small\item\em Matches one of the child nodes. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1StarNode}{Syntax\+::\+Star\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches zero or more of the child node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1GroupNode}{Syntax\+::\+Group\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches the end of the input string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1EndNode}{Syntax\+::\+End\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches the end of the input string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1CharacterSetNode}{Syntax\+::\+Character\+Set\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches a set of characters. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1EscapeNode}{Syntax\+::\+Escape\+Node}}
+\begin{DoxyCompactList}\small\item\em A regex node that matches an escaped character. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structSyntax_1_1NegatedCharacterSetNode}{Syntax\+::\+Negated\+Character\+Set\+Node}}
+\begin{DoxyCompactList}\small\item\em Matches any character not in the set. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,17 +65,17 @@ class \mbox{\hyperlink{classSyntax_1_1Node}{Syntax\+::\+Node}}
 
 
 \doxysubsection{Detailed Description}
-Defines the Node class. 
+Contains the definition of the regex nodes. 
 
 \begin{DoxyAuthor}{Author}
 Carlos Salguero 
 \end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-2023-\/10-\/28 
-\end{DoxyDate}
 \begin{DoxyVersion}{Version}
-1.\+0.\+0
+0.\+1 
 \end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/10-\/31
+\end{DoxyDate}
 \begin{DoxyCopyright}{Copyright}
-Copyright (c) -\/ MIT License 
+Copyright (c) 2023 
 \end{DoxyCopyright}

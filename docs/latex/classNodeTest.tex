@@ -29,11 +29,8 @@ Collaboration diagram for Node\+Test\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classNodeTest_a182621793940f94192603a383257f56b}{Set\+Up}} () override
-\begin{DoxyCompactList}\small\item\em Set up the test fixture. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSyntax_1_1Node}{Node}} $>$ \mbox{\hyperlink{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}{m\+\_\+node}}
+void \mbox{\hyperlink{classNodeTest_a756676f7dfef2bc8d632c691797da218}{Tear\+Down}} () override
 \end{DoxyCompactItemize}
 
 
@@ -53,32 +50,28 @@ Definition at line 21 of file node\+\_\+test.\+cpp.
 
 
 
-Set up the test fixture. 
-
-
-
-Definition at line 31 of file node\+\_\+test.\+cpp.
+Definition at line 24 of file node\+\_\+test.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{32     \{}
-\DoxyCodeLine{33         \mbox{\hyperlink{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}{m\_node}} = std::make\_shared<Node>(\mbox{\hyperlink{classSyntax_1_1Token}{Token}}(Token::Type::LITERAL, \textcolor{charliteral}{'a'}));}
-\DoxyCodeLine{34     \}}
+\DoxyCodeLine{24 \{\}}
 
 \end{DoxyCode}
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}\label{classNodeTest_acdd8bdb4fcbdb7a5b9e149d5407eb9e1}} 
-\index{NodeTest@{NodeTest}!m\_node@{m\_node}}
-\index{m\_node@{m\_node}!NodeTest@{NodeTest}}
-\doxysubsubsection{\texorpdfstring{m\_node}{m\_node}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSyntax_1_1Node}{Node}}$>$ Node\+Test\+::m\+\_\+node\hspace{0.3cm}{\ttfamily [protected]}}
+\mbox{\Hypertarget{classNodeTest_a756676f7dfef2bc8d632c691797da218}\label{classNodeTest_a756676f7dfef2bc8d632c691797da218}} 
+\index{NodeTest@{NodeTest}!TearDown@{TearDown}}
+\index{TearDown@{TearDown}!NodeTest@{NodeTest}}
+\doxysubsubsection{\texorpdfstring{TearDown()}{TearDown()}}
+{\footnotesize\ttfamily void Node\+Test\+::\+Tear\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
 
 
 
-Definition at line 25 of file node\+\_\+test.\+cpp.
+Definition at line 26 of file node\+\_\+test.\+cpp.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{\}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

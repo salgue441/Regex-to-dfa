@@ -1,0 +1,121 @@
+\hypertarget{structSyntax_1_1RegexNode}{}\doxysection{Syntax\+::Regex\+Node Class Reference}
+\label{structSyntax_1_1RegexNode}\index{Syntax::RegexNode@{Syntax::RegexNode}}
+
+
+Base class for all regex nodes.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Regex\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structSyntax_1_1RegexNode__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structSyntax_1_1RegexNode_aff1a31c8e202ad245edb68b273a6efb9}{$\sim$\+Regex\+Node}} ()=default
+\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{match}} (const std\+::string\+\_\+view \&input) const =0
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, bool $>$ \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}
+\item 
+std\+::mutex \mbox{\hyperlink{structSyntax_1_1RegexNode_a52a121efdaeababafeac756495033a90}{memo\+\_\+mutex}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::size\+\_\+t \mbox{\hyperlink{structSyntax_1_1RegexNode_a8da22152fa31bafd7045d33147a11685}{MAX\+\_\+\+CACHE\+\_\+\+SIZE}} = 1000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all regex nodes. 
+
+Definition at line 26 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1RegexNode_aff1a31c8e202ad245edb68b273a6efb9}\label{structSyntax_1_1RegexNode_aff1a31c8e202ad245edb68b273a6efb9}} 
+\index{Syntax::RegexNode@{Syntax::RegexNode}!````~RegexNode@{$\sim$RegexNode}}
+\index{````~RegexNode@{$\sim$RegexNode}!Syntax::RegexNode@{Syntax::RegexNode}}
+\doxysubsubsection{\texorpdfstring{$\sim$RegexNode()}{~RegexNode()}}
+{\footnotesize\ttfamily virtual Syntax\+::\+Regex\+Node\+::$\sim$\+Regex\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}\label{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}} 
+\index{Syntax::RegexNode@{Syntax::RegexNode}!match@{match}}
+\index{match@{match}!Syntax::RegexNode@{Syntax::RegexNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily virtual bool Syntax\+::\+Regex\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{structSyntax_1_1NegatedCharacterSetNode_a6baf2a89635a4ae938635edccfd6a192}{Syntax\+::\+Negated\+Character\+Set\+Node}}, \mbox{\hyperlink{structSyntax_1_1EscapeNode_a3b76a3c14152c3a4f38747d8caf6b6f4}{Syntax\+::\+Escape\+Node}}, \mbox{\hyperlink{structSyntax_1_1CharacterSetNode_acfe51a1e9da902be4f80d799b35c54ff}{Syntax\+::\+Character\+Set\+Node}}, \mbox{\hyperlink{structSyntax_1_1EndNode_afb0c1b37b7b718460d722cb00de63846}{Syntax\+::\+End\+Node}}, \mbox{\hyperlink{structSyntax_1_1GroupNode_a73834699897ce24c7cdafa96724df351}{Syntax\+::\+Group\+Node}}, \mbox{\hyperlink{structSyntax_1_1StarNode_ae6af66e680f96a35660cafc427a40a2b}{Syntax\+::\+Star\+Node}}, \mbox{\hyperlink{structSyntax_1_1AlternationNode_afb8446b6bce6a041d21e803e6882e669}{Syntax\+::\+Alternation\+Node}}, \mbox{\hyperlink{structSyntax_1_1CharClassNode_a46cb0680b45689a1098e3d9d604f8cf4}{Syntax\+::\+Char\+Class\+Node}}, \mbox{\hyperlink{structSyntax_1_1QuestionNode_a1135707482012eecb1ba10c804a9d45d}{Syntax\+::\+Question\+Node}}, \mbox{\hyperlink{structSyntax_1_1PlusNode_aedf4231f1268c1fb73b83f6cd2f13991}{Syntax\+::\+Plus\+Node}}, \mbox{\hyperlink{structSyntax_1_1StartNode_a7169a52de09999b8f8ef026850ba41cb}{Syntax\+::\+Start\+Node}}, \mbox{\hyperlink{structSyntax_1_1DotNode_ab37aadbd3103206e7f0357f90be022ed}{Syntax\+::\+Dot\+Node}}, and \mbox{\hyperlink{structSyntax_1_1LiteralNode_a1bbf622958b1ea61f0e6fc08d8531e9c}{Syntax\+::\+Literal\+Node}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1RegexNode_a8da22152fa31bafd7045d33147a11685}\label{structSyntax_1_1RegexNode_a8da22152fa31bafd7045d33147a11685}} 
+\index{Syntax::RegexNode@{Syntax::RegexNode}!MAX\_CACHE\_SIZE@{MAX\_CACHE\_SIZE}}
+\index{MAX\_CACHE\_SIZE@{MAX\_CACHE\_SIZE}!Syntax::RegexNode@{Syntax::RegexNode}}
+\doxysubsubsection{\texorpdfstring{MAX\_CACHE\_SIZE}{MAX\_CACHE\_SIZE}}
+{\footnotesize\ttfamily const std\+::size\+\_\+t Syntax\+::\+Regex\+Node\+::\+MAX\+\_\+\+CACHE\+\_\+\+SIZE = 1000\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 30 of file node.\+h.
+
+\mbox{\Hypertarget{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}\label{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}} 
+\index{Syntax::RegexNode@{Syntax::RegexNode}!memo@{memo}}
+\index{memo@{memo}!Syntax::RegexNode@{Syntax::RegexNode}}
+\doxysubsubsection{\texorpdfstring{memo}{memo}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string\+\_\+view, bool$>$ Syntax\+::\+Regex\+Node\+::memo\hspace{0.3cm}{\ttfamily [mutable]}}
+
+
+
+Definition at line 28 of file node.\+h.
+
+\mbox{\Hypertarget{structSyntax_1_1RegexNode_a52a121efdaeababafeac756495033a90}\label{structSyntax_1_1RegexNode_a52a121efdaeababafeac756495033a90}} 
+\index{Syntax::RegexNode@{Syntax::RegexNode}!memo\_mutex@{memo\_mutex}}
+\index{memo\_mutex@{memo\_mutex}!Syntax::RegexNode@{Syntax::RegexNode}}
+\doxysubsubsection{\texorpdfstring{memo\_mutex}{memo\_mutex}}
+{\footnotesize\ttfamily std\+::mutex Syntax\+::\+Regex\+Node\+::memo\+\_\+mutex\hspace{0.3cm}{\ttfamily [mutable]}}
+
+
+
+Definition at line 29 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="Syntax::DotNode" name="Syntax::DotNode">
+<area shape="rect" id="node1" title="A regex node that matches any character." alt="" coords="15,80,147,107"/>
+<area shape="rect" id="node2" href="$structSyntax_1_1RegexNode.html" title="Base class for all regex nodes." alt="" coords="5,5,156,32"/>
+</map>

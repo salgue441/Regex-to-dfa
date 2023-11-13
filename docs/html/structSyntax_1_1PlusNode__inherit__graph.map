@@ -1,0 +1,4 @@
+<map id="Syntax::PlusNode" name="Syntax::PlusNode">
+<area shape="rect" id="node1" title="A regex node that matches one or more of the child node." alt="" coords="13,80,149,107"/>
+<area shape="rect" id="node2" href="$structSyntax_1_1RegexNode.html" title="Base class for all regex nodes." alt="" coords="5,5,156,32"/>
+</map>

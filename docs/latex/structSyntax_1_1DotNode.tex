@@ -1,0 +1,102 @@
+\hypertarget{structSyntax_1_1DotNode}{}\doxysection{Syntax\+::Dot\+Node Class Reference}
+\label{structSyntax_1_1DotNode}\index{Syntax::DotNode@{Syntax::DotNode}}
+
+
+A regex node that matches any character.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Dot\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1DotNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Dot\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1DotNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1DotNode_ab37aadbd3103206e7f0357f90be022ed}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches any character. 
+
+Definition at line 66 of file node.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1DotNode_ab37aadbd3103206e7f0357f90be022ed}\label{structSyntax_1_1DotNode_ab37aadbd3103206e7f0357f90be022ed}} 
+\index{Syntax::DotNode@{Syntax::DotNode}!match@{match}}
+\index{match@{match}!Syntax::DotNode@{Syntax::DotNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Dot\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 55 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         std::lock\_guard<std::mutex> lock(\mbox{\hyperlink{structSyntax_1_1RegexNode_a52a121efdaeababafeac756495033a90}{memo\_mutex}});}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.find(input) != \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.end())}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.at(input);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{keywordtype}{char} front\_char = input.front();}
+\DoxyCodeLine{63         \textcolor{keywordtype}{bool} result = front\_char != \textcolor{charliteral}{'\(\backslash\)0'} \&\& front\_char != \textcolor{charliteral}{'\(\backslash\)n'} \&\&}
+\DoxyCodeLine{64                       front\_char != \textcolor{charliteral}{'\(\backslash\)r'};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.size() >= \mbox{\hyperlink{structSyntax_1_1RegexNode_a8da22152fa31bafd7045d33147a11685}{MAX\_CACHE\_SIZE}})}
+\DoxyCodeLine{67             \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.clear();}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.emplace(input, front\_char);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{72     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

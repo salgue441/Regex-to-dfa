@@ -1,0 +1,46 @@
+\hypertarget{tests_2AST_8cpp}{}\doxysection{tests/\+AST.cpp File Reference}
+\label{tests_2AST_8cpp}\index{tests/AST.cpp@{tests/AST.cpp}}
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../include/\+AST/ast.\+h\char`\"{}}\newline
+Include dependency graph for AST.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tests_2AST_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classRegexASTTree}{Regex\+ASTTree}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tests_2AST_8cpp_a8210367655a150fd16d6e2ea3174db1e}{TEST\+\_\+F}} (\mbox{\hyperlink{classRegexASTTree}{Regex\+ASTTree}}, Simple\+Literal\+Regex)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tests_2AST_8cpp_a8210367655a150fd16d6e2ea3174db1e}\label{tests_2AST_8cpp_a8210367655a150fd16d6e2ea3174db1e}} 
+\index{AST.cpp@{AST.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!AST.cpp@{AST.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRegexASTTree}{Regex\+ASTTree}}}]{,  }\item[{Simple\+Literal\+Regex}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file AST.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     std::string regex = \textcolor{stringliteral}{"{}a"{}};}
+\DoxyCodeLine{14     \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree}{AbstractSyntaxTree}} ast(regex);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     EXPECT\_TRUE(ast.match(\textcolor{stringliteral}{"{}a"{}}));}
+\DoxyCodeLine{17     EXPECT\_FALSE(ast.match(\textcolor{stringliteral}{"{}b"{}}));}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}

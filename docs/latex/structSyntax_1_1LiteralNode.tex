@@ -1,0 +1,147 @@
+\hypertarget{structSyntax_1_1LiteralNode}{}\doxysection{Syntax\+::Literal\+Node Class Reference}
+\label{structSyntax_1_1LiteralNode}\index{Syntax::LiteralNode@{Syntax::LiteralNode}}
+
+
+A regex node that matches a literal string.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Literal\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1LiteralNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Literal\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1LiteralNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1LiteralNode_ab1ce037c4e9b3ea0b309ef6523da621e}{Literal\+Node}} (char literal)
+\begin{DoxyCompactList}\small\item\em Construct a new Literal Node\+:\+: Literal Node object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1LiteralNode_a1bbf622958b1ea61f0e6fc08d8531e9c}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{structSyntax_1_1LiteralNode_acbaa2b7e3661321d2b37faa03e41e7ea}{m\+\_\+literal}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches a literal string. 
+
+Definition at line 47 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1LiteralNode_ab1ce037c4e9b3ea0b309ef6523da621e}\label{structSyntax_1_1LiteralNode_ab1ce037c4e9b3ea0b309ef6523da621e}} 
+\index{Syntax::LiteralNode@{Syntax::LiteralNode}!LiteralNode@{LiteralNode}}
+\index{LiteralNode@{LiteralNode}!Syntax::LiteralNode@{Syntax::LiteralNode}}
+\doxysubsubsection{\texorpdfstring{LiteralNode()}{LiteralNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Literal\+Node\+::\+Literal\+Node (\begin{DoxyParamCaption}\item[{char}]{literal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Literal Node\+:\+: Literal Node object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em literal} & The literal character \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 : \mbox{\hyperlink{structSyntax_1_1LiteralNode_acbaa2b7e3661321d2b37faa03e41e7ea}{m\_literal}}(literal) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1LiteralNode_a1bbf622958b1ea61f0e6fc08d8531e9c}\label{structSyntax_1_1LiteralNode_a1bbf622958b1ea61f0e6fc08d8531e9c}} 
+\index{Syntax::LiteralNode@{Syntax::LiteralNode}!match@{match}}
+\index{match@{match}!Syntax::LiteralNode@{Syntax::LiteralNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Literal\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 31 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         std::lock\_guard<std::mutex> lock(\mbox{\hyperlink{structSyntax_1_1RegexNode_a52a121efdaeababafeac756495033a90}{memo\_mutex}});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.find(input) != \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.end())}
+\DoxyCodeLine{36             \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.at(input);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \textcolor{keywordtype}{bool} result = !input.empty() \&\& input.front() == \mbox{\hyperlink{structSyntax_1_1LiteralNode_acbaa2b7e3661321d2b37faa03e41e7ea}{m\_literal}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keywordflow}{if} (\mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.size() >= \mbox{\hyperlink{structSyntax_1_1RegexNode_a8da22152fa31bafd7045d33147a11685}{MAX\_CACHE\_SIZE}})}
+\DoxyCodeLine{41             \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.clear();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \mbox{\hyperlink{structSyntax_1_1RegexNode_a9ab621917f136353dfd8e3dff5825ca3}{memo}}.emplace(input, result);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{46     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1LiteralNode_acbaa2b7e3661321d2b37faa03e41e7ea}\label{structSyntax_1_1LiteralNode_acbaa2b7e3661321d2b37faa03e41e7ea}} 
+\index{Syntax::LiteralNode@{Syntax::LiteralNode}!m\_literal@{m\_literal}}
+\index{m\_literal@{m\_literal}!Syntax::LiteralNode@{Syntax::LiteralNode}}
+\doxysubsubsection{\texorpdfstring{m\_literal}{m\_literal}}
+{\footnotesize\ttfamily char Syntax\+::\+Literal\+Node\+::m\+\_\+literal}
+
+
+
+Definition at line 49 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

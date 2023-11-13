@@ -1,0 +1,138 @@
+\hypertarget{structSyntax_1_1EscapeNode}{}\doxysection{Syntax\+::Escape\+Node Class Reference}
+\label{structSyntax_1_1EscapeNode}\index{Syntax::EscapeNode@{Syntax::EscapeNode}}
+
+
+A regex node that matches an escaped character.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Escape\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{structSyntax_1_1EscapeNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Escape\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{structSyntax_1_1EscapeNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1EscapeNode_af765af5b6a8de0d591d2169fc7fadbb7}{Escape\+Node}} (const char \&escape)
+\begin{DoxyCompactList}\small\item\em Construct a new Escape Node\+:\+: Escape Node object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structSyntax_1_1EscapeNode_a3b76a3c14152c3a4f38747d8caf6b6f4}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{structSyntax_1_1EscapeNode_a541fbfc48c9bee7db5209b69cf820fac}{m\+\_\+escape}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches an escaped character. 
+
+Definition at line 251 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1EscapeNode_af765af5b6a8de0d591d2169fc7fadbb7}\label{structSyntax_1_1EscapeNode_af765af5b6a8de0d591d2169fc7fadbb7}} 
+\index{Syntax::EscapeNode@{Syntax::EscapeNode}!EscapeNode@{EscapeNode}}
+\index{EscapeNode@{EscapeNode}!Syntax::EscapeNode@{Syntax::EscapeNode}}
+\doxysubsubsection{\texorpdfstring{EscapeNode()}{EscapeNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Escape\+Node\+::\+Escape\+Node (\begin{DoxyParamCaption}\item[{const char \&}]{escape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Escape Node\+:\+: Escape Node object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em escape} & The literal character \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 256 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{256 : \mbox{\hyperlink{structSyntax_1_1EscapeNode_a541fbfc48c9bee7db5209b69cf820fac}{m\_escape}}(escape) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1EscapeNode_a3b76a3c14152c3a4f38747d8caf6b6f4}\label{structSyntax_1_1EscapeNode_a3b76a3c14152c3a4f38747d8caf6b6f4}} 
+\index{Syntax::EscapeNode@{Syntax::EscapeNode}!match@{match}}
+\index{match@{match}!Syntax::EscapeNode@{Syntax::EscapeNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Escape\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 264 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265     \{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{if} (input.empty())}
+\DoxyCodeLine{267             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}EscapeNode::match input is empty"{}});}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269         \textcolor{keywordflow}{return} input.front() == \mbox{\hyperlink{structSyntax_1_1EscapeNode_a541fbfc48c9bee7db5209b69cf820fac}{m\_escape}};}
+\DoxyCodeLine{270     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1EscapeNode_a541fbfc48c9bee7db5209b69cf820fac}\label{structSyntax_1_1EscapeNode_a541fbfc48c9bee7db5209b69cf820fac}} 
+\index{Syntax::EscapeNode@{Syntax::EscapeNode}!m\_escape@{m\_escape}}
+\index{m\_escape@{m\_escape}!Syntax::EscapeNode@{Syntax::EscapeNode}}
+\doxysubsubsection{\texorpdfstring{m\_escape}{m\_escape}}
+{\footnotesize\ttfamily char Syntax\+::\+Escape\+Node\+::m\+\_\+escape}
+
+
+
+Definition at line 253 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

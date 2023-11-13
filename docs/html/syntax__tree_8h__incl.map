@@ -1,9 +1,0 @@
-<map id="include/syntax_tree/syntax_tree.h" name="include/syntax_tree/syntax_tree.h">
-<area shape="rect" id="node1" title="Contains the SyntaxTree class for building a syntax tree." alt="" coords="59,5,209,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="58,169,135,196"/>
-<area shape="rect" id="node3" title=" " alt="" coords="23,95,80,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="105,95,163,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="188,95,251,121"/>
-<area shape="rect" id="node6" href="$node_8h.html" title="Defines the Node class." alt="" coords="275,95,390,121"/>
-<area shape="rect" id="node7" href="$token_8h.html" title="Contains the Token class for representing a token in a regular expression." alt="" coords="271,169,394,196"/>
-</map>

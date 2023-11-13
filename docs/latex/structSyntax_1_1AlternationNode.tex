@@ -1,0 +1,149 @@
+\hypertarget{structSyntax_1_1AlternationNode}{}\doxysection{Syntax\+::Alternation\+Node Class Reference}
+\label{structSyntax_1_1AlternationNode}\index{Syntax::AlternationNode@{Syntax::AlternationNode}}
+
+
+Matches one of the child nodes.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Alternation\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structSyntax_1_1AlternationNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Alternation\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structSyntax_1_1AlternationNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1AlternationNode_a2dfce49375a98862238c1e9124c8a8d2}{Alternation\+Node}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ left, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ right)
+\begin{DoxyCompactList}\small\item\em Construct a new Alternation Node\+:\+: Alternation Node object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1AlternationNode_afb8446b6bce6a041d21e803e6882e669}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{structSyntax_1_1AlternationNode_a8cfb9ebf7e17f27a2ee3c28271265e6a}{m\+\_\+left}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{structSyntax_1_1AlternationNode_a1a95a6a016622cc332c45cb3bec68b5b}{m\+\_\+right}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Matches one of the child nodes. 
+
+Definition at line 158 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1AlternationNode_a2dfce49375a98862238c1e9124c8a8d2}\label{structSyntax_1_1AlternationNode_a2dfce49375a98862238c1e9124c8a8d2}} 
+\index{Syntax::AlternationNode@{Syntax::AlternationNode}!AlternationNode@{AlternationNode}}
+\index{AlternationNode@{AlternationNode}!Syntax::AlternationNode@{Syntax::AlternationNode}}
+\doxysubsubsection{\texorpdfstring{AlternationNode()}{AlternationNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Alternation\+Node\+::\+Alternation\+Node (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$}]{left,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Alternation Node\+:\+: Alternation Node object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & The left child node \\
+\hline
+{\em right} & The right child node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 143 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{145         : \mbox{\hyperlink{structSyntax_1_1AlternationNode_a8cfb9ebf7e17f27a2ee3c28271265e6a}{m\_left}}(std::move(left)), \mbox{\hyperlink{structSyntax_1_1AlternationNode_a1a95a6a016622cc332c45cb3bec68b5b}{m\_right}}(std::move(right)) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1AlternationNode_afb8446b6bce6a041d21e803e6882e669}\label{structSyntax_1_1AlternationNode_afb8446b6bce6a041d21e803e6882e669}} 
+\index{Syntax::AlternationNode@{Syntax::AlternationNode}!match@{match}}
+\index{match@{match}!Syntax::AlternationNode@{Syntax::AlternationNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Alternation\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 153 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154     \{}
+\DoxyCodeLine{155         \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1AlternationNode_a8cfb9ebf7e17f27a2ee3c28271265e6a}{m\_left}}-\/>match(input) || \mbox{\hyperlink{structSyntax_1_1AlternationNode_a1a95a6a016622cc332c45cb3bec68b5b}{m\_right}}-\/>match(input);}
+\DoxyCodeLine{156     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1AlternationNode_a8cfb9ebf7e17f27a2ee3c28271265e6a}\label{structSyntax_1_1AlternationNode_a8cfb9ebf7e17f27a2ee3c28271265e6a}} 
+\index{Syntax::AlternationNode@{Syntax::AlternationNode}!m\_left@{m\_left}}
+\index{m\_left@{m\_left}!Syntax::AlternationNode@{Syntax::AlternationNode}}
+\doxysubsubsection{\texorpdfstring{m\_left}{m\_left}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}}$>$ Syntax\+::\+Alternation\+Node\+::m\+\_\+left}
+
+
+
+Definition at line 160 of file node.\+h.
+
+\mbox{\Hypertarget{structSyntax_1_1AlternationNode_a1a95a6a016622cc332c45cb3bec68b5b}\label{structSyntax_1_1AlternationNode_a1a95a6a016622cc332c45cb3bec68b5b}} 
+\index{Syntax::AlternationNode@{Syntax::AlternationNode}!m\_right@{m\_right}}
+\index{m\_right@{m\_right}!Syntax::AlternationNode@{Syntax::AlternationNode}}
+\doxysubsubsection{\texorpdfstring{m\_right}{m\_right}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}}$>$ Syntax\+::\+Alternation\+Node\+::m\+\_\+right}
+
+
+
+Definition at line 161 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

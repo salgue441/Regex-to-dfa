@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['syntaxtree_47',['SyntaxTree',['../classSyntax_1_1SyntaxTree.html',1,'Syntax']]]
+  ['charactersetnode_46',['CharacterSetNode',['../structSyntax_1_1CharacterSetNode.html',1,'Syntax']]],
+  ['charclassnode_47',['CharClassNode',['../structSyntax_1_1CharClassNode.html',1,'Syntax']]]
 ];

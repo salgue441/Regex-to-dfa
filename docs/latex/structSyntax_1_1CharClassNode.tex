@@ -1,0 +1,105 @@
+\hypertarget{structSyntax_1_1CharClassNode}{}\doxysection{Syntax\+::Char\+Class\+Node Class Reference}
+\label{structSyntax_1_1CharClassNode}\index{Syntax::CharClassNode@{Syntax::CharClassNode}}
+
+
+Matches a character class.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Char\+Class\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{structSyntax_1_1CharClassNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Char\+Class\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{structSyntax_1_1CharClassNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1CharClassNode_a4b61187ab6962bfd7eb5546383c457e6}{Char\+Class\+Node}} (const std\+::string \&class\+\_\+str)
+\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1CharClassNode_a46cb0680b45689a1098e3d9d604f8cf4}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structSyntax_1_1CharClassNode_ad9b13f555259f3bf34d81e4e03ffc251}{m\+\_\+class}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Matches a character class. 
+
+Definition at line 139 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1CharClassNode_a4b61187ab6962bfd7eb5546383c457e6}\label{structSyntax_1_1CharClassNode_a4b61187ab6962bfd7eb5546383c457e6}} 
+\index{Syntax::CharClassNode@{Syntax::CharClassNode}!CharClassNode@{CharClassNode}}
+\index{CharClassNode@{CharClassNode}!Syntax::CharClassNode@{Syntax::CharClassNode}}
+\doxysubsubsection{\texorpdfstring{CharClassNode()}{CharClassNode()}}
+{\footnotesize\ttfamily Syntax\+::\+Char\+Class\+Node\+::\+Char\+Class\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+\_\+str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1CharClassNode_a46cb0680b45689a1098e3d9d604f8cf4}\label{structSyntax_1_1CharClassNode_a46cb0680b45689a1098e3d9d604f8cf4}} 
+\index{Syntax::CharClassNode@{Syntax::CharClassNode}!match@{match}}
+\index{match@{match}!Syntax::CharClassNode@{Syntax::CharClassNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily virtual bool Syntax\+::\+Char\+Class\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1CharClassNode_ad9b13f555259f3bf34d81e4e03ffc251}\label{structSyntax_1_1CharClassNode_ad9b13f555259f3bf34d81e4e03ffc251}} 
+\index{Syntax::CharClassNode@{Syntax::CharClassNode}!m\_class@{m\_class}}
+\index{m\_class@{m\_class}!Syntax::CharClassNode@{Syntax::CharClassNode}}
+\doxysubsubsection{\texorpdfstring{m\_class}{m\_class}}
+{\footnotesize\ttfamily std\+::string Syntax\+::\+Char\+Class\+Node\+::m\+\_\+class}
+
+
+
+Definition at line 141 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\end{DoxyCompactItemize}

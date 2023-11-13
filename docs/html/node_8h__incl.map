@@ -1,5 +1,8 @@
 <map id="include/node/node.h" name="include/node/node.h">
-<area shape="rect" id="node1" title="Defines the Node class." alt="" coords="29,5,182,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,83,107"/>
-<area shape="rect" id="node3" href="$token_8h.html" title="Contains the Token class for representing a token in a regular expression." alt="" coords="107,80,229,107"/>
+<area shape="rect" id="node1" title="Contains the definition of the regex nodes." alt="" coords="195,5,349,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,64,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,80,186,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="210,80,334,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="359,80,436,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="460,80,524,107"/>
 </map>

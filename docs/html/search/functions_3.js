@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_64',['Node',['../classSyntax_1_1Node.html#a8287c93dbb30826e1eb91b50891bbff4',1,'Syntax::Node']]]
+  ['groupnode_73',['GroupNode',['../structSyntax_1_1GroupNode.html#a80f2570d0bf9bc6d518d041ce4398021',1,'Syntax::GroupNode']]]
 ];

@@ -1,0 +1,143 @@
+\hypertarget{structSyntax_1_1StartNode}{}\doxysection{Syntax\+::Start\+Node Class Reference}
+\label{structSyntax_1_1StartNode}\index{Syntax::StartNode@{Syntax::StartNode}}
+
+
+A regex node that matches the start of the input string.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Syntax\+::Start\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1StartNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Syntax\+::Start\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structSyntax_1_1StartNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSyntax_1_1StartNode_a56f750de401cc90e8473ac977bfd2c60}{Start\+Node}} ()=default
+\item 
+\mbox{\hyperlink{structSyntax_1_1StartNode_a9b547a41c265e4ed97d9b10d2f7bd251}{Start\+Node}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Construct a new Start Node\+:\+: Start Node object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structSyntax_1_1StartNode_a7169a52de09999b8f8ef026850ba41cb}{match}} (const std\+::string\+\_\+view \&input) const override
+\begin{DoxyCompactList}\small\item\em Matches the regex node against the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{structSyntax_1_1StartNode_af40d8d164b8099ebe76849870b570aab}{m\+\_\+child}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A regex node that matches the start of the input string. 
+
+Definition at line 81 of file node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structSyntax_1_1StartNode_a56f750de401cc90e8473ac977bfd2c60}\label{structSyntax_1_1StartNode_a56f750de401cc90e8473ac977bfd2c60}} 
+\index{Syntax::StartNode@{Syntax::StartNode}!StartNode@{StartNode}}
+\index{StartNode@{StartNode}!Syntax::StartNode@{Syntax::StartNode}}
+\doxysubsubsection{\texorpdfstring{StartNode()}{StartNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Syntax\+::\+Start\+Node\+::\+Start\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [default]}}
+
+\mbox{\Hypertarget{structSyntax_1_1StartNode_a9b547a41c265e4ed97d9b10d2f7bd251}\label{structSyntax_1_1StartNode_a9b547a41c265e4ed97d9b10d2f7bd251}} 
+\index{Syntax::StartNode@{Syntax::StartNode}!StartNode@{StartNode}}
+\index{StartNode@{StartNode}!Syntax::StartNode@{Syntax::StartNode}}
+\doxysubsubsection{\texorpdfstring{StartNode()}{StartNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Syntax\+::\+Start\+Node\+::\+Start\+Node (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Start Node\+:\+: Start Node object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80         : \mbox{\hyperlink{structSyntax_1_1StartNode_af40d8d164b8099ebe76849870b570aab}{m\_child}}(std::move(child)) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structSyntax_1_1StartNode_a7169a52de09999b8f8ef026850ba41cb}\label{structSyntax_1_1StartNode_a7169a52de09999b8f8ef026850ba41cb}} 
+\index{Syntax::StartNode@{Syntax::StartNode}!match@{match}}
+\index{match@{match}!Syntax::StartNode@{Syntax::StartNode}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Start\+Node\+::match (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Matches the regex node against the input string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the regex node matches the input string 
+
+\mbox{[}bool\mbox{]} False if the regex does not match the input string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structSyntax_1_1RegexNode_a5857a321c7c5a6fade13f0c4a8014d74}{Syntax\+::\+Regex\+Node}}.
+
+
+
+Definition at line 88 of file node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return} \mbox{\hyperlink{structSyntax_1_1StartNode_af40d8d164b8099ebe76849870b570aab}{m\_child}}-\/>match(input);}
+\DoxyCodeLine{91     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSyntax_1_1StartNode_af40d8d164b8099ebe76849870b570aab}\label{structSyntax_1_1StartNode_af40d8d164b8099ebe76849870b570aab}} 
+\index{Syntax::StartNode@{Syntax::StartNode}!m\_child@{m\_child}}
+\index{m\_child@{m\_child}!Syntax::StartNode@{Syntax::StartNode}}
+\doxysubsubsection{\texorpdfstring{m\_child}{m\_child}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}}$>$ Syntax\+::\+Start\+Node\+::m\+\_\+child}
+
+
+
+Definition at line 83 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/node/\mbox{\hyperlink{node_8h}{node.\+h}}\item 
+src/node/\mbox{\hyperlink{node_8cpp}{node.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,354 @@
+\hypertarget{classSyntax_1_1AbstractSyntaxTree}{}\doxysection{Syntax\+::Abstract\+Syntax\+Tree Class Reference}
+\label{classSyntax_1_1AbstractSyntaxTree}\index{Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}}
+
+
+Creates the AST for regular expression syntax.  
+
+
+
+
+{\ttfamily \#include $<$ast.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_ac9b2e152be69854c4b1c64bdebee87a7}{Abstract\+Syntax\+Tree}} (const std\+::string \&regex)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree}{Abstract\+Syntax\+Tree}}\+:\+: \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree}{Abstract\+Syntax\+Tree}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a50c4e985dcee153a0a19f0963cafd604}{match}} (const std\+::string \&input) const
+\begin{DoxyCompactList}\small\item\em Matches the given string with the regex. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a93297d89e65c64ced9b3c68ff88d9d7c}{to\+\_\+string}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a59e46846e848523750a300d3de6fd663}{parse\+\_\+regex}} (const std\+::string \&regex)
+\begin{DoxyCompactList}\small\item\em Parses a regular expression into an AST composed of various node types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a58b73afd9a1e5828dc2d2b61142bc0a9}{m\+\_\+regex}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a942e0844a4702ce1f9618da6cb60da0c}{m\+\_\+root}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Creates the AST for regular expression syntax. 
+
+Definition at line 19 of file ast.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSyntax_1_1AbstractSyntaxTree_ac9b2e152be69854c4b1c64bdebee87a7}\label{classSyntax_1_1AbstractSyntaxTree_ac9b2e152be69854c4b1c64bdebee87a7}} 
+\index{Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}!AbstractSyntaxTree@{AbstractSyntaxTree}}
+\index{AbstractSyntaxTree@{AbstractSyntaxTree}!Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}}
+\doxysubsubsection{\texorpdfstring{AbstractSyntaxTree()}{AbstractSyntaxTree()}}
+{\footnotesize\ttfamily Syntax\+::\+Abstract\+Syntax\+Tree\+::\+Abstract\+Syntax\+Tree (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree}{Abstract\+Syntax\+Tree}}\+:\+: \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree}{Abstract\+Syntax\+Tree}} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em regex} & Regular expression to parse \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file AST.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19         : \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a58b73afd9a1e5828dc2d2b61142bc0a9}{m\_regex}}(regex)}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21         spdlog::info(\textcolor{stringliteral}{"{}Initializing AST with regex: \{\}"{}}, regex);}
+\DoxyCodeLine{22         \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a942e0844a4702ce1f9618da6cb60da0c}{m\_root}} = \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a59e46846e848523750a300d3de6fd663}{parse\_regex}}(regex);}
+\DoxyCodeLine{23     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSyntax_1_1AbstractSyntaxTree_a50c4e985dcee153a0a19f0963cafd604}\label{classSyntax_1_1AbstractSyntaxTree_a50c4e985dcee153a0a19f0963cafd604}} 
+\index{Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}!match@{match}}
+\index{match@{match}!Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool Syntax\+::\+Abstract\+Syntax\+Tree\+::match (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption}) const}
+
+
+
+Matches the given string with the regex. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & String to be matched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the input string could be matched 
+
+False if the input string could not be matched 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file AST.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a942e0844a4702ce1f9618da6cb60da0c}{m\_root}})}
+\DoxyCodeLine{36         \{}
+\DoxyCodeLine{37             spdlog::error(}
+\DoxyCodeLine{38                 \textcolor{stringliteral}{"{}AST Root is null. Regex not properly initialized"{}});}
+\DoxyCodeLine{39             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a942e0844a4702ce1f9618da6cb60da0c}{m\_root}}-\/>match(input);}
+\DoxyCodeLine{43     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSyntax_1_1AbstractSyntaxTree_a59e46846e848523750a300d3de6fd663}\label{classSyntax_1_1AbstractSyntaxTree_a59e46846e848523750a300d3de6fd663}} 
+\index{Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}!parse\_regex@{parse\_regex}}
+\index{parse\_regex@{parse\_regex}!Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}}
+\doxysubsubsection{\texorpdfstring{parse\_regex()}{parse\_regex()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}} $>$ Syntax\+::\+Abstract\+Syntax\+Tree\+::parse\+\_\+regex (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parses a regular expression into an AST composed of various node types. 
+
+This function interprets the regex pattern and constructs a corresponding tree structure where each node represents a distinct construct in the regex (e.\+g. a literal character, a character set, etc.) The AST can be used to match stirngs against the regex pattern.
+
+Supported constructs include\+:
+\begin{DoxyItemize}
+\item Literal characters
+\item Character classes (e.\+g., \mbox{[}a-\/z\mbox{]}, \mbox{[}A-\/Z\mbox{]}, \mbox{[}0-\/9\mbox{]})
+\item Predefined character classes (e.\+g., \textbackslash{}d, \textbackslash{}w, \textbackslash{}s)
+\item Quantifiers (e.\+g., $\ast$, +, ?, \{n\}, \{n,\}, \{n,m\})
+\item Alternation (e.\+g., a$\vert$b)
+\item Grouping Parentheses (e.\+g., (a$\vert$b))
+\item Anchors (e.\+g., $^\wedge$, \$)
+\item Escape characters (e.\+g., \textbackslash{})
+\item Dot (.) to match any character
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em regex} & The regular expression string to be parsed into an AST \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::unique\+\_\+ptr to the root node of the constructed AST. If the the regex is invalid or empty, the function returns nullptr. 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file AST.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72     \{}
+\DoxyCodeLine{73         spdlog::info(\textcolor{stringliteral}{"{}Parsing regex: \{\}"{}}, regex);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} (regex.empty())}
+\DoxyCodeLine{76         \{}
+\DoxyCodeLine{77             spdlog::warn(\textcolor{stringliteral}{"{}Parsing empty regex"{}});}
+\DoxyCodeLine{78             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         std::stack<std::unique\_ptr<RegexNode>> node\_stack;}
+\DoxyCodeLine{82         \textcolor{keywordtype}{bool} in\_char\_set = \textcolor{keyword}{false};}
+\DoxyCodeLine{83         std::string char\_set;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         \textcolor{keywordflow}{for} (std::size\_t i\{\}; i < regex.size(); ++i)}
+\DoxyCodeLine{86         \{}
+\DoxyCodeLine{87             \textcolor{keywordtype}{char} character = regex[i];}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89             \textcolor{keywordflow}{if} (in\_char\_set)}
+\DoxyCodeLine{90             \{}
+\DoxyCodeLine{91                 \textcolor{keywordflow}{if} (character == \textcolor{charliteral}{']'})}
+\DoxyCodeLine{92                 \{}
+\DoxyCodeLine{93                     in\_char\_set = \textcolor{keyword}{false};}
+\DoxyCodeLine{94                     node\_stack.emplace(}
+\DoxyCodeLine{95                         std::make\_unique<CharacterSetNode>(char\_set));}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97                     char\_set.clear();}
+\DoxyCodeLine{98                 \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{101                 \{}
+\DoxyCodeLine{102                     char\_set += character;}
+\DoxyCodeLine{103                 \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108             \textcolor{keywordflow}{switch} (character)}
+\DoxyCodeLine{109             \{}
+\DoxyCodeLine{110             \textcolor{keywordflow}{case} \textcolor{charliteral}{'.'}:}
+\DoxyCodeLine{111                 node\_stack.emplace(std::make\_unique<DotNode>());}
+\DoxyCodeLine{112                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114             \textcolor{keywordflow}{case} \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{115                 \textcolor{keywordflow}{if} (node\_stack.empty())}
+\DoxyCodeLine{116                     \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{117                         \textcolor{stringliteral}{"{}Invalid regex syntax: '*' without preceding node"{}});}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119                 node\_stack.emplace(std::make\_unique<StarNode>(}
+\DoxyCodeLine{120                     std::move(node\_stack.top())));}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122                 node\_stack.pop();}
+\DoxyCodeLine{123                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125             \textcolor{keywordflow}{case} \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{126                 \textcolor{keywordflow}{if} (node\_stack.empty())}
+\DoxyCodeLine{127                     \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{128                         \textcolor{stringliteral}{"{}Invalid regex syntax: '+' without preceding node"{}});}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130                 node\_stack.emplace(std::make\_unique<PlusNode>(}
+\DoxyCodeLine{131                     std::move(node\_stack.top())));}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133                 node\_stack.pop();}
+\DoxyCodeLine{134                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136             \textcolor{keywordflow}{case} \textcolor{charliteral}{'?'}:}
+\DoxyCodeLine{137                 \textcolor{keywordflow}{if} (node\_stack.empty())}
+\DoxyCodeLine{138                     \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{139                         \textcolor{stringliteral}{"{}Invalid regex syntax: '?' without preceding node"{}});}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141                 node\_stack.emplace(std::make\_unique<QuestionNode>(}
+\DoxyCodeLine{142                     std::move(node\_stack.top())));}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144                 node\_stack.pop();}
+\DoxyCodeLine{145                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147             \textcolor{keywordflow}{case} \textcolor{charliteral}{'|'}:}
+\DoxyCodeLine{148                 \textcolor{keywordflow}{if} (node\_stack.size() < 2)}
+\DoxyCodeLine{149                     \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{150                         \textcolor{stringliteral}{"{}Invalid regex syntax: '|' without preceding nodes"{}});}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152                 \{}
+\DoxyCodeLine{153                     \textcolor{keyword}{auto} right = std::move(node\_stack.top());}
+\DoxyCodeLine{154                     node\_stack.pop();}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156                     \textcolor{keyword}{auto} left = std::move(node\_stack.top());}
+\DoxyCodeLine{157                     node\_stack.pop();}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159                     node\_stack.emplace(std::make\_unique<AlternationNode>(}
+\DoxyCodeLine{160                         std::move(left), std::move(right)));}
+\DoxyCodeLine{161                 \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165             \textcolor{keywordflow}{case} \textcolor{charliteral}{'['}:}
+\DoxyCodeLine{166             \{}
+\DoxyCodeLine{167                 std::size\_t end = regex.find(\textcolor{charliteral}{']'}, i);}
+\DoxyCodeLine{168                 \textcolor{keywordflow}{if} (end == std::string::npos)}
+\DoxyCodeLine{169                     \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{170                         \textcolor{stringliteral}{"{}Invalid regex syntax: '[' without closing ']'"{}});}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172                 std::string set = regex.substr(i + 1, end -\/ i -\/ 1);}
+\DoxyCodeLine{173                 node\_stack.emplace(std::make\_unique<CharacterSetNode>(}
+\DoxyCodeLine{174                     set));}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176                 i = end;}
+\DoxyCodeLine{177                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{178             \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}:}
+\DoxyCodeLine{181             \{}
+\DoxyCodeLine{182                 \textcolor{keywordflow}{if} (i + 1 >= regex.size())}
+\DoxyCodeLine{183                     \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Invalid regex syntax: '\(\backslash\)\(\backslash\)' at end of regex"{}});}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185                 \textcolor{keywordtype}{char} escaped = regex[++i];}
+\DoxyCodeLine{186                 node\_stack.emplace(std::make\_unique<EscapeNode>(}
+\DoxyCodeLine{187                     escaped));}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{190             \}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192             \textcolor{keywordflow}{case} \textcolor{charliteral}{'('}:}
+\DoxyCodeLine{193             \{}
+\DoxyCodeLine{194                 std::size\_t end = regex.find(\textcolor{charliteral}{')'}, i);}
+\DoxyCodeLine{195                 \textcolor{keywordflow}{if} (end == std::string::npos)}
+\DoxyCodeLine{196                     \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{197                         \textcolor{stringliteral}{"{}Invalid regex syntax: '(' without closing ')'"{}});}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199                 std::string sub\_regex = regex.substr(i + 1, end -\/ i -\/ 1);}
+\DoxyCodeLine{200                 \textcolor{keyword}{auto} sub\_node = \mbox{\hyperlink{classSyntax_1_1AbstractSyntaxTree_a59e46846e848523750a300d3de6fd663}{parse\_regex}}(sub\_regex);}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202                 node\_stack.emplace(std::make\_unique<GroupNode>(}
+\DoxyCodeLine{203                     std::move(sub\_node)));}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205                 i = end;}
+\DoxyCodeLine{206                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{207             \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209             \textcolor{keywordflow}{case} \textcolor{charliteral}{')'}:}
+\DoxyCodeLine{210                 \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{211                     \textcolor{stringliteral}{"{}Invalid regex syntax: ')' without opening '('"{}});}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\string^'}:}
+\DoxyCodeLine{216                 node\_stack.emplace(std::make\_unique<StartNode>());}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\$'}:}
+\DoxyCodeLine{220                 node\_stack.emplace(std::make\_unique<EndNode>());}
+\DoxyCodeLine{221                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{224                 node\_stack.emplace(std::make\_unique<LiteralNode>(character));}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{227             \}}
+\DoxyCodeLine{228         \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230         \textcolor{keywordflow}{if} (in\_char\_set)}
+\DoxyCodeLine{231             \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{232                 \textcolor{stringliteral}{"{}Invalid regex syntax: '[' without closing ']'"{}});}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234         \textcolor{keywordflow}{if} (!node\_stack.empty())}
+\DoxyCodeLine{235             \textcolor{keywordflow}{return} std::move(node\_stack.top());}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{238     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSyntax_1_1AbstractSyntaxTree_a93297d89e65c64ced9b3c68ff88d9d7c}\label{classSyntax_1_1AbstractSyntaxTree_a93297d89e65c64ced9b3c68ff88d9d7c}} 
+\index{Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily std\+::string Syntax\+::\+Abstract\+Syntax\+Tree\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSyntax_1_1AbstractSyntaxTree_a58b73afd9a1e5828dc2d2b61142bc0a9}\label{classSyntax_1_1AbstractSyntaxTree_a58b73afd9a1e5828dc2d2b61142bc0a9}} 
+\index{Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}!m\_regex@{m\_regex}}
+\index{m\_regex@{m\_regex}!Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}}
+\doxysubsubsection{\texorpdfstring{m\_regex}{m\_regex}}
+{\footnotesize\ttfamily std\+::string Syntax\+::\+Abstract\+Syntax\+Tree\+::m\+\_\+regex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 30 of file ast.\+h.
+
+\mbox{\Hypertarget{classSyntax_1_1AbstractSyntaxTree_a942e0844a4702ce1f9618da6cb60da0c}\label{classSyntax_1_1AbstractSyntaxTree_a942e0844a4702ce1f9618da6cb60da0c}} 
+\index{Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}!m\_root@{m\_root}}
+\index{m\_root@{m\_root}!Syntax::AbstractSyntaxTree@{Syntax::AbstractSyntaxTree}}
+\doxysubsubsection{\texorpdfstring{m\_root}{m\_root}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structSyntax_1_1RegexNode}{Regex\+Node}}$>$ Syntax\+::\+Abstract\+Syntax\+Tree\+::m\+\_\+root\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 31 of file ast.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+AST/\mbox{\hyperlink{ast_8h}{ast.\+h}}\item 
+src/\+AST/\mbox{\hyperlink{src_2AST_2AST_8cpp}{AST.\+cpp}}\end{DoxyCompactItemize}

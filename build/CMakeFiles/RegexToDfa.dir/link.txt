@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/RegexToDfa.dir/src/main.cpp.o CMakeFiles/RegexToDfa.dir/src/tokenizer/tokenizer.cpp.o -o RegexToDfa 
