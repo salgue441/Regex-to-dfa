@@ -21,4 +21,4 @@ jobs:
         run: docker build -t regex-to-dfa .
 
       - name: Run docker image
-        run: docker run -it regex-to-dfa
+        run: docker run regex-to-dfa
