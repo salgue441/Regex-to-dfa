@@ -1,0 +1,28 @@
+# Ignore all files and directories that are typically not needed in a Docker image:
+
+# Version control directories
+.git/
+.gitignore
+
+# Build files
+build/
+CMakeFiles/
+Makefile
+CMakeCache.txt
+cmake_install.cmake
+*.o
+*.a
+*.Makefile
+
+# Editor settings
+.vscode/
+*.swp
+*.swo
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Documentation and READMEs
+README.md
+docs/
