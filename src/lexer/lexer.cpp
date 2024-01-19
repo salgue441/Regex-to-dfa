@@ -67,9 +67,15 @@ namespace lexer
    */
   lex::TokenType Lexer::determine_type(const std::string &value) const
   {
-    boost::regex grouping_regex(R"((\(|\)|\[|\]|\{|\}))");
-    boost::regex metacharacter_regex(R"((\*|\+|\?|\||\\|\^|\$|\.))");
-    boost::regex literal_regex(R"((\d|\w|\s))");
+    boost::regex grouping_regex(R"([\(\)\[\]\{\}])");
+    boost::regex metacharacter_regex(R"([\\^$.*+?])");
+    boost::regex literal_regex(R"(\d+|\w+|\s+)");
+    boost::regex quantifier_regex(R"(\{\d*,?\d*\})");
+    boost::regex character_class_regex(R"(\[[^\]]*\])");
+    boost::regex boundary_regex(R"(\b)");
+    boost::regex modifier_regex(R"(\\[ig])");
+    boost::regex alternation_regex(R"(\|)");
+    boost::regex escape_sequence_regex(R"(\\[dws])");
 
     if (boost::regex_match(value, grouping_regex))
       return lex::TokenType::GROUPING;
@@ -80,8 +86,36 @@ namespace lexer
     else if (boost::regex_match(value, literal_regex))
       return lex::TokenType::LITERAL;
 
+    else if (boost::regex_match(value, quantifier_regex))
+      return lex::TokenType::QUANTIFIER;
+
+    else if (boost::regex_match(value, character_class_regex))
+      return lex::TokenType::CHARACTER_CLASS;
+
+    else if (boost::regex_match(value, boundary_regex))
+      return lex::TokenType::BOUNDARY;
+
+    else if (boost::regex_match(value, modifier_regex))
+      return lex::TokenType::MODIFIER;
+
+    else if (boost::regex_match(value, alternation_regex))
+      return lex::TokenType::ALTERNATION;
+
+    else if (boost::regex_match(value, escape_sequence_regex))
+      return lex::TokenType::ESCAPE_SEQUENCE;
+
+    else if (value == ".")
+      return lex::TokenType::WILDCARD;
+
+    else if (value == "$")
+      return lex::TokenType::ANCHOR;
+
+    else if (value == "")
+      return lex::TokenType::END_OF_INPUT;
+
     else
-      throw std::runtime_error("Lexer: Could not determine token type");
+
+      return lex::TokenType::INVALID;
   }
 
   /**
