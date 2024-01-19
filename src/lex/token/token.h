@@ -7,18 +7,6 @@
 namespace lex
 {
   /**
-   * @class Token
-   * @brief Interface for classes that represent tokens
-   *
-   */
-  class Token
-  {
-  public:
-    virtual ~Token() = default;
-    virtual std::string to_string() const = 0;
-  };
-
-  /**
    * @brief The TokenType enum represents the different types of tokens
    *        that can be created
    *
@@ -41,6 +29,23 @@ namespace lex
   };
 
   /**
+   * @class Token
+   * @brief Interface for classes that represent tokens
+   *
+   */
+  class Token
+  {
+  public:
+    virtual ~Token() = default;
+    virtual std::string to_string() const = 0;
+
+    // Getters
+    [[nodiscard]] virtual std::string get_value() const noexcept = 0;
+    [[nodiscard]] virtual std::size_t get_position() const noexcept = 0;
+    [[nodiscard]] virtual TokenType get_type() const noexcept = 0;
+  };
+
+    /**
    * @class RegexToken
    * @brief The RegexToken class represents a token that was created by the
    *        lexer
@@ -53,6 +58,10 @@ namespace lex
                         const std::string &value, std::size_t position);
 
     std::string to_string() const override;
+
+    [[nodiscard]] std::string get_value() const noexcept override;
+    [[nodiscard]] std::size_t get_position() const noexcept override;
+    [[nodiscard]] TokenType get_type() const noexcept override;
 
   private:
     TokenType m_type;

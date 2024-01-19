@@ -27,7 +27,6 @@ namespace lexer
     boost::regex pattern(R"((\(|\)|\[|\]|\{|\}|\*|\+|\?|\||\\|\^|\$|\.|\d|\w|\s))");
 
     boost::smatch matches;
-
     std::string::const_iterator start = m_input.begin();
     std::string::const_iterator end = m_input.end();
 

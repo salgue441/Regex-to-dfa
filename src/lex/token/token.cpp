@@ -35,6 +35,36 @@ namespace lex
   }
 
   /**
+   * @brief Get the value of the token
+   *
+   * @return std::string The value of the token
+   */
+  std::string RegexToken::get_value() const noexcept
+  {
+    return m_value;
+  }
+
+  /**
+   * @brief Get the position of the token in the regex
+   *
+   * @return std::size_t The position of the token in the regex
+   */
+  std::size_t RegexToken::get_position() const noexcept
+  {
+    return m_position;
+  }
+
+  /**
+   * @brief Get the type of the token
+   *
+   * @return TokenType The type of the token
+   */
+  TokenType RegexToken::get_type() const noexcept
+  {
+    return m_type;
+  }
+
+  /**
    * @brief Converts the TokenType enum to a string format
    *
    * @return std::string The string representation of the TokenType
