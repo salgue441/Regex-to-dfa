@@ -34,7 +34,7 @@ namespace lexer
     while (boost::regex_search(start, end, matches, pattern))
     {
       std::string value = matches[0];
-      std::size_t position = matches.position();
+      std::size_t position = std::distance(m_input.begin(), matches[0].first);
 
       lex::TokenType type = determine_type(value);
       auto token = m_token_factory->create_token(type, value, position);
