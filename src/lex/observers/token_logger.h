@@ -5,7 +5,11 @@
 
 namespace lex
 {
-
+  /**
+   * @class TokenLogger
+   * @brief The TokenLogger class is responsible for logging tokens
+   *
+   */
   class TokenLogger : public TokenObserver
   {
   public:

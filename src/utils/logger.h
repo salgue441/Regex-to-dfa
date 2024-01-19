@@ -22,26 +22,20 @@ namespace logger
      */
     static std::shared_ptr<spdlog::logger> &get_logger()
     {
-      static Logger logger;
-      return logger.s_logger;
+      static std::shared_ptr<spdlog::logger> logger = []
+      {
+        auto logger = spdlog::stdout_color_mt("console");
+        const std::string pattern =
+            "[%Y-%m-%d %H:%M:%S.%e] [%^%l%$] [thread %t] %v";
+        logger->set_pattern(pattern);
+        logger->set_level(spdlog::level::trace);
+        return logger;
+      }();
+  
+      return logger;
     }
 
   private:
-    static std::shared_ptr<spdlog::logger> s_logger;
-    Logger()
-    {
-      auto logger = spdlog::stdout_color_mt("console");
-
-      const std::string pattern =
-          "[%Y-%m-%d %H:%M:%S.%e] [%^%l%$] [thread %t] %v";
-
-      logger->set_pattern(pattern);
-      logger->set_level(spdlog::level::trace);
-
-      s_logger = logger;
-    }
+    Logger() = default;
   };
-
-  std::shared_ptr<spdlog::logger> Logger::s_logger = nullptr;
-
 } // namespace logger

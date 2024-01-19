@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     libfmt-dev \
-    libspdlog-dev 
+    libspdlog-dev \
+    libboost-all-dev \
+    libboost-regex-dev 
 
 # Copy source code
 COPY . .

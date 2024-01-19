@@ -6,6 +6,11 @@
 
 namespace lex
 {
+  /**
+   * @class Token
+   * @brief Interface for classes that represent tokens
+   *
+   */
   class Token
   {
   public:
@@ -13,6 +18,11 @@ namespace lex
     virtual std::string to_string() const = 0;
   };
 
+  /**
+   * @brief The TokenType enum represents the different types of tokens
+   *        that can be created
+   *
+   */
   enum class TokenType : std::uint8_t
   {
     LITERAL,
@@ -30,6 +40,12 @@ namespace lex
     END_OF_INPUT
   };
 
+  /**
+   * @class RegexToken
+   * @brief The RegexToken class represents a token that was created by the
+   *        lexer
+   *
+   */
   class RegexToken : public Token
   {
   public:

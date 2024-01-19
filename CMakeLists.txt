@@ -15,6 +15,7 @@ include_directories(include)
 set(SOURCES
     src/main.cpp
     src/lex/token/token.cpp  
+    src/lexer/lexer.cpp
 )
 # Create the executable
 add_executable(RegexToDFAConverter ${SOURCES})
@@ -27,8 +28,16 @@ target_link_libraries(RegexToDFAConverter PRIVATE fmt::fmt)
 find_package(spdlog REQUIRED)
 target_link_libraries(RegexToDFAConverter PRIVATE spdlog::spdlog)
 
+# Find and link boost library
+find_package(Boost COMPONENTS regex REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
 # Set different compile options for Debug and Release
 target_compile_options(RegexToDFAConverter PRIVATE
     $<$<CONFIG:Debug>:-Og -g>
     $<$<CONFIG:Release>:-O3>
 )
+
+# Linking boost.regex
+target_link_libraries(RegexToDFAConverter PRIVATE 
+    fmt::fmt spdlog::spdlog ${Boost_LIBRARIES})

@@ -6,6 +6,11 @@
 
 namespace lex
 {
+  /**
+   * @class TokenFactory
+   * @brief The TokenFactory class is responsible for creating tokens
+   *
+   */
   class TokenFactory
   {
   public:
@@ -44,6 +49,11 @@ namespace lex
     std::vector<std::shared_ptr<TokenObserver>> m_observers;
 
     // Helper functions
+    /**
+     * @brief Notify all observers that a token has been created
+     *
+     * @param[in] token Token that was created
+     */
     void notify_observers(const std::shared_ptr<Token> &token)
     {
       for (const auto &observer : m_observers)
