@@ -1,22 +1,19 @@
 #include <iostream>
 
-#include "lexer/lexer.h"
+// Project Files
+#include "utils/logger.h"
+#include "lex/token_factory.h"
+#include "lex/observers/token_logger.h"
 
-int main(int argc, char const **argv)
+int main()
 {
-  try
-  {
-    std::string input = "a|b";
-    lexer::Lexer lexer(input);
+  lex::TokenFactory token_factory;
+  auto observer = std::make_shared<lex::TokenLogger>();
 
-    std::vector<lexer::Token> tokens = lexer.analyze();
+  token_factory.register_observer(observer);
+  auto token = token_factory.create_token(lex::TokenType::LITERAL,
+                                          "a", 0);
 
-    for (const auto &token : tokens)
-      std::cout << "Type: " << static_cast<int>(token.m_type)
-                << " Value: '" << token.m_value << "'\n";
-  }
-  catch (const std::exception &e)
-  {
-    std::cerr << "Exception: " << e.what() << std::endl;
-  }
+  auto token2 = token_factory.create_token(lex::TokenType::LITERAL,
+                                           "*", 1);
 }

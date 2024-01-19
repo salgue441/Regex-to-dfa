@@ -12,8 +12,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 include_directories(include)
 
 # Add all the source files
-file(GLOB SOURCES "src/*.cpp" "src/*/*.cpp")
-
+set(SOURCES
+    src/main.cpp
+    src/lex/token/token.cpp  
+)
 # Create the executable
 add_executable(RegexToDFAConverter ${SOURCES})
 
