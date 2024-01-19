@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['abstractsyntaxtree_44',['AbstractSyntaxTree',['../classSyntax_1_1AbstractSyntaxTree.html',1,'Syntax']]],
-  ['alternationnode_45',['AlternationNode',['../structSyntax_1_1AlternationNode.html',1,'Syntax']]]
+  ['lexer_53',['Lexer',['../classlexer_1_1Lexer.html',1,'lexer']]],
+  ['logger_54',['Logger',['../classlogger_1_1Logger.html',1,'logger']]]
 ];

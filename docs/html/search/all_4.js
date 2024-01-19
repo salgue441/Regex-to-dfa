@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['groupnode_9',['GroupNode',['../structSyntax_1_1GroupNode.html#a80f2570d0bf9bc6d518d041ce4398021',1,'Syntax::GroupNode::GroupNode()'],['../structSyntax_1_1GroupNode.html',1,'Syntax::GroupNode']]]
+  ['end_5fof_5finput_6',['END_OF_INPUT',['../namespacelex.html#a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf',1,'lex']]],
+  ['escape_5fsequence_7',['ESCAPE_SEQUENCE',['../namespacelex.html#a88e38a6876e3276a698503fe09cf5e37a99e198f7e638b7044b3f603a748f0eb3',1,'lex']]]
 ];

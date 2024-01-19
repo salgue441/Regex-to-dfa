@@ -1,0 +1,114 @@
+\hypertarget{classlex_1_1TokenLogger}{}\doxysection{lex\+::Token\+Logger Class Reference}
+\label{classlex_1_1TokenLogger}\index{lex::TokenLogger@{lex::TokenLogger}}
+
+
+The \mbox{\hyperlink{classlex_1_1TokenLogger}{Token\+Logger}} class is responsible for logging tokens.  
+
+
+
+
+{\ttfamily \#include $<$token\+\_\+logger.\+h$>$}
+
+
+
+Inheritance diagram for lex\+::Token\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classlex_1_1TokenLogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for lex\+::Token\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classlex_1_1TokenLogger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlex_1_1TokenLogger_a5c66fa2e96860eb85771edc65bee9448}{Token\+Logger}} ()
+\item 
+void \mbox{\hyperlink{classlex_1_1TokenLogger_a3a16c094e76610d6e7a37c27acfe184e}{on\+\_\+token}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{Token}} $>$ token) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \mbox{\hyperlink{classlex_1_1TokenLogger_a2002c7f700ae90696043f4d2ebb7434f}{logger}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classlex_1_1TokenLogger}{Token\+Logger}} class is responsible for logging tokens. 
+
+Definition at line 13 of file token\+\_\+logger.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlex_1_1TokenLogger_a5c66fa2e96860eb85771edc65bee9448}\label{classlex_1_1TokenLogger_a5c66fa2e96860eb85771edc65bee9448}} 
+\index{lex::TokenLogger@{lex::TokenLogger}!TokenLogger@{TokenLogger}}
+\index{TokenLogger@{TokenLogger}!lex::TokenLogger@{lex::TokenLogger}}
+\doxysubsubsection{\texorpdfstring{TokenLogger()}{TokenLogger()}}
+{\footnotesize\ttfamily lex\+::\+Token\+Logger\+::\+Token\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 16 of file token\+\_\+logger.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17         : \mbox{\hyperlink{classlex_1_1TokenLogger_a2002c7f700ae90696043f4d2ebb7434f}{logger}}(\mbox{\hyperlink{classlogger_1_1Logger_a02c0baf4b3617b409dea2d17fe2f5156}{logger::Logger::get\_logger}}())}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlex_1_1TokenLogger_a3a16c094e76610d6e7a37c27acfe184e}\label{classlex_1_1TokenLogger_a3a16c094e76610d6e7a37c27acfe184e}} 
+\index{lex::TokenLogger@{lex::TokenLogger}!on\_token@{on\_token}}
+\index{on\_token@{on\_token}!lex::TokenLogger@{lex::TokenLogger}}
+\doxysubsubsection{\texorpdfstring{on\_token()}{on\_token()}}
+{\footnotesize\ttfamily void lex\+::\+Token\+Logger\+::on\+\_\+token (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{Token}} $>$}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classlex_1_1TokenObserver_a0e72afc2e164698ef4d93a4952a398b6}{lex\+::\+Token\+Observer}}.
+
+
+
+Definition at line 21 of file token\+\_\+logger.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacelogger}{logger}})}
+\DoxyCodeLine{24         \mbox{\hyperlink{namespacelogger}{logger}}-\/>debug(\textcolor{stringliteral}{"{}TokenLogger: \{\}"{}}, token-\/>to\_string());}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{27         \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}TokenLogger: logger is null"{}});}
+\DoxyCodeLine{28     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlex_1_1TokenLogger_a2002c7f700ae90696043f4d2ebb7434f}\label{classlex_1_1TokenLogger_a2002c7f700ae90696043f4d2ebb7434f}} 
+\index{lex::TokenLogger@{lex::TokenLogger}!logger@{logger}}
+\index{logger@{logger}!lex::TokenLogger@{lex::TokenLogger}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$ lex\+::\+Token\+Logger\+::logger\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 32 of file token\+\_\+logger.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/lex/observers/\mbox{\hyperlink{token__logger_8h}{token\+\_\+logger.\+h}}\end{DoxyCompactItemize}

@@ -34,5 +34,6 @@ namespace lexer
 
     // Helper functions
     lex::TokenType determine_type(const std::string &value) const;
+    void notify_observers(std::shared_ptr<lex::Token> token) const;
   };
 } // namespace lexer

@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,107,57"/>
-<area shape="rect" id="node2" href="$classNodeTest.html" title="Test fixture for the Node class." alt="" coords="171,5,253,32"/>
-<area shape="rect" id="node3" href="$classRegexASTTree.html" title=" " alt="" coords="155,56,269,83"/>
+<area shape="rect" id="node1" href="$classlex_1_1Token.html" title="Interface for classes that represent tokens." alt="" coords="5,5,92,32"/>
+<area shape="rect" id="node2" href="$classlex_1_1RegexToken.html" title="The RegexToken class represents a token that was created by the lexer." alt="" coords="140,5,268,32"/>
 </map>

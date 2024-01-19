@@ -73,13 +73,28 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="logger_8h_source.html">utils/logger.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lexer_8h_source.html">lexer/lexer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="token__logger_8h_source.html">lex/observers/token_logger.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
 <map name="asrc_2main_8cpp" id="asrc_2main_8cpp">
-<area shape="rect" title=" " alt="" coords="5,5,111,32"/>
-<area shape="rect" title=" " alt="" coords="18,80,98,107"/>
+<area shape="rect" title=" " alt="" coords="295,5,400,32"/>
+<area shape="rect" title=" " alt="" coords="174,87,254,114"/>
+<area shape="rect" href="logger_8h.html" title=" " alt="" coords="254,169,361,196"/>
+<area shape="rect" href="lexer_8h.html" title=" " alt="" coords="513,87,614,114"/>
+<area shape="rect" href="token__logger_8h.html" title=" " alt="" coords="329,80,480,121"/>
+<area shape="rect" title=" " alt="" coords="419,408,497,435"/>
+<area shape="rect" title=" " alt="" coords="5,251,129,278"/>
+<area shape="rect" title=" " alt="" coords="153,244,301,285"/>
+<area shape="rect" title=" " alt="" coords="627,251,689,278"/>
+<area shape="rect" href="token__observer_8h.html" title=" " alt="" coords="377,244,539,285"/>
+<area shape="rect" href="token__factory_8h.html" title=" " alt="" coords="489,169,646,196"/>
+<area shape="rect" href="token_8h.html" title=" " alt="" coords="179,333,302,360"/>
+<area shape="rect" title=" " alt="" coords="169,408,227,435"/>
+<area shape="rect" title=" " alt="" coords="251,408,318,435"/>
 </map>
 </div>
 </div>
@@ -106,11 +121,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00003">3</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Hello, world!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00008">8</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  std::string pattern = R<span class="stringliteral">&quot;(\s*([+\-*/()]|\d+)\s*)&quot;;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="stringliteral">  <a class="code" href="classlexer_1_1Lexer.html">lexer::Lexer</a> <a class="code" href="namespacelexer.html">lexer</a>(pattern);</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="stringliteral">  std::shared_ptr&lt;lex::TokenLogger&gt; token_logger =</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="stringliteral">      std::make_shared&lt;lex::TokenLogger&gt;();</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="stringliteral">  <a class="code" href="namespacelexer.html">lexer</a>.register_observer(token_logger);</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="stringliteral">  std::vector&lt;std::shared_ptr&lt;lex::Token&gt;&gt; tokens = <a class="code" href="namespacelexer.html">lexer</a>.tokenize();</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="stringliteral">}</span></div>
+<div class="ttc" id="aclasslexer_1_1Lexer_html"><div class="ttname"><a href="classlexer_1_1Lexer.html">lexer::Lexer</a></div><div class="ttdoc">The lexer class is responsible for converting a regex string into a list of tokens.</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00018">lexer.h:19</a></div></div>
+<div class="ttc" id="anamespacelexer_html"><div class="ttname"><a href="namespacelexer.html">lexer</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8cpp_source.html#l00004">lexer.cpp:5</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

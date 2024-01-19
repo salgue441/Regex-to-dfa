@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['setup_81',['SetUp',['../classNodeTest.html#a182621793940f94192603a383257f56b',1,'NodeTest']]],
-  ['starnode_82',['StarNode',['../structSyntax_1_1StarNode.html#a8ebd8a41a115892750c8b4679387fa36',1,'Syntax::StarNode']]],
-  ['startnode_83',['StartNode',['../structSyntax_1_1StartNode.html#a56f750de401cc90e8473ac977bfd2c60',1,'Syntax::StartNode::StartNode()=default'],['../structSyntax_1_1StartNode.html#a9b547a41c265e4ed97d9b10d2f7bd251',1,'Syntax::StartNode::StartNode(std::unique_ptr&lt; RegexNode &gt; child)']]]
+  ['_7etoken_88',['~Token',['../classlex_1_1Token.html#a55658928f58d24d648df1a33af9adeac',1,'lex::Token']]],
+  ['_7etokenobserver_89',['~TokenObserver',['../classlex_1_1TokenObserver.html#a7523cc63a29050f6587a19d7f0177867',1,'lex::TokenObserver']]]
 ];

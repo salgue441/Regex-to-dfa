@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['charactersetnode_70',['CharacterSetNode',['../structSyntax_1_1CharacterSetNode.html#a75e00ce8546fde01dadf8da44013e0ec',1,'Syntax::CharacterSetNode']]],
-  ['charclassnode_71',['CharClassNode',['../structSyntax_1_1CharClassNode.html#a4b61187ab6962bfd7eb5546383c457e6',1,'Syntax::CharClassNode']]]
+  ['determine_5ftype_74',['determine_type',['../classlexer_1_1Lexer.html#a27443323547ba42fbb7a2f063b12c34e',1,'lexer::Lexer']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['parse_5fregex_78',['parse_regex',['../classSyntax_1_1AbstractSyntaxTree.html#a59e46846e848523750a300d3de6fd663',1,'Syntax::AbstractSyntaxTree']]],
-  ['plusnode_79',['PlusNode',['../structSyntax_1_1PlusNode.html#af67c5e3167cecc2bba92be415365c039',1,'Syntax::PlusNode']]]
+  ['regextoken_81',['RegexToken',['../classlex_1_1RegexToken.html#a3fab0794c73d122d35337a7b2c0faaa2',1,'lex::RegexToken']]],
+  ['register_5fobserver_82',['register_observer',['../classlex_1_1TokenFactory.html#a35b60dd360a1477f475e4443cfa84650',1,'lex::TokenFactory::register_observer()'],['../classlexer_1_1Lexer.html#a92ac4a631f7483eb01bf1585f1b9d24a',1,'lexer::Lexer::register_observer()']]]
 ];

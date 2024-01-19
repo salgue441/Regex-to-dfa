@@ -1,16 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structSyntax_1_1RegexNode.html" title="Base class for all regex nodes." alt="" coords="5,309,156,336"/>
-<area shape="rect" id="node2" href="$structSyntax_1_1AlternationNode.html" title="Matches one of the child nodes." alt="" coords="210,5,391,32"/>
-<area shape="rect" id="node3" href="$structSyntax_1_1CharClassNode.html" title="Matches a character class." alt="" coords="213,56,388,83"/>
-<area shape="rect" id="node4" href="$structSyntax_1_1CharacterSetNode.html" title="A regex node that matches a set of characters." alt="" coords="204,107,397,133"/>
-<area shape="rect" id="node5" href="$structSyntax_1_1DotNode.html" title="A regex node that matches any character." alt="" coords="235,157,367,184"/>
-<area shape="rect" id="node6" href="$structSyntax_1_1EndNode.html" title="A regex node that matches the end of the input string." alt="" coords="234,208,367,235"/>
-<area shape="rect" id="node7" href="$structSyntax_1_1EscapeNode.html" title="A regex node that matches an escaped character." alt="" coords="223,259,378,285"/>
-<area shape="rect" id="node8" href="$structSyntax_1_1GroupNode.html" title="A regex node that matches the end of the input string." alt="" coords="227,309,375,336"/>
-<area shape="rect" id="node9" href="$structSyntax_1_1LiteralNode.html" title="A regex node that matches a literal string." alt="" coords="225,360,376,387"/>
-<area shape="rect" id="node10" href="$structSyntax_1_1NegatedCharacterSetNode.html" title="Matches any character not in the set." alt="" coords="204,411,397,453"/>
-<area shape="rect" id="node11" href="$structSyntax_1_1PlusNode.html" title="A regex node that matches one or more of the child node." alt="" coords="233,477,369,504"/>
-<area shape="rect" id="node12" href="$structSyntax_1_1QuestionNode.html" title="A regex node that matches zero or one of the child node." alt="" coords="217,528,384,555"/>
-<area shape="rect" id="node13" href="$structSyntax_1_1StarNode.html" title="A regex node that matches zero or more of the child node." alt="" coords="233,579,368,605"/>
-<area shape="rect" id="node14" href="$structSyntax_1_1StartNode.html" title="A regex node that matches the start of the input string." alt="" coords="231,629,371,656"/>
+<area shape="rect" id="node1" href="$classlex_1_1TokenObserver.html" title="Interface for classes that want to observe tokens as they are." alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node2" href="$classlex_1_1TokenLogger.html" title="The TokenLogger class is responsible for logging tokens." alt="" coords="200,5,331,32"/>
 </map>

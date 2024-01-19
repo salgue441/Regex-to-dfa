@@ -1,0 +1,239 @@
+\hypertarget{classlex_1_1RegexToken}{}\doxysection{lex\+::Regex\+Token Class Reference}
+\label{classlex_1_1RegexToken}\index{lex::RegexToken@{lex::RegexToken}}
+
+
+The \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}} class represents a token that was created by the lexer.  
+
+
+
+
+{\ttfamily \#include $<$token.\+h$>$}
+
+
+
+Inheritance diagram for lex\+::Regex\+Token\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classlex_1_1RegexToken__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for lex\+::Regex\+Token\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classlex_1_1RegexToken__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlex_1_1RegexToken_a3fab0794c73d122d35337a7b2c0faaa2}{Regex\+Token}} (\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{Token\+Type}} type, const std\+::string \&value, std\+::size\+\_\+t position)
+\begin{DoxyCompactList}\small\item\em Construct a new Regex \mbox{\hyperlink{classlex_1_1Token}{Token}}\+:\+: Regex \mbox{\hyperlink{classlex_1_1Token}{Token}} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classlex_1_1RegexToken_a976e27c885993f32e741e08274afb3ef}{to\+\_\+string}} () const override
+\begin{DoxyCompactList}\small\item\em Converts the information stored in \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}} to a string format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classlex_1_1RegexToken_ac26cc55192aae066947c4ec856519754}{token\+\_\+type\+\_\+to\+\_\+string}} () const
+\begin{DoxyCompactList}\small\item\em Converts the Token\+Type enum to a string format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{Token\+Type}} \mbox{\hyperlink{classlex_1_1RegexToken_a3e21ea229b2356fd0dd300b98b2a6a05}{m\+\_\+type}}
+\item 
+std\+::string \mbox{\hyperlink{classlex_1_1RegexToken_a79bde79ee20efdf73eb390522a453ae6}{m\+\_\+value}}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classlex_1_1RegexToken_aa77d0cf935db69dc5caf6c27ad98689b}{m\+\_\+position}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}} class represents a token that was created by the lexer. 
+
+Definition at line 49 of file token.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlex_1_1RegexToken_a3fab0794c73d122d35337a7b2c0faaa2}\label{classlex_1_1RegexToken_a3fab0794c73d122d35337a7b2c0faaa2}} 
+\index{lex::RegexToken@{lex::RegexToken}!RegexToken@{RegexToken}}
+\index{RegexToken@{RegexToken}!lex::RegexToken@{lex::RegexToken}}
+\doxysubsubsection{\texorpdfstring{RegexToken()}{RegexToken()}}
+{\footnotesize\ttfamily lex\+::\+Regex\+Token\+::\+Regex\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{Token\+Type}}}]{type,  }\item[{const std\+::string \&}]{value,  }\item[{std\+::size\+\_\+t}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Regex \mbox{\hyperlink{classlex_1_1Token}{Token}}\+:\+: Regex \mbox{\hyperlink{classlex_1_1Token}{Token}} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em type} & Type of the token \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & Value of the token \\
+\hline
+\mbox{\texttt{ in}}  & {\em position} & Position of the token in the regex \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file token.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15       : \mbox{\hyperlink{classlex_1_1RegexToken_a3e21ea229b2356fd0dd300b98b2a6a05}{m\_type}}(type), \mbox{\hyperlink{classlex_1_1RegexToken_a79bde79ee20efdf73eb390522a453ae6}{m\_value}}(value), \mbox{\hyperlink{classlex_1_1RegexToken_aa77d0cf935db69dc5caf6c27ad98689b}{m\_position}}(position)}
+\DoxyCodeLine{16   \{}
+\DoxyCodeLine{17     \textcolor{keywordflow}{if} (m\_type < TokenType::LITERAL || m\_type > \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf}{TokenType::END\_OF\_INPUT}})}
+\DoxyCodeLine{18       \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Invalid TokenType"{}});}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} (m\_position < 0 || m\_position > std::numeric\_limits<std::size\_t>::max())}
+\DoxyCodeLine{21       \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Invalid position"{}});}
+\DoxyCodeLine{22   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlex_1_1RegexToken_a976e27c885993f32e741e08274afb3ef}\label{classlex_1_1RegexToken_a976e27c885993f32e741e08274afb3ef}} 
+\index{lex::RegexToken@{lex::RegexToken}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!lex::RegexToken@{lex::RegexToken}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily std\+::string lex\+::\+Regex\+Token\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Converts the information stored in \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}} to a string format. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string The string representation of the \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classlex_1_1Token_a6eb9b4bdbe110d6e5aadac384e561452}{lex\+::\+Token}}.
+
+
+
+Definition at line 30 of file token.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31   \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Token Type: "{}} + \mbox{\hyperlink{classlex_1_1RegexToken_ac26cc55192aae066947c4ec856519754}{token\_type\_to\_string}}() +}
+\DoxyCodeLine{33            \textcolor{stringliteral}{"{}, Value: "{}} + \mbox{\hyperlink{classlex_1_1RegexToken_a79bde79ee20efdf73eb390522a453ae6}{m\_value}} +}
+\DoxyCodeLine{34            \textcolor{stringliteral}{"{}, Position: "{}} + std::to\_string(\mbox{\hyperlink{classlex_1_1RegexToken_aa77d0cf935db69dc5caf6c27ad98689b}{m\_position}});}
+\DoxyCodeLine{35   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlex_1_1RegexToken_ac26cc55192aae066947c4ec856519754}\label{classlex_1_1RegexToken_ac26cc55192aae066947c4ec856519754}} 
+\index{lex::RegexToken@{lex::RegexToken}!token\_type\_to\_string@{token\_type\_to\_string}}
+\index{token\_type\_to\_string@{token\_type\_to\_string}!lex::RegexToken@{lex::RegexToken}}
+\doxysubsubsection{\texorpdfstring{token\_type\_to\_string()}{token\_type\_to\_string()}}
+{\footnotesize\ttfamily std\+::string lex\+::\+Regex\+Token\+::token\+\_\+type\+\_\+to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Converts the Token\+Type enum to a string format. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string The string representation of the Token\+Type 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the Token\+Type is invalid \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 43 of file token.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44   \{}
+\DoxyCodeLine{45     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{classlex_1_1RegexToken_a3e21ea229b2356fd0dd300b98b2a6a05}{m\_type}})}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa0000d7769148184776f1d17656921b0}{TokenType::LITERAL}}:}
+\DoxyCodeLine{48       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LITERAL"{}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a35ab47aa472c5c7c36f9a921ee42b869}{TokenType::METACHARACTER}}:}
+\DoxyCodeLine{51       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}METACHARACTER"{}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a09a030ac8edc75f12cbd84fb1d98085e}{TokenType::CHARACTER\_CLASS}}:}
+\DoxyCodeLine{54       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CHARACTER\_CLASS"{}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a87bd15bae0d64d98c8aaaf3d9ebfe07e}{TokenType::GROUPING}}:}
+\DoxyCodeLine{57       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}GROUPING"{}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a72e872bdd7feb0c6565eeae9e9849e6a}{TokenType::QUANTIFIER}}:}
+\DoxyCodeLine{60       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}QUANTIFIER"{}};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a1d0d6d35c52e907b5e0af4a7f5a81a9f}{TokenType::ANCHOR}}:}
+\DoxyCodeLine{63       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ANCHOR"{}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a99e198f7e638b7044b3f603a748f0eb3}{TokenType::ESCAPE\_SEQUENCE}}:}
+\DoxyCodeLine{66       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ESCAPE\_SEQUENCE"{}};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a15f4cff81d9ee10b162eac10c339d5f4}{TokenType::WILDCARD}}:}
+\DoxyCodeLine{69       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}WILDCARD"{}};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a80ea6a59a36341e746a915b8c39872cf}{TokenType::ALTERNATION}}:}
+\DoxyCodeLine{72       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ALTERNATION"{}};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa52f733b0e51d9a568fababbc8d3a518}{TokenType::BOUNDARY}}:}
+\DoxyCodeLine{75       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BOUNDARY"{}};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37af47e1c3d8fbdc90d8cdbd8f5e4a1bce3}{TokenType::MODIFIER}}:}
+\DoxyCodeLine{78       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}MODIFIER"{}};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37accc0377a8afbf50e7094f5c23a8af223}{TokenType::INVALID}}:}
+\DoxyCodeLine{81       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INVALID"{}};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf}{TokenType::END\_OF\_INPUT}}:}
+\DoxyCodeLine{84       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}END\_OF\_INPUT"{}};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{87       \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Invalid token type"{}});}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlex_1_1RegexToken_aa77d0cf935db69dc5caf6c27ad98689b}\label{classlex_1_1RegexToken_aa77d0cf935db69dc5caf6c27ad98689b}} 
+\index{lex::RegexToken@{lex::RegexToken}!m\_position@{m\_position}}
+\index{m\_position@{m\_position}!lex::RegexToken@{lex::RegexToken}}
+\doxysubsubsection{\texorpdfstring{m\_position}{m\_position}}
+{\footnotesize\ttfamily std\+::size\+\_\+t lex\+::\+Regex\+Token\+::m\+\_\+position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 60 of file token.\+h.
+
+\mbox{\Hypertarget{classlex_1_1RegexToken_a3e21ea229b2356fd0dd300b98b2a6a05}\label{classlex_1_1RegexToken_a3e21ea229b2356fd0dd300b98b2a6a05}} 
+\index{lex::RegexToken@{lex::RegexToken}!m\_type@{m\_type}}
+\index{m\_type@{m\_type}!lex::RegexToken@{lex::RegexToken}}
+\doxysubsubsection{\texorpdfstring{m\_type}{m\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{Token\+Type}} lex\+::\+Regex\+Token\+::m\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 58 of file token.\+h.
+
+\mbox{\Hypertarget{classlex_1_1RegexToken_a79bde79ee20efdf73eb390522a453ae6}\label{classlex_1_1RegexToken_a79bde79ee20efdf73eb390522a453ae6}} 
+\index{lex::RegexToken@{lex::RegexToken}!m\_value@{m\_value}}
+\index{m\_value@{m\_value}!lex::RegexToken@{lex::RegexToken}}
+\doxysubsubsection{\texorpdfstring{m\_value}{m\_value}}
+{\footnotesize\ttfamily std\+::string lex\+::\+Regex\+Token\+::m\+\_\+value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 59 of file token.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/lex/token/\mbox{\hyperlink{token_8h}{token.\+h}}\item 
+src/lex/token/\mbox{\hyperlink{src_2lex_2token_2token_8cpp}{token.\+cpp}}\end{DoxyCompactItemize}

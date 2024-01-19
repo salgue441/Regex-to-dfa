@@ -1,0 +1,61 @@
+\hypertarget{classlex_1_1TokenObserver}{}\doxysection{lex\+::Token\+Observer Class Reference}
+\label{classlex_1_1TokenObserver}\index{lex::TokenObserver@{lex::TokenObserver}}
+
+
+Interface for classes that want to observe tokens as they are.  
+
+
+
+
+{\ttfamily \#include $<$token\+\_\+observer.\+h$>$}
+
+
+
+Inheritance diagram for lex\+::Token\+Observer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classlex_1_1TokenObserver__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classlex_1_1TokenObserver_a7523cc63a29050f6587a19d7f0177867}{$\sim$\+Token\+Observer}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classlex_1_1TokenObserver_a0e72afc2e164698ef4d93a4952a398b6}{on\+\_\+token}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{Token}} $>$ token)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for classes that want to observe tokens as they are. 
+
+Definition at line 13 of file token\+\_\+observer.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlex_1_1TokenObserver_a7523cc63a29050f6587a19d7f0177867}\label{classlex_1_1TokenObserver_a7523cc63a29050f6587a19d7f0177867}} 
+\index{lex::TokenObserver@{lex::TokenObserver}!````~TokenObserver@{$\sim$TokenObserver}}
+\index{````~TokenObserver@{$\sim$TokenObserver}!lex::TokenObserver@{lex::TokenObserver}}
+\doxysubsubsection{\texorpdfstring{$\sim$TokenObserver()}{~TokenObserver()}}
+{\footnotesize\ttfamily virtual lex\+::\+Token\+Observer\+::$\sim$\+Token\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlex_1_1TokenObserver_a0e72afc2e164698ef4d93a4952a398b6}\label{classlex_1_1TokenObserver_a0e72afc2e164698ef4d93a4952a398b6}} 
+\index{lex::TokenObserver@{lex::TokenObserver}!on\_token@{on\_token}}
+\index{on\_token@{on\_token}!lex::TokenObserver@{lex::TokenObserver}}
+\doxysubsubsection{\texorpdfstring{on\_token()}{on\_token()}}
+{\footnotesize\ttfamily virtual void lex\+::\+Token\+Observer\+::on\+\_\+token (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{Token}} $>$}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classlex_1_1TokenLogger_a3a16c094e76610d6e7a37c27acfe184e}{lex\+::\+Token\+Logger}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/lex/observers/\mbox{\hyperlink{token__observer_8h}{token\+\_\+observer.\+h}}\end{DoxyCompactItemize}

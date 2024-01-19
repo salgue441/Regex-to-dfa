@@ -1,0 +1,76 @@
+\hypertarget{classlogger_1_1Logger}{}\doxysection{logger\+::Logger Class Reference}
+\label{classlogger_1_1Logger}\index{logger::Logger@{logger::Logger}}
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{classlogger_1_1Logger_a02c0baf4b3617b409dea2d17fe2f5156}{get\+\_\+logger}} ()
+\begin{DoxyCompactList}\small\item\em Get the logger object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlogger_1_1Logger_a8e6e0ac876ef739e5b1dead3e4286cc9}{Logger}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 14 of file logger.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlogger_1_1Logger_a8e6e0ac876ef739e5b1dead3e4286cc9}\label{classlogger_1_1Logger_a8e6e0ac876ef739e5b1dead3e4286cc9}} 
+\index{logger::Logger@{logger::Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!logger::Logger@{logger::Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily logger\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlogger_1_1Logger_a02c0baf4b3617b409dea2d17fe2f5156}\label{classlogger_1_1Logger_a02c0baf4b3617b409dea2d17fe2f5156}} 
+\index{logger::Logger@{logger::Logger}!get\_logger@{get\_logger}}
+\index{get\_logger@{get\_logger}!logger::Logger@{logger::Logger}}
+\doxysubsubsection{\texorpdfstring{get\_logger()}{get\_logger()}}
+{\footnotesize\ttfamily static std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$\& logger\+::\+Logger\+::get\+\_\+logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the logger object. 
+
+Creates two loggers, one for console and one for stderr
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$\& The logger 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file logger.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25       \textcolor{keyword}{static} std::shared\_ptr<spdlog::logger> \mbox{\hyperlink{namespacelogger}{logger}} = []}
+\DoxyCodeLine{26       \{}
+\DoxyCodeLine{27         \textcolor{keyword}{auto} \mbox{\hyperlink{namespacelogger}{logger}} = spdlog::stdout\_color\_mt(\textcolor{stringliteral}{"{}console"{}});}
+\DoxyCodeLine{28         \textcolor{keyword}{const} std::string pattern =}
+\DoxyCodeLine{29             \textcolor{stringliteral}{"{}[\%Y-\/\%m-\/\%d \%H:\%M:\%S.\%e] [\%\string^\%l\%\$] [thread \%t] \%v"{}};}
+\DoxyCodeLine{30         \mbox{\hyperlink{namespacelogger}{logger}}-\/>set\_pattern(pattern);}
+\DoxyCodeLine{31         \mbox{\hyperlink{namespacelogger}{logger}}-\/>set\_level(spdlog::level::trace);}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacelogger}{logger}};}
+\DoxyCodeLine{33       \}();}
+\DoxyCodeLine{34   }
+\DoxyCodeLine{35       \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacelogger}{logger}};}
+\DoxyCodeLine{36     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/utils/\mbox{\hyperlink{logger_8h}{logger.\+h}}\end{DoxyCompactItemize}

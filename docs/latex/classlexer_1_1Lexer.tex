@@ -1,0 +1,276 @@
+\hypertarget{classlexer_1_1Lexer}{}\doxysection{lexer\+::Lexer Class Reference}
+\label{classlexer_1_1Lexer}\index{lexer::Lexer@{lexer::Lexer}}
+
+
+The lexer class is responsible for converting a regex string into a list of tokens.  
+
+
+
+
+{\ttfamily \#include $<$lexer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlexer_1_1Lexer_aa5a0f6cf1875a7ab5e3bd2a610d3fdd8}{Lexer}} (const std\+::string \&input)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classlexer_1_1Lexer}{Lexer}}\+:\+: \mbox{\hyperlink{classlexer_1_1Lexer}{Lexer}} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{lex\+::\+Token}} $>$ $>$ \mbox{\hyperlink{classlexer_1_1Lexer_ae7059432e8d0bcda1da99dd795d9ee57}{tokenize}} () const
+\begin{DoxyCompactList}\small\item\em Tokenize the input string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlexer_1_1Lexer_a92ac4a631f7483eb01bf1585f1b9d24a}{register\+\_\+observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1TokenObserver}{lex\+::\+Token\+Observer}} $>$ observer) noexcept
+\begin{DoxyCompactList}\small\item\em Add an observer to be notified when a token is created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{lex\+::\+Token\+Type}} \mbox{\hyperlink{classlexer_1_1Lexer_a27443323547ba42fbb7a2f063b12c34e}{determine\+\_\+type}} (const std\+::string \&value) const
+\begin{DoxyCompactList}\small\item\em Determine the type of the token. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlexer_1_1Lexer_a86a26b540a6a9f7d990f169846668d5e}{notify\+\_\+observers}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{lex\+::\+Token}} $>$ token) const
+\begin{DoxyCompactList}\small\item\em Notify all observers that a token has been created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classlexer_1_1Lexer_a13ba98703791b6c6a35486793cc054f8}{m\+\_\+input}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1TokenObserver}{lex\+::\+Token\+Observer}} $>$ $>$ \mbox{\hyperlink{classlexer_1_1Lexer_a3e825e3176488ff2ae34e655097f30c7}{m\+\_\+observers}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1TokenFactory}{lex\+::\+Token\+Factory}} $>$ \mbox{\hyperlink{classlexer_1_1Lexer_a4eda1c46dd0ff3ad8348efe7eeaeeb1e}{m\+\_\+token\+\_\+factory}}
+\item 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \mbox{\hyperlink{classlexer_1_1Lexer_aa8ed340ec4828b6e13731b5cd3dfa59a}{m\+\_\+logger}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The lexer class is responsible for converting a regex string into a list of tokens. 
+
+Definition at line 18 of file lexer.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlexer_1_1Lexer_aa5a0f6cf1875a7ab5e3bd2a610d3fdd8}\label{classlexer_1_1Lexer_aa5a0f6cf1875a7ab5e3bd2a610d3fdd8}} 
+\index{lexer::Lexer@{lexer::Lexer}!Lexer@{Lexer}}
+\index{Lexer@{Lexer}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{Lexer()}{Lexer()}}
+{\footnotesize\ttfamily lexer\+::\+Lexer\+::\+Lexer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new \mbox{\hyperlink{classlexer_1_1Lexer}{Lexer}}\+:\+: \mbox{\hyperlink{classlexer_1_1Lexer}{Lexer}} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The regex string to tokenize \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 11 of file lexer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12       : \mbox{\hyperlink{classlexer_1_1Lexer_a13ba98703791b6c6a35486793cc054f8}{m\_input}}(input), \mbox{\hyperlink{classlexer_1_1Lexer_aa8ed340ec4828b6e13731b5cd3dfa59a}{m\_logger}}(\mbox{\hyperlink{classlogger_1_1Logger_a02c0baf4b3617b409dea2d17fe2f5156}{logger::Logger::get\_logger}}()),}
+\DoxyCodeLine{13         \mbox{\hyperlink{classlexer_1_1Lexer_a4eda1c46dd0ff3ad8348efe7eeaeeb1e}{m\_token\_factory}}(std::make\_shared<lex::TokenFactory>())}
+\DoxyCodeLine{14   \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{classlexer_1_1Lexer_aa8ed340ec4828b6e13731b5cd3dfa59a}{m\_logger}}-\/>debug(\textcolor{stringliteral}{"{}Lexer: Tokenizing input: \{\}"{}}, \mbox{\hyperlink{classlexer_1_1Lexer_a13ba98703791b6c6a35486793cc054f8}{m\_input}});}
+\DoxyCodeLine{16   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlexer_1_1Lexer_a27443323547ba42fbb7a2f063b12c34e}\label{classlexer_1_1Lexer_a27443323547ba42fbb7a2f063b12c34e}} 
+\index{lexer::Lexer@{lexer::Lexer}!determine\_type@{determine\_type}}
+\index{determine\_type@{determine\_type}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{determine\_type()}{determine\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{lex\+::\+Token\+Type}} lexer\+::\+Lexer\+::determine\+\_\+type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Determine the type of the token. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & Value of the token \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{lex\+::\+Token\+Type}} Type of the token 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the token type cannot be determined \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 69 of file lexer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70   \{}
+\DoxyCodeLine{71     boost::regex grouping\_regex(R\textcolor{stringliteral}{"{}((\(\backslash\)(|\(\backslash\))|\(\backslash\)[|\(\backslash\)]|\(\backslash\)\{|\(\backslash\)\}))"{});}}
+\DoxyCodeLine{72 \textcolor{stringliteral}{    boost::regex metacharacter\_regex(R}\textcolor{stringliteral}{"{}((\(\backslash\)*|\(\backslash\)+|\(\backslash\)?|\(\backslash\)||\(\backslash\)\(\backslash\)|\(\backslash\)\string^|\(\backslash\)\$|\(\backslash\).))"{});}}
+\DoxyCodeLine{73 \textcolor{stringliteral}{    boost::regex literal\_regex(R}\textcolor{stringliteral}{"{}((\(\backslash\)d|\(\backslash\)w|\(\backslash\)s))"{});}}
+\DoxyCodeLine{74 \textcolor{stringliteral}{}}
+\DoxyCodeLine{75 \textcolor{stringliteral}{    }\textcolor{keywordflow}{if} (boost::regex\_match(value, grouping\_regex))}
+\DoxyCodeLine{76       \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a87bd15bae0d64d98c8aaaf3d9ebfe07e}{lex::TokenType::GROUPING}};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (boost::regex\_match(value, metacharacter\_regex))}
+\DoxyCodeLine{79       \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a35ab47aa472c5c7c36f9a921ee42b869}{lex::TokenType::METACHARACTER}};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (boost::regex\_match(value, literal\_regex))}
+\DoxyCodeLine{82       \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa0000d7769148184776f1d17656921b0}{lex::TokenType::LITERAL}};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{85       \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Lexer: Could not determine token type"{}});}
+\DoxyCodeLine{86   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlexer_1_1Lexer_a86a26b540a6a9f7d990f169846668d5e}\label{classlexer_1_1Lexer_a86a26b540a6a9f7d990f169846668d5e}} 
+\index{lexer::Lexer@{lexer::Lexer}!notify\_observers@{notify\_observers}}
+\index{notify\_observers@{notify\_observers}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{notify\_observers()}{notify\_observers()}}
+{\footnotesize\ttfamily void lexer\+::\+Lexer\+::notify\+\_\+observers (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{lex\+::\+Token}} $>$}]{token }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Notify all observers that a token has been created. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em token} & Token that was created \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file lexer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94   \{}
+\DoxyCodeLine{95     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&observer : \mbox{\hyperlink{classlexer_1_1Lexer_a3e825e3176488ff2ae34e655097f30c7}{m\_observers}})}
+\DoxyCodeLine{96       observer-\/>on\_token(token);}
+\DoxyCodeLine{97   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlexer_1_1Lexer_a92ac4a631f7483eb01bf1585f1b9d24a}\label{classlexer_1_1Lexer_a92ac4a631f7483eb01bf1585f1b9d24a}} 
+\index{lexer::Lexer@{lexer::Lexer}!register\_observer@{register\_observer}}
+\index{register\_observer@{register\_observer}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{register\_observer()}{register\_observer()}}
+{\footnotesize\ttfamily void lexer\+::\+Lexer\+::register\+\_\+observer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1TokenObserver}{lex\+::\+Token\+Observer}} $>$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Add an observer to be notified when a token is created. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em observer} & Observer to be notified \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file lexer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58   \{}
+\DoxyCodeLine{59     \mbox{\hyperlink{classlexer_1_1Lexer_a3e825e3176488ff2ae34e655097f30c7}{m\_observers}}.emplace\_back(observer);}
+\DoxyCodeLine{60   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlexer_1_1Lexer_ae7059432e8d0bcda1da99dd795d9ee57}\label{classlexer_1_1Lexer_ae7059432e8d0bcda1da99dd795d9ee57}} 
+\index{lexer::Lexer@{lexer::Lexer}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{tokenize()}{tokenize()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classlex_1_1Token}{lex\+::\+Token}} $>$ $>$ lexer\+::\+Lexer\+::tokenize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Tokenize the input string. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\+Token$>$$>$ List of tokens 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file lexer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24   \{}
+\DoxyCodeLine{25     std::vector<std::shared\_ptr<lex::Token>> tokens;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     boost::regex pattern(R\textcolor{stringliteral}{"{}((\(\backslash\)(|\(\backslash\))|\(\backslash\)[|\(\backslash\)]|\(\backslash\)\{|\(\backslash\)\}|\(\backslash\)*|\(\backslash\)+|\(\backslash\)?|\(\backslash\)||\(\backslash\)\(\backslash\)|\(\backslash\)\string^|\(\backslash\)\$|\(\backslash\).|\(\backslash\)d|\(\backslash\)w|\(\backslash\)s))"{});}}
+\DoxyCodeLine{28 \textcolor{stringliteral}{}}
+\DoxyCodeLine{29 \textcolor{stringliteral}{    boost::smatch matches;}}
+\DoxyCodeLine{30 \textcolor{stringliteral}{}}
+\DoxyCodeLine{31 \textcolor{stringliteral}{    std::string::const\_iterator start = \mbox{\hyperlink{classlexer_1_1Lexer_a13ba98703791b6c6a35486793cc054f8}{m\_input}}.begin();}}
+\DoxyCodeLine{32 \textcolor{stringliteral}{    std::string::const\_iterator end = \mbox{\hyperlink{classlexer_1_1Lexer_a13ba98703791b6c6a35486793cc054f8}{m\_input}}.end();}}
+\DoxyCodeLine{33 \textcolor{stringliteral}{}}
+\DoxyCodeLine{34 \textcolor{stringliteral}{    }\textcolor{keywordflow}{while} (boost::regex\_search(start, end, matches, pattern))}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36       std::string value = matches[0];}
+\DoxyCodeLine{37       std::size\_t position = matches.position();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39       \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{lex::TokenType}} type = \mbox{\hyperlink{classlexer_1_1Lexer_a27443323547ba42fbb7a2f063b12c34e}{determine\_type}}(value);}
+\DoxyCodeLine{40       \textcolor{keyword}{auto} token = \mbox{\hyperlink{classlexer_1_1Lexer_a4eda1c46dd0ff3ad8348efe7eeaeeb1e}{m\_token\_factory}}-\/>create\_token(type, value, position);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42       \mbox{\hyperlink{classlexer_1_1Lexer_a86a26b540a6a9f7d990f169846668d5e}{notify\_observers}}(token);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44       tokens.emplace\_back(token);}
+\DoxyCodeLine{45       start = matches[0].second;}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} tokens;}
+\DoxyCodeLine{49   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlexer_1_1Lexer_a13ba98703791b6c6a35486793cc054f8}\label{classlexer_1_1Lexer_a13ba98703791b6c6a35486793cc054f8}} 
+\index{lexer::Lexer@{lexer::Lexer}!m\_input@{m\_input}}
+\index{m\_input@{m\_input}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{m\_input}{m\_input}}
+{\footnotesize\ttfamily std\+::string lexer\+::\+Lexer\+::m\+\_\+input\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 30 of file lexer.\+h.
+
+\mbox{\Hypertarget{classlexer_1_1Lexer_aa8ed340ec4828b6e13731b5cd3dfa59a}\label{classlexer_1_1Lexer_aa8ed340ec4828b6e13731b5cd3dfa59a}} 
+\index{lexer::Lexer@{lexer::Lexer}!m\_logger@{m\_logger}}
+\index{m\_logger@{m\_logger}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{m\_logger}{m\_logger}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$ lexer\+::\+Lexer\+::m\+\_\+logger\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 33 of file lexer.\+h.
+
+\mbox{\Hypertarget{classlexer_1_1Lexer_a3e825e3176488ff2ae34e655097f30c7}\label{classlexer_1_1Lexer_a3e825e3176488ff2ae34e655097f30c7}} 
+\index{lexer::Lexer@{lexer::Lexer}!m\_observers@{m\_observers}}
+\index{m\_observers@{m\_observers}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{m\_observers}{m\_observers}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classlex_1_1TokenObserver}{lex\+::\+Token\+Observer}}$>$ $>$ lexer\+::\+Lexer\+::m\+\_\+observers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 31 of file lexer.\+h.
+
+\mbox{\Hypertarget{classlexer_1_1Lexer_a4eda1c46dd0ff3ad8348efe7eeaeeb1e}\label{classlexer_1_1Lexer_a4eda1c46dd0ff3ad8348efe7eeaeeb1e}} 
+\index{lexer::Lexer@{lexer::Lexer}!m\_token\_factory@{m\_token\_factory}}
+\index{m\_token\_factory@{m\_token\_factory}!lexer::Lexer@{lexer::Lexer}}
+\doxysubsubsection{\texorpdfstring{m\_token\_factory}{m\_token\_factory}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classlex_1_1TokenFactory}{lex\+::\+Token\+Factory}}$>$ lexer\+::\+Lexer\+::m\+\_\+token\+\_\+factory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 32 of file lexer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/lexer/\mbox{\hyperlink{lexer_8h}{lexer.\+h}}\item 
+src/lexer/\mbox{\hyperlink{lexer_8cpp}{lexer.\+cpp}}\end{DoxyCompactItemize}

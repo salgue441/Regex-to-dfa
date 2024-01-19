@@ -1,12 +1,15 @@
 \hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
 \label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}utils/logger.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lexer/lexer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lex/observers/token\+\_\+logger.\+h\char`\"{}}\newline
 Include dependency graph for main.\+cpp\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=159pt]{main_8cpp__incl}
+\includegraphics[width=350pt]{main_8cpp__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Functions}
@@ -25,13 +28,19 @@ int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 
 
 
-Definition at line 3 of file main.\+cpp.
+Definition at line 8 of file main.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{4 \{}
-\DoxyCodeLine{5     std::cout << \textcolor{stringliteral}{"{}Hello, world!"{}} << std::endl;}
-\DoxyCodeLine{6     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{7 \}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10   std::string pattern = R\textcolor{stringliteral}{"{}(\(\backslash\)s*([+\(\backslash\)-\/*/()]|\(\backslash\)d+)\(\backslash\)s*)"{};}}
+\DoxyCodeLine{11 \textcolor{stringliteral}{  \mbox{\hyperlink{classlexer_1_1Lexer}{lexer::Lexer}} \mbox{\hyperlink{namespacelexer}{lexer}}(pattern);}}
+\DoxyCodeLine{12 \textcolor{stringliteral}{}}
+\DoxyCodeLine{13 \textcolor{stringliteral}{  std::shared\_ptr<lex::TokenLogger> token\_logger =}}
+\DoxyCodeLine{14 \textcolor{stringliteral}{      std::make\_shared<lex::TokenLogger>();}}
+\DoxyCodeLine{15 \textcolor{stringliteral}{}}
+\DoxyCodeLine{16 \textcolor{stringliteral}{  \mbox{\hyperlink{namespacelexer}{lexer}}.register\_observer(token\_logger);}}
+\DoxyCodeLine{17 \textcolor{stringliteral}{  std::vector<std::shared\_ptr<lex::Token>> tokens = \mbox{\hyperlink{namespacelexer}{lexer}}.tokenize();}}
+\DoxyCodeLine{18 \textcolor{stringliteral}{\}}}
 
 \end{DoxyCode}

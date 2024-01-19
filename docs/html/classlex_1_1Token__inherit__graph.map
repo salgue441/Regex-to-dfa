@@ -1,0 +1,4 @@
+<map id="lex::Token" name="lex::Token">
+<area shape="rect" id="node1" title="Interface for classes that represent tokens." alt="" coords="26,5,113,32"/>
+<area shape="rect" id="node2" href="$classlex_1_1RegexToken.html" title="The RegexToken class represents a token that was created by the lexer." alt="" coords="5,80,133,107"/>
+</map>

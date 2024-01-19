@@ -1,0 +1,127 @@
+\hypertarget{namespacelex}{}\doxysection{lex Namespace Reference}
+\label{namespacelex}\index{lex@{lex}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlex_1_1TokenLogger}{Token\+Logger}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classlex_1_1TokenLogger}{Token\+Logger}} class is responsible for logging tokens. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlex_1_1TokenObserver}{Token\+Observer}}
+\begin{DoxyCompactList}\small\item\em Interface for classes that want to observe tokens as they are. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlex_1_1Token}{Token}}
+\begin{DoxyCompactList}\small\item\em Interface for classes that represent tokens. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}} class represents a token that was created by the lexer. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlex_1_1TokenFactory}{Token\+Factory}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classlex_1_1TokenFactory}{Token\+Factory}} class is responsible for creating tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{Token\+Type}} \+: std\+::uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa0000d7769148184776f1d17656921b0}{LITERAL}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a35ab47aa472c5c7c36f9a921ee42b869}{METACHARACTER}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a09a030ac8edc75f12cbd84fb1d98085e}{CHARACTER\+\_\+\+CLASS}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a87bd15bae0d64d98c8aaaf3d9ebfe07e}{GROUPING}}
+, \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a72e872bdd7feb0c6565eeae9e9849e6a}{QUANTIFIER}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a1d0d6d35c52e907b5e0af4a7f5a81a9f}{ANCHOR}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a99e198f7e638b7044b3f603a748f0eb3}{ESCAPE\+\_\+\+SEQUENCE}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a15f4cff81d9ee10b162eac10c339d5f4}{WILDCARD}}
+, \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a80ea6a59a36341e746a915b8c39872cf}{ALTERNATION}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa52f733b0e51d9a568fababbc8d3a518}{BOUNDARY}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37af47e1c3d8fbdc90d8cdbd8f5e4a1bce3}{MODIFIER}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37accc0377a8afbf50e7094f5c23a8af223}{INVALID}}
+, \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf}{END\+\_\+\+OF\+\_\+\+INPUT}}
+ \}
+\begin{DoxyCompactList}\small\item\em The Token\+Type enum represents the different types of tokens that can be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37}} 
+\index{lex@{lex}!TokenType@{TokenType}}
+\index{TokenType@{TokenType}!lex@{lex}}
+\doxysubsubsection{\texorpdfstring{TokenType}{TokenType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{lex\+::\+Token\+Type}} \+: std\+::uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+The Token\+Type enum represents the different types of tokens that can be created. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LITERAL@{LITERAL}!lex@{lex}}\index{lex@{lex}!LITERAL@{LITERAL}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa0000d7769148184776f1d17656921b0}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa0000d7769148184776f1d17656921b0}} 
+LITERAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{METACHARACTER@{METACHARACTER}!lex@{lex}}\index{lex@{lex}!METACHARACTER@{METACHARACTER}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a35ab47aa472c5c7c36f9a921ee42b869}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a35ab47aa472c5c7c36f9a921ee42b869}} 
+METACHARACTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHARACTER\_CLASS@{CHARACTER\_CLASS}!lex@{lex}}\index{lex@{lex}!CHARACTER\_CLASS@{CHARACTER\_CLASS}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a09a030ac8edc75f12cbd84fb1d98085e}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a09a030ac8edc75f12cbd84fb1d98085e}} 
+CHARACTER\+\_\+\+CLASS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GROUPING@{GROUPING}!lex@{lex}}\index{lex@{lex}!GROUPING@{GROUPING}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a87bd15bae0d64d98c8aaaf3d9ebfe07e}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a87bd15bae0d64d98c8aaaf3d9ebfe07e}} 
+GROUPING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUANTIFIER@{QUANTIFIER}!lex@{lex}}\index{lex@{lex}!QUANTIFIER@{QUANTIFIER}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a72e872bdd7feb0c6565eeae9e9849e6a}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a72e872bdd7feb0c6565eeae9e9849e6a}} 
+QUANTIFIER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ANCHOR@{ANCHOR}!lex@{lex}}\index{lex@{lex}!ANCHOR@{ANCHOR}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a1d0d6d35c52e907b5e0af4a7f5a81a9f}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a1d0d6d35c52e907b5e0af4a7f5a81a9f}} 
+ANCHOR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ESCAPE\_SEQUENCE@{ESCAPE\_SEQUENCE}!lex@{lex}}\index{lex@{lex}!ESCAPE\_SEQUENCE@{ESCAPE\_SEQUENCE}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a99e198f7e638b7044b3f603a748f0eb3}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a99e198f7e638b7044b3f603a748f0eb3}} 
+ESCAPE\+\_\+\+SEQUENCE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WILDCARD@{WILDCARD}!lex@{lex}}\index{lex@{lex}!WILDCARD@{WILDCARD}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a15f4cff81d9ee10b162eac10c339d5f4}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a15f4cff81d9ee10b162eac10c339d5f4}} 
+WILDCARD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALTERNATION@{ALTERNATION}!lex@{lex}}\index{lex@{lex}!ALTERNATION@{ALTERNATION}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37a80ea6a59a36341e746a915b8c39872cf}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37a80ea6a59a36341e746a915b8c39872cf}} 
+ALTERNATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOUNDARY@{BOUNDARY}!lex@{lex}}\index{lex@{lex}!BOUNDARY@{BOUNDARY}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa52f733b0e51d9a568fababbc8d3a518}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa52f733b0e51d9a568fababbc8d3a518}} 
+BOUNDARY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODIFIER@{MODIFIER}!lex@{lex}}\index{lex@{lex}!MODIFIER@{MODIFIER}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37af47e1c3d8fbdc90d8cdbd8f5e4a1bce3}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37af47e1c3d8fbdc90d8cdbd8f5e4a1bce3}} 
+MODIFIER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID@{INVALID}!lex@{lex}}\index{lex@{lex}!INVALID@{INVALID}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37accc0377a8afbf50e7094f5c23a8af223}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37accc0377a8afbf50e7094f5c23a8af223}} 
+INVALID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END\_OF\_INPUT@{END\_OF\_INPUT}!lex@{lex}}\index{lex@{lex}!END\_OF\_INPUT@{END\_OF\_INPUT}}}\mbox{\Hypertarget{namespacelex_a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf}\label{namespacelex_a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf}} 
+END\+\_\+\+OF\+\_\+\+INPUT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 26 of file token.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27   \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa0000d7769148184776f1d17656921b0}{LITERAL}},}
+\DoxyCodeLine{29     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a35ab47aa472c5c7c36f9a921ee42b869}{METACHARACTER}},}
+\DoxyCodeLine{30     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a09a030ac8edc75f12cbd84fb1d98085e}{CHARACTER\_CLASS}},}
+\DoxyCodeLine{31     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a87bd15bae0d64d98c8aaaf3d9ebfe07e}{GROUPING}},}
+\DoxyCodeLine{32     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a72e872bdd7feb0c6565eeae9e9849e6a}{QUANTIFIER}},}
+\DoxyCodeLine{33     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a1d0d6d35c52e907b5e0af4a7f5a81a9f}{ANCHOR}},}
+\DoxyCodeLine{34     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a99e198f7e638b7044b3f603a748f0eb3}{ESCAPE\_SEQUENCE}},}
+\DoxyCodeLine{35     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a15f4cff81d9ee10b162eac10c339d5f4}{WILDCARD}},}
+\DoxyCodeLine{36     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a80ea6a59a36341e746a915b8c39872cf}{ALTERNATION}},}
+\DoxyCodeLine{37     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa52f733b0e51d9a568fababbc8d3a518}{BOUNDARY}},}
+\DoxyCodeLine{38     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37af47e1c3d8fbdc90d8cdbd8f5e4a1bce3}{MODIFIER}},}
+\DoxyCodeLine{39     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37accc0377a8afbf50e7094f5c23a8af223}{INVALID}},}
+\DoxyCodeLine{40     \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf}{END\_OF\_INPUT}}}
+\DoxyCodeLine{41   \};}
+
+\end{DoxyCode}

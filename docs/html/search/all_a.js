@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['regexasttree_34',['RegexASTTree',['../classRegexASTTree.html',1,'']]],
-  ['regexnode_35',['RegexNode',['../structSyntax_1_1RegexNode.html',1,'Syntax']]]
+  ['on_5ftoken_32',['on_token',['../classlex_1_1TokenLogger.html#a3a16c094e76610d6e7a37c27acfe184e',1,'lex::TokenLogger::on_token()'],['../classlex_1_1TokenObserver.html#a0e72afc2e164698ef4d93a4952a398b6',1,'lex::TokenObserver::on_token()']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ast_2ecpp_62',['AST.cpp',['../src_2AST_2AST_8cpp.html',1,'(Global Namespace)'],['../tests_2AST_8cpp.html',1,'(Global Namespace)']]],
-  ['ast_2eh_63',['ast.h',['../ast_8h.html',1,'']]]
+  ['lexer_2ecpp_64',['lexer.cpp',['../lexer_8cpp.html',1,'']]],
+  ['lexer_2eh_65',['lexer.h',['../lexer_8h.html',1,'']]],
+  ['logger_2eh_66',['logger.h',['../logger_8h.html',1,'']]]
 ];

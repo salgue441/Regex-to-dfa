@@ -1,0 +1,54 @@
+\hypertarget{token_8h}{}\doxysection{src/lex/token/token.h File Reference}
+\label{token_8h}\index{src/lex/token/token.h@{src/lex/token/token.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+Include dependency graph for token.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{token_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{token_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlex_1_1Token}{lex\+::\+Token}}
+\begin{DoxyCompactList}\small\item\em Interface for classes that represent tokens. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlex_1_1RegexToken}{lex\+::\+Regex\+Token}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classlex_1_1RegexToken}{Regex\+Token}} class represents a token that was created by the lexer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacelex}{lex}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37}{lex\+::\+Token\+Type}} \+: std\+::uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa0000d7769148184776f1d17656921b0}{lex\+::\+LITERAL}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a35ab47aa472c5c7c36f9a921ee42b869}{lex\+::\+METACHARACTER}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a09a030ac8edc75f12cbd84fb1d98085e}{lex\+::\+CHARACTER\+\_\+\+CLASS}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a87bd15bae0d64d98c8aaaf3d9ebfe07e}{lex\+::\+GROUPING}}
+, \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a72e872bdd7feb0c6565eeae9e9849e6a}{lex\+::\+QUANTIFIER}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a1d0d6d35c52e907b5e0af4a7f5a81a9f}{lex\+::\+ANCHOR}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a99e198f7e638b7044b3f603a748f0eb3}{lex\+::\+ESCAPE\+\_\+\+SEQUENCE}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a15f4cff81d9ee10b162eac10c339d5f4}{lex\+::\+WILDCARD}}
+, \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37a80ea6a59a36341e746a915b8c39872cf}{lex\+::\+ALTERNATION}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37aa52f733b0e51d9a568fababbc8d3a518}{lex\+::\+BOUNDARY}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37af47e1c3d8fbdc90d8cdbd8f5e4a1bce3}{lex\+::\+MODIFIER}}
+, \mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37accc0377a8afbf50e7094f5c23a8af223}{lex\+::\+INVALID}}
+, \newline
+\mbox{\hyperlink{namespacelex_a88e38a6876e3276a698503fe09cf5e37addc7141d0f8b4ee8a53b7504e15878cf}{lex\+::\+END\+\_\+\+OF\+\_\+\+INPUT}}
+ \}
+\begin{DoxyCompactList}\small\item\em The Token\+Type enum represents the different types of tokens that can be created. \end{DoxyCompactList}\end{DoxyCompactItemize}

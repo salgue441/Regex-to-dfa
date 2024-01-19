@@ -36,11 +36,10 @@ namespace lexer
       std::string value = matches[0];
       std::size_t position = matches.position();
 
-      m_logger->debug("Lexer: Found token: {} at position: {}",
-                      value, position);
-
       lex::TokenType type = determine_type(value);
       auto token = m_token_factory->create_token(type, value, position);
+
+      notify_observers(token);
 
       tokens.emplace_back(token);
       start = matches[0].second;
@@ -84,5 +83,16 @@ namespace lexer
 
     else
       throw std::runtime_error("Lexer: Could not determine token type");
+  }
+
+  /**
+   * @brief Notify all observers that a token has been created
+   *
+   * @param[in] token Token that was created
+   */
+  void Lexer::notify_observers(std::shared_ptr<lex::Token> token) const
+  {
+    for (auto &observer : m_observers)
+      observer->on_token(token);
   }
 }
