@@ -10,6 +10,28 @@ namespace lex
    * @brief The TokenType enum represents the different types of tokens
    *        that can be created
    *
+   * @details Each type categorizes elements in a regex pattern:
+ *       - LITERAL: Represents a literal character (e.g., "a" in "abc").
+ *       - METACHARACTER: Represents special characters (e.g., "." in "a.b").
+ *       - CHARACTER_CLASS: Represents a set of characters (e.g., "[0-9]" in 
+ *                          "[0-9]abc").
+ *       - GROUPING: Represents grouped subpatterns (e.g., "(abc)" in "(abc)+").
+ *       - QUANTIFIER: Represents occurrences of the preceding element 
+ *                     (e.g., "a{2,4}" in "aaabc").
+ *       - ANCHOR: Represents a position in the input 
+ *                 (e.g., "^start" in "^start.*").
+ *       - ESCAPE_SEQUENCE: Represents an escaped character  
+ *                          (e.g., "\." in "\.abc").
+ *       - WILDCARD: Represents a wildcard character (e.g., "a.b"
+ *                   matches "a1b").
+ *       - ALTERNATION: Represents a choice between subpatterns 
+ *                      (e.g., "cat|dog" matches "cat" or "dog").
+ *       - BOUNDARY: Represents a boundary between characters 
+ *                   (e.g., "word\b" matches "word" but not "wording").
+ *       - MODIFIER: Represents a modifier affecting regex behavior 
+ *                   (e.g., "(?i)" for case insensitivity).
+ *       - INVALID: Represents an unrecognized token.
+ *       - END_OF_INPUT: Represents the end of the input string.
    */
   enum class TokenType : std::uint8_t
   {
@@ -45,7 +67,7 @@ namespace lex
     [[nodiscard]] virtual TokenType get_type() const noexcept = 0;
   };
 
-    /**
+  /**
    * @class RegexToken
    * @brief The RegexToken class represents a token that was created by the
    *        lexer

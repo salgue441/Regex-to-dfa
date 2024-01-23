@@ -38,8 +38,6 @@ namespace lexer
       lex::TokenType type = determine_type(value);
       auto token = m_token_factory->create_token(type, value, position);
 
-      notify_observers(token);
-
       tokens.emplace_back(token);
       start = matches[0].second;
     }
@@ -56,6 +54,7 @@ namespace lexer
       std::shared_ptr<lex::TokenObserver> observer) noexcept
   {
     m_observers.emplace_back(observer);
+    m_token_factory->register_observer(observer);
   }
 
   /**
@@ -116,16 +115,5 @@ namespace lexer
     else
 
       return lex::TokenType::INVALID;
-  }
-
-  /**
-   * @brief Notify all observers that a token has been created
-   *
-   * @param[in] token Token that was created
-   */
-  void Lexer::notify_observers(std::shared_ptr<lex::Token> token) const
-  {
-    for (auto &observer : m_observers)
-      observer->on_token(token);
   }
 }
