@@ -16,6 +16,7 @@ set(SOURCES
     src/main.cpp
     src/lex/token/token.cpp  
     src/lexer/lexer.cpp
+    src/ast/ast_builder.cpp
 )
 # Create the executable
 add_executable(RegexToDFAConverter ${SOURCES})

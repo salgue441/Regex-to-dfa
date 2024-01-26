@@ -2,17 +2,14 @@
 
 // Project Files
 #include "utils/logger.h"
-#include "lexer/lexer.h"
-#include "lex/observers/token_logger.h"
+#include "ast/ast_builder.h"
 
 int main()
 {
-  std::string pattern = R"(\s*([+\-*/()]|\d+)\s*)";
-  lexer::Lexer lexer(pattern);
+  auto &logger = logger::Logger::get_logger();
+  ast::ConcreteBuilder builder;
 
-  std::shared_ptr<lex::TokenLogger> token_logger =
-      std::make_shared<lex::TokenLogger>();
+  auto root = builder.literal("abc").build();
 
-  lexer.register_observer(token_logger);
-  std::vector<std::shared_ptr<lex::Token>> tokens = lexer.tokenize();
+  logger->debug(builder.to_string());
 }

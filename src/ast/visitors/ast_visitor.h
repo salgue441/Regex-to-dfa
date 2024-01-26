@@ -1,10 +1,26 @@
+// ast_visitor.h
 #pragma once
 
 namespace ast
 {
+  // Forward declaration
+  class LiteralNode;
+  class MetacharacterNode;
+  class CharacterClassNode;
+  class GroupingNode;
+  class QuantifierNode;
+  class AnchorNode;
+  class EscapeSequenceNode;
+  class WildcardNode;
+  class AlternationNode;
+  class BoundaryNode;
+  class ModifierNode;
+  class InvalidNode;
+  class EndOfInputNode;
+
   /**
    * @class AstVisitor
-   * @brief Interface for visitor interaction
+   * @brief The AstVisitor class is the base class for all AST visitors.
    *
    */
   class AstVisitor
@@ -12,12 +28,25 @@ namespace ast
   public:
     virtual ~AstVisitor() = default;
 
-    virtual void visit_literal_node(const class LiteralNode &node) const = 0;
+    virtual void visit_literal_node(const LiteralNode &node) = 0;
     virtual void visit_metacharacter_node(
-        const class MetacharacterNode &node) const = 0;
+        const MetacharacterNode &node) = 0;
 
-    virtual void visit_group_node(const class GroupNode &node) const = 0;
-    virtual void visit_sequence_node(const class SequenceNode &node) const = 0;
-    virtual void visit_eof_node(const class EndOfInputNode &node) const = 0;
+    virtual void visit_character_class_node(
+        const CharacterClassNode &node) = 0;
+
+    virtual void visit_grouping_node(const GroupingNode &node) = 0;
+    virtual void visit_quantifier_node(const QuantifierNode &node) = 0;
+    virtual void visit_anchor_node(const AnchorNode &node) = 0;
+    virtual void visit_escape_sequence_node(
+        const EscapeSequenceNode &node) = 0;
+
+    virtual void visit_wildcard_node(const WildcardNode &node) = 0;
+    virtual void visit_alternation_node(const AlternationNode &node) = 0;
+    virtual void visit_boundary_node(const BoundaryNode &node) = 0;
+    virtual void visit_modifier_node(const ModifierNode &node) = 0;
+    virtual void visit_invalid_node(const InvalidNode &node) = 0;
+    virtual void visit_end_of_input_node(const EndOfInputNode &node) = 0;
   };
+
 } // namespace ast
